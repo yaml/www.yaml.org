@@ -1,0 +1,4300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>YAML.rb is YAML for Ruby | Cookbook</TITLE>
+<STYLE TYPE="text/css">
+<!--
+body {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	color: #000000;
+	font-family:  "Georgia", Verdana, sans-serif;
+	font-size:  12pt;
+}
+p {
+	font-family:  "Georgia", Verdana, sans-serif;
+	font-size:  12pt;
+}
+a.sideLink:link { color: #acc; }
+a.sideLink:visited { color: #cee; }
+a.sideLink:active { color: #cee; }
+blockquote { font-weight: normal; font-size: 9pt; }
+p.pageHead { font-weight: bold; font-size: 20pt; }
+p { margin: 5px; }
+
+.yaml-box-border {background-color: #669999}
+.yaml-box-header {background-color: #669999; color: #ffffff; font-family: "Lucida Console", monospace}
+.yaml-box-body {background-color: #ccffff}
+.yaml-box-link {background-color: #ccffff; font-family: "Lucida Console", monospace}
+.yaml-box-highlight {background-color: #99cccc}
+
+.ruby-box-border {background-color: #996666}
+.ruby-box-header {background-color: #996666; color: #ffffff; font-family: "Lucida Console", monospace}
+.ruby-box-body {background-color: #FFCCCC}
+.ruby-box-link {background-color: #FFCCCC; font-family: "Lucida Console", monospace}
+.ruby-box-highlight {background-color: #CC9999}
+
+-->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<p>
+<h1>Yaml Cookbook</h1>
+<h3>at <a href="http://yaml4r.sf.net">the YamlForRuby site</a></h3>
+</p>
+
+<hr>
+<p>
+Welcome to the Yaml Cookbook for Ruby.  This version of the Yaml Cookbook focuses on the
+Ruby implementation of Yaml by comparing Yaml documents with their Ruby counterparts.
+</p>
+
+<p>
+YAML(<sup>tm</sup>) is a readable text format for data structures.  As you'll
+see below, YAML can handle many common data types and structures.  And what
+YAML can't handle natively can be supported through flexible type families.
+For example, YAML for Ruby uses type families to support storage of regular
+expressions, ranges and object instances.
+</p>
+
+<p>
+You can learn more about YAML at <a href="http://www.yaml.org">YAML.org</a> or the
+<a href="http://yaml.freepan.org/">YAML WikiWiki</a>.
+</p>
+
+<hr>
+
+<a NAME="__index__"></a>
+
+<!-- INDEX BEGIN -->
+<ul>
+
+
+	<li><a HREF="#collections">Collections</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#simple_sequence">Simple Sequence</a></li>
+		
+		<li><a HREF="#nested_sequences">Nested Sequences</a></li>
+		
+		<li><a HREF="#mixed_sequences">Mixed Sequences</a></li>
+		
+		<li><a HREF="#deeply_nested_sequences">Deeply Nested Sequences</a></li>
+		
+		<li><a HREF="#simple_mapping">Simple Mapping</a></li>
+		
+		<li><a HREF="#sequence_in_a_mapping">Sequence in a Mapping</a></li>
+		
+		<li><a HREF="#nested_mappings">Nested Mappings</a></li>
+		
+		<li><a HREF="#mixed_mapping">Mixed Mapping</a></li>
+		
+		<li><a HREF="#mapping-in-sequence_shortcut">Mapping-in-Sequence Shortcut</a></li>
+		
+		<li><a HREF="#sequence-in-mapping_shortcut">Sequence-in-Mapping Shortcut</a></li>
+		
+		<li><a HREF="#merge_key">Merge key</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#inline_collections">Inline Collections</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#simple_inline_array">Simple Inline Array</a></li>
+		
+		<li><a HREF="#simple_inline_hash">Simple Inline Hash</a></li>
+		
+		<li><a HREF="#multi-line_inline_collections">Multi-line Inline Collections</a></li>
+		
+		<li><a HREF="#commas_in_values">Commas in Values</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#basic_types">Basic Types</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#strings">Strings</a></li>
+		
+		<li><a HREF="#string_characters">String characters</a></li>
+		
+		<li><a HREF="#indicators_in_strings">Indicators in Strings</a></li>
+		
+		<li><a HREF="#forcing_strings">Forcing Strings</a></li>
+		
+		<li><a HREF="#single-quoted_strings">Single-quoted Strings</a></li>
+		
+		<li><a HREF="#double-quoted_strings">Double-quoted Strings</a></li>
+		
+		<li><a HREF="#multi-line_quoted_strings">Multi-line Quoted Strings</a></li>
+		
+		<li><a HREF="#plain_scalars">Plain scalars</a></li>
+		
+		<li><a HREF="#null">Null</a></li>
+		
+		<li><a HREF="#boolean">Boolean</a></li>
+		
+		<li><a HREF="#integers">Integers</a></li>
+		
+		<li><a HREF="#integers_as_map_keys">Integers as Map Keys</a></li>
+		
+		<li><a HREF="#floats">Floats</a></li>
+		
+		<li><a HREF="#time">Time</a></li>
+		
+		<li><a HREF="#date">Date</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#blocks">Blocks</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#single_ending_newline">Single ending newline</a></li>
+		
+		<li><a HREF="#the_'+'_indicator">The '+' indicator</a></li>
+		
+		<li><a HREF="#three_trailing_newlines_in_literals">Three trailing newlines in literals</a></li>
+		
+		<li><a HREF="#extra_trailing_newlines_with_spaces">Extra trailing newlines with spaces</a></li>
+		
+		<li><a HREF="#folded_block_in_a_sequence">Folded Block in a Sequence</a></li>
+		
+		<li><a HREF="#folded_block_as_a_mapping_value">Folded Block as a Mapping Value</a></li>
+		
+		<li><a HREF="#three_trailing_newlines_in_folded_blocks">Three trailing newlines in folded blocks</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#aliases_and_anchors">Aliases and Anchors</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#simple_alias_example">Simple Alias Example</a></li>
+		
+		<li><a HREF="#alias_of_a_mapping">Alias of a Mapping</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#documents">Documents</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#trailing_document_separator">Trailing Document Separator</a></li>
+		
+		<li><a HREF="#leading_document_separator">Leading Document Separator</a></li>
+		
+		<li><a HREF="#yaml_header">YAML Header</a></li>
+		
+		<li><a HREF="#red_herring_document_separator">Red Herring Document Separator</a></li>
+		
+		<li><a HREF="#multiple_document_separators_in_block">Multiple Document Separators in Block</a></li>
+		
+	</ul>
+	
+
+
+
+	<li><a HREF="#yaml_for_ruby">YAML For Ruby</a></li>
+	
+	<ul>
+		
+		<li><a HREF="#symbols">Symbols</a></li>
+		
+		<li><a HREF="#ranges">Ranges</a></li>
+		
+		<li><a HREF="#regexps">Regexps</a></li>
+		
+		<li><a HREF="#perl_regexps">Perl Regexps</a></li>
+		
+		<li><a HREF="#struct_class">Struct class</a></li>
+		
+		<li><a HREF="#nested_structs">Nested Structs</a></li>
+		
+		<li><a HREF="#objects">Objects</a></li>
+		
+		<li><a HREF="#extending_kernel::array">Extending Kernel::Array</a></li>
+		
+		<li><a HREF="#extending_kernel::hash">Extending Kernel::Hash</a></li>
+		
+	</ul>
+	
+
+
+</ul>
+<!-- INDEX END -->
+
+
+<!-- COLLECTIONS START -->
+
+<p>
+<hr>
+<h1><a NAME="collections">Collections</a></h1>
+</p>
+
+
+
+<h2><a NAME="simple_sequence">Simple Sequence</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can specify a list in YAML by placing each 
+member of the list on a new line with an opening 
+dash. These lists are called sequences. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Simple&nbsp;Sequence&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- apple 
+- banana 
+- carrot 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Simple&nbsp;Sequence&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>['apple', 'banana', 'carrot']  
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="nested_sequences">Nested Sequences</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can include a sequence within another 
+sequence by giving the sequence an empty 
+dash, followed by an indented list. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Nested&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- 
+ - foo 
+ - bar 
+ - baz 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Nested&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[['foo', 'bar', 'baz']] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="mixed_sequences">Mixed Sequences</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Sequences can contain any YAML data, 
+including strings and other sequences. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Mixed&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- apple 
+- 
+ - foo 
+ - bar 
+ - x123 
+- banana 
+- carrot 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Mixed&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>['apple', ['foo', 'bar', 'x123'], 'banana', 'carrot'] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="deeply_nested_sequences">Deeply Nested Sequences</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Sequences can be nested even deeper, with each 
+level of indentation representing a level of 
+depth. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Deeply&nbsp;Nested&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- 
+ - 
+  - uno 
+  - dos 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Deeply&nbsp;Nested&nbsp;Sequences&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[[['uno', 'dos']]] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="simple_mapping">Simple Mapping</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can add a keyed list (also known as a dictionary or 
+hash) to your document by placing each member of the 
+list on a new line, with a colon seperating the key 
+from its value.  In YAML, this type of list is called 
+a mapping. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Simple&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: whatever 
+bar: stuff 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Simple&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'foo' => 'whatever', 'bar' => 'stuff' } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="sequence_in_a_mapping">Sequence in a Mapping</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A value in a mapping can be a sequence. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Sequence&nbsp;in&nbsp;a&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: whatever 
+bar: 
+ - uno 
+ - dos 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Sequence&nbsp;in&nbsp;a&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'foo' => 'whatever', 'bar' => [ 'uno', 'dos' ] } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="nested_mappings">Nested Mappings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A value in a mapping can be another mapping. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Nested&nbsp;Mappings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: whatever 
+bar: 
+ fruit: apple 
+ name: steve 
+ sport: baseball 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Nested&nbsp;Mappings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'foo' => 'whatever',  
+  'bar' => { 
+     'fruit' => 'apple',  
+     'name' => 'steve', 
+     'sport' => 'baseball' 
+   } 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="mixed_mapping">Mixed Mapping</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A mapping can contain any assortment 
+of mappings and sequences as values. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Mixed&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: whatever 
+bar: 
+ - 
+   fruit: apple 
+   name: steve 
+   sport: baseball 
+ - more 
+ - 
+   python: rocks 
+   perl: papers 
+   ruby: scissorses 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Mixed&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'foo' => 'whatever',  
+  'bar' => [ 
+    { 
+        'fruit' => 'apple',  
+        'name' => 'steve', 
+        'sport' => 'baseball' 
+    }, 
+    'more', 
+    { 
+        'python' => 'rocks', 
+        'perl' => 'papers', 
+        'ruby' => 'scissorses' 
+    } 
+  ] 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="mapping-in-sequence_shortcut">Mapping-in-Sequence Shortcut</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>If you are adding a mapping to a sequence, you 
+can place the mapping on the same line as the 
+dash as a shortcut. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Mapping-in-Sequence&nbsp;Shortcut&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- work on YAML.py: 
+   - work on Store 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Mapping-in-Sequence&nbsp;Shortcut&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[ { 'work on YAML.py' => ['work on Store'] } ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="sequence-in-mapping_shortcut">Sequence-in-Mapping Shortcut</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>The dash in a sequence counts as indentation, so
+you can add a sequence inside of a mapping without
+needing spaces as indentation.
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Sequence-in-Mapping&nbsp;Shortcut&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>allow:
+- 'localhost'
+- '%.sourceforge.net'
+- '%.freepan.org'
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Sequence-in-Mapping&nbsp;Shortcut&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'allow' => [ 'localhost', '%.sourceforge.net', '%.freepan.org' ] }
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="merge_key">Merge key</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A merge key ('<<') can be used in a mapping to insert other mappings.  If
+the value associated with the merge key is a mapping, each of its key/value
+pairs is inserted into the current mapping.
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Merge&nbsp;key&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>mapping:
+  name: Joe
+  job: Accountant
+  <<:
+    age: 38
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Merge&nbsp;key&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'mapping' =>
+  { 'name' => 'Joe',
+    'job' => 'Accountant',
+    'age' => 38
+  }
+}
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- COLLECTIONS END -->
+
+<!-- INLINE COLLECTIONS START -->
+
+<p>
+<hr>
+<h1><a NAME="inline_collections">Inline Collections</a></h1>
+</p>
+
+
+
+<h2><a NAME="simple_inline_array">Simple Inline Array</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Sequences can be contained on a  single line, using the inline syntax.  Separate each entry with commas and  enclose in square brackets. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Simple&nbsp;Inline&nbsp;Array&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---  
+seq: [ a, b, c ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Simple&nbsp;Inline&nbsp;Array&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'seq' => [ 'a', 'b', 'c' ] } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="simple_inline_hash">Simple Inline Hash</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Mapping can also be contained on  a single line, using the inline  syntax.  Each key-value pair is  separated by a colon, with a comma  between each entry in the mapping.  Enclose with curly braces. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Simple&nbsp;Inline&nbsp;Hash&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- 
+hash: { name: Steve, foo: bar } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Simple&nbsp;Inline&nbsp;Hash&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'hash' => { 'name' => 'Steve', 'foo' => 'bar' } } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="multi-line_inline_collections">Multi-line Inline Collections</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Both inline sequences and inline mappings  can span multiple lines, provided that you  indent the additional lines. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Multi-line&nbsp;Inline&nbsp;Collections&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>languages: [ Ruby, 
+             Perl, 
+             Python ] 
+websites: { YAML: yaml.org, 
+            Ruby: ruby-lang.org, 
+            Python: python.org, 
+            Perl: use.perl.org } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Multi-line&nbsp;Inline&nbsp;Collections&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'languages' => [ 'Ruby', 'Perl', 'Python' ], 
+  'websites' => { 
+    'YAML' => 'yaml.org', 
+    'Ruby' => 'ruby-lang.org', 
+    'Python' => 'python.org', 
+    'Perl' => 'use.perl.org'  
+  } 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="commas_in_values">Commas in Values</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>List items in collections are delimited by commas, but   there must be a space after each comma.  This allows you  to add numbers without quoting. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Commas&nbsp;in&nbsp;Values&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>attendances: [ 45,123, 70,000, 17,222 ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Commas&nbsp;in&nbsp;Values&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'attendances' => [ 45123, 70000, 17222 ] } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- INLINE COLLECTIONS END -->
+
+<!-- BASIC TYPES START -->
+
+<p>
+<hr>
+<h1><a NAME="basic_types">Basic Types</a></h1>
+</p>
+
+
+
+<h2><a NAME="strings">Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Any group of characters beginning with an  alphabetic or numeric character is a string,  unless it belongs to one of the groups below  (such as an Integer or Time).   
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- String
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>'String' 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="string_characters">String characters</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A string can contain any alphabetic or  numeric character, along with many  punctuation characters, including the  period, dash, space, quotes, exclamation, and  question mark. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;String&nbsp;characters&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- What's Yaml? 
+- It's for writing data structures in plain text. 
+- And? 
+- And what? That's not good enough for you? 
+- No, I mean, "And what about Yaml?" 
+- Oh, oh yeah. Uh.. Yaml for Ruby. 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;String&nbsp;characters&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[ 
+  "What's Yaml?", 
+  "It's for writing data structures in plain text.", 
+  "And?", 
+  "And what? That's not good enough for you?", 
+  "No, I mean, \"And what about Yaml?\"", 
+  "Oh, oh yeah. Uh.. Yaml for Ruby." 
+] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="indicators_in_strings">Indicators in Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Be careful using indicators in strings.  In particular,  the comma, colon, and pound sign must be used carefully. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Indicators&nbsp;in&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>the colon followed by space is an indicator: but is a string:right here 
+same for the pound sign: here we have it#in a string 
+the comma can, honestly, be used in most cases: [ but not in, inline collections ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Indicators&nbsp;in&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'the colon followed by space is an indicator' => 'but is a string:right here', 
+  'same for the pound sign' => 'here we have it#in a string', 
+  'the comma can, honestly, be used in most cases' => [ 'but not in', 'inline collections' ] 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="forcing_strings">Forcing Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Any YAML type can be forced into a string using the  explicit !str method. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Forcing&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>date string: !str 2001-08-01 
+number string: !str 192 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Forcing&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'date string' => '2001-08-01', 
+  'number string' => '192' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="single-quoted_strings">Single-quoted Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can also enclose your strings within single quotes,  which allows use of slashes, colons, and other indicators  freely.  Inside single quotes, you can represent a single  quote in your string by using two single quotes next to  each other. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Single-quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>all my favorite symbols: '#:!/%.)' 
+a few i hate: '&(*' 
+why do i hate them?: 'it''s very hard to explain' 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Single-quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'all my favorite symbols' => '#:!/%.)', 
+  'a few i hate' => '&(*', 
+  'why do i hate them?' => 'it\'s very hard to explain' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="double-quoted_strings">Double-quoted Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Enclosing strings in double quotes allows you  to use escapings to represent ASCII and  Unicode characters. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Double-quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>i know where i want my line breaks: "one here\nand another here\n" 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Double-quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'i know where i want my line breaks' => "one here\nand another here\n" 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="multi-line_quoted_strings">Multi-line Quoted Strings</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Both single- and double-quoted strings may be carried on to new lines in your YAML document. They must be indented a step and indentation is interpreted as a single space.
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Multi-line&nbsp;Quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>i want a long string: "so i'm going to
+  let it go on and on to other lines
+  until i end it with a quote."
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Multi-line&nbsp;Quoted&nbsp;Strings&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'i want a long string' => "so i'm going to " + 
+     "let it go on and on to other lines " + 
+     "until i end it with a quote." 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="plain_scalars">Plain scalars</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Unquoted strings may also span multiple lines, if they are free of YAML space indicators and indented.
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Plain&nbsp;scalars&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- My little toe is broken in two places;
+- I'm crazy to have skied this way;
+- I'm not the craziest he's seen, since there was always the German guy
+  who skied for 3 hours on a broken shin bone (just below the kneecap);
+- Nevertheless, second place is respectable, and he doesn't
+  recommend going for the record;
+- He's going to put my foot in plaster for a month;
+- This would impair my skiing ability somewhat for the
+  duration, as can be imagined.
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Plain&nbsp;scalars&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[
+  "My little toe is broken in two places;", 
+  "I'm crazy to have skied this way;", 
+  "I'm not the craziest he's seen, since there was always " +
+     "the German guy who skied for 3 hours on a broken shin " + 
+     "bone (just below the kneecap);", 
+  "Nevertheless, second place is respectable, and he doesn't " + 
+     "recommend going for the record;", 
+  "He's going to put my foot in plaster for a month;", 
+  "This would impair my skiing ability somewhat for the duration, " +
+     "as can be imagined."
+]
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="null">Null</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can use the tilde '~' character for a null value. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Null&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>name: Mr. Show 
+hosted by: Bob and David 
+date of next season: ~ 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Null&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'name' => 'Mr. Show', 
+  'hosted by' => 'Bob and David', 
+  'date of next season' => nil 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="boolean">Boolean</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can use 'true' and 'false' for boolean values. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Boolean&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>Is Gus a Liar?: true
+Do I rely on Gus for Sustenance?: false
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Boolean&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'Is Gus a Liar?' => true, 
+  'Do I rely on Gus for Sustenance?' => false 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="integers">Integers</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>An integer is a series of numbers, optionally  starting with a positive or negative sign.  Integers  may also contain commas for readability. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Integers&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>zero: 0 
+simple: 12 
+one-thousand: 1,000 
+negative one-thousand: -1,000 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Integers&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'zero' => 0, 
+  'simple' => 12, 
+  'one-thousand' => 1000, 
+  'negative one-thousand' => -1000 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="integers_as_map_keys">Integers as Map Keys</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>An integer can be used a dictionary key. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Integers&nbsp;as&nbsp;Map&nbsp;Keys&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>1: one 
+2: two 
+3: three 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Integers&nbsp;as&nbsp;Map&nbsp;Keys&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+    1 => 'one', 
+    2 => 'two', 
+    3 => 'three' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="floats">Floats</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Floats are represented by numbers with decimals,  allowing for scientific notation, as well as  positive and negative infinity and "not a number." 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Floats&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>a simple float: 2.00 
+larger float: 1,000.09 
+scientific notation: 1.00009e+3 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Floats&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'a simple float' => 2.0, 
+  'larger float' => 1000.09, 
+  'scientific notation' => 1000.09 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="time">Time</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can represent timestamps by using  ISO8601 format, or a variation which  allows spaces between the date, time and  time zone. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Time&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>iso8601: 2001-12-14t21:59:43.10-05:00 
+space seperated: 2001-12-14 21:59:43.10 -05:00 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Time&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+  'iso8601' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ), 
+  'space seperated' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ) 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="date">Date</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A date can be represented by its year,  month and day in ISO8601 order. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Date&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- 1976-07-31
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Date&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>Date.new( 1976, 7, 31 ) 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- BASIC TYPES END -->
+
+<!-- BLOCKS START -->
+
+<p>
+<hr>
+<h1><a NAME="blocks">Blocks</a></h1>
+</p>
+
+
+
+<h2><a NAME="single_ending_newline">Single ending newline</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A pipe character, followed by an indented block of text is treated as a literal block, in which newlines are preserved throughout the block, including the final newline.
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Single&nbsp;ending&nbsp;newline&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---
+this: |
+    Foo
+    Bar
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Single&nbsp;ending&nbsp;newline&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'this' => "Foo\nBar\n" } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="the_'+'_indicator">The '+' indicator</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>The '+' indicator says to keep newlines at the end of text  blocks. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;The&nbsp;'+'&nbsp;indicator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>normal: |
+  extra new lines not kept
+
+preserving: |+
+  extra new lines are kept
+
+
+dummy: value
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;The&nbsp;'+'&nbsp;indicator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+    'normal' => "extra new lines not kept\n", 
+    'preserving' => "extra new lines are kept\n\n\n", 
+    'dummy' => 'value' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="three_trailing_newlines_in_literals">Three trailing newlines in literals</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>To give you more control over how space  is preserved in text blocks, YAML has  the keep '+' and chomp '-' indicators.  The keep indicator will preserve all  ending newlines, while the chomp indicator  will strip all ending newlines. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Three&nbsp;trailing&nbsp;newlines&nbsp;in&nbsp;literals&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>clipped: |
+    This has one newline.
+
+
+
+same as "clipped" above: "This has one newline.\n"
+
+stripped: |-
+    This has no newline.
+
+
+
+same as "stripped" above: "This has no newline."
+
+kept: |+
+    This has four newlines.
+
+
+
+same as "kept" above: "This has four newlines.\n\n\n\n"
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Three&nbsp;trailing&nbsp;newlines&nbsp;in&nbsp;literals&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{  
+  'clipped' => "This has one newline.\n", 
+  'same as "clipped" above' => "This has one newline.\n", 
+  'stripped' => 'This has no newline.', 
+  'same as "stripped" above' => 'This has no newline.', 
+  'kept' => "This has four newlines.\n\n\n\n", 
+  'same as "kept" above' => "This has four newlines.\n\n\n\n" 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="extra_trailing_newlines_with_spaces">Extra trailing newlines with spaces</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Normally, only a single newline is kept  from the end of a literal block, unless the  keep '+' character is used in combination  with the pipe.  The following example  will preserve all ending whitespace  since the last line of both literal blocks  contains spaces which extend past the indentation  level. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Extra&nbsp;trailing&nbsp;newlines&nbsp;with&nbsp;spaces&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---
+this: |
+    Foo
+
+
+kept: |+
+    Foo
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Extra&nbsp;trailing&nbsp;newlines&nbsp;with&nbsp;spaces&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'this' => "Foo\n\n  \n",  
+  'kept' => "Foo\n\n  \n" } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="folded_block_in_a_sequence">Folded Block in a Sequence</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>A greater-then character, followed by an indented  block of text is treated as a folded block, in  which lines of text separated by a single newline  are concatenated as a single line. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Folded&nbsp;Block&nbsp;in&nbsp;a&nbsp;Sequence&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---
+- apple
+- banana
+- >
+    can't you see
+    the beauty of yaml?
+    hmm
+- dog
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Folded&nbsp;Block&nbsp;in&nbsp;a&nbsp;Sequence&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[ 
+    'apple',  
+    'banana',  
+    "can't you see the beauty of yaml? hmm\n", 
+    'dog' 
+] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="folded_block_as_a_mapping_value">Folded Block as a Mapping Value</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Both literal and folded blocks can be  used in collections, as values in a   sequence or a mapping. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Folded&nbsp;Block&nbsp;as&nbsp;a&nbsp;Mapping&nbsp;Value&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---
+quote: >
+    Mark McGwire's
+    year was crippled
+    by a knee injury.
+source: espn
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Folded&nbsp;Block&nbsp;as&nbsp;a&nbsp;Mapping&nbsp;Value&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{  
+    'quote' => "Mark McGwire's year was crippled by a knee injury.\n", 
+    'source' => 'espn' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="three_trailing_newlines_in_folded_blocks">Three trailing newlines in folded blocks</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>The keep and chomp indicators can also  be applied to folded blocks. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Three&nbsp;trailing&nbsp;newlines&nbsp;in&nbsp;folded&nbsp;blocks&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>clipped: >
+    This has one newline.
+
+
+
+same as "clipped" above: "This has one newline.\n" 
+
+stripped: >-
+    This has no newline.
+
+
+
+same as "stripped" above: "This has no newline."
+
+kept: >+
+    This has four newlines.
+
+
+
+same as "kept" above: "This has four newlines.\n\n\n\n"
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Three&nbsp;trailing&nbsp;newlines&nbsp;in&nbsp;folded&nbsp;blocks&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{  
+  'clipped' => "This has one newline.\n", 
+  'same as "clipped" above' => "This has one newline.\n", 
+  'stripped' => 'This has no newline.', 
+  'same as "stripped" above' => 'This has no newline.', 
+  'kept' => "This has four newlines.\n\n\n\n", 
+  'same as "kept" above' => "This has four newlines.\n\n\n\n" 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- BLOCKS END -->
+
+<!-- ALIASES AND ANCHORS START -->
+
+<p>
+<hr>
+<h1><a NAME="aliases_and_anchors">Aliases and Anchors</a></h1>
+</p>
+
+
+
+<h2><a NAME="simple_alias_example">Simple Alias Example</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>If you need to refer to the same item of data twice,  you can give that item an alias.  The alias is a plain  string, starting with an ampersand.  The item may then  be referred to by the alias throughout your document  by using an asterisk before the name of the alias.  This is called an anchor. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Simple&nbsp;Alias&nbsp;Example&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- &showell Steve 
+- Clark 
+- Brian 
+- Oren 
+- *showell 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Simple&nbsp;Alias&nbsp;Example&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>showell = 'Steve' 
+</pre></div>
+		
+		<pre>[ showell, 'Clark', 'Brian', 'Oren', showell ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="alias_of_a_mapping">Alias of a Mapping</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>An alias can be used on any item of data, including  sequences, mappings, and other complex data types. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Alias&nbsp;of&nbsp;a&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- &hello 
+    Meat: pork 
+    Starch: potato 
+- banana 
+- *hello 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Alias&nbsp;of&nbsp;a&nbsp;Mapping&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>hello = { 'Meat' => 'pork', 'Starch' => 'potato' } 
+</pre></div>
+		
+		<pre>[  
+  hello,  
+  'banana', 
+  hello 
+] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- ALIASES AND ANCHORS END -->
+
+<!-- DOCUMENTS START -->
+
+<p>
+<hr>
+<h1><a NAME="documents">Documents</a></h1>
+</p>
+
+
+
+<h2><a NAME="trailing_document_separator">Trailing Document Separator</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can separate YAML documents  with a string of three dashes. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Trailing&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- foo: 1
+  bar: 2
+---
+more: stuff
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Trailing&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[ { 'foo' => 1, 'bar' => 2 } ]
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="leading_document_separator">Leading Document Separator</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>You can explicity give an opening  document separator to your YAML stream. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Leading&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>---
+- foo: 1
+  bar: 2
+---
+more: stuff
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Leading&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>[ { 'foo' => 1, 'bar' => 2 } ] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="yaml_header">YAML Header</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>The opening separator can contain directives  to the YAML parser, such as the version  number. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;YAML&nbsp;Header&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- %YAML:1.0 
+foo: 1 
+bar: 2 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;YAML&nbsp;Header&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>y = Stream.new 
+y.add( { 'foo' => 1, 'bar' => 2 } ) 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="red_herring_document_separator">Red Herring Document Separator</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Separators included in blocks or strings  are treated as blocks or strings, as the  document separator should have no indentation  preceding it. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Red&nbsp;Herring&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: |
+    ---
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Red&nbsp;Herring&nbsp;Document&nbsp;Separator&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'foo' => "---\n" } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="multiple_document_separators_in_block">Multiple Document Separators in Block</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>This technique allows you to embed other YAML  documents within literal blocks. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Multiple&nbsp;Document&nbsp;Separators&nbsp;in&nbsp;Block&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>foo: | 
+    ---
+    foo: bar
+    ---
+    yo: baz
+bar: | 
+    fooness
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Multiple&nbsp;Document&nbsp;Separators&nbsp;in&nbsp;Block&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 
+   'foo' => "---\nfoo: bar\n---\nyo: baz\n", 
+   'bar' => "fooness\n" 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- DOCUMENTS END -->
+
+<!-- YAML FOR RUBY START -->
+
+<p>
+<hr>
+<h1><a NAME="yaml_for_ruby">YAML For Ruby</a></h1>
+</p>
+
+
+
+<h2><a NAME="symbols">Symbols</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Ruby Symbols can be simply serialized using  the !ruby/symbol transfer method, or the  abbreviated !ruby/sym. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Symbols&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>simple symbol: !ruby/symbol Simple 
+shortcut syntax: !ruby/sym Simple 
+symbols in seqs: 
+  - !ruby/symbol ValOne 
+  - !ruby/symbol ValTwo 
+  - !ruby/symbol ValThree 
+symbols in maps: 
+  - !ruby/symbol MapKey: !ruby/symbol MapValue 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Symbols&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'simple symbol' => :Simple, 
+  'shortcut syntax' => :Simple, 
+  'symbols in seqs' => [ :ValOne, :ValTwo, :ValThree ], 
+  'symbols in maps' => [ { :MapKey => :MapValue } ]
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="ranges">Ranges</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Ranges are serialized with the !ruby/range  type family. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Ranges&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>normal range: !ruby/range 10..20 
+exclusive range: !ruby/range 11...20 
+negative range: !ruby/range -1..-5 
+? !ruby/range 0..40 
+: range as a map key 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Ranges&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'normal range' => (10..20), 
+  'exclusive range' => (11...20), 
+  'negative range' => (-1..-5), 
+  (0..40) => 'range as a map key' 
+} 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="regexps">Regexps</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Regexps may be serialized to YAML, both its  syntax and any modifiers. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Regexps&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>case-insensitive: !ruby/regexp "/George McFly/i" 
+complex: !ruby/regexp "/\\A\"((?:[^\"]|\\\")+)\"/" 
+simple: !ruby/regexp '/a.b/' 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Regexps&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>{ 'simple' => /a.b/, 'complex' => /\A"((?:[^"]|\")+)"/, 
+  'case-insensitive' => /George McFly/i } 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="perl_regexps">Perl Regexps</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>Regexps may also be imported from serialized  Perl. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Perl&nbsp;Regexps&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- !perl/regexp: 
+  REGEXP: "R[Uu][Bb][Yy]$" 
+  MODIFIERS: i 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Perl&nbsp;Regexps&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<pre>/R[Uu][Bb][Yy]$/i 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="struct_class">Struct class</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>The Ruby Struct class is registered as a YAML  builtin type through Ruby, so it can safely   be serialized.  To use it, first make sure you  define your Struct with Struct::new.  Then,  you are able to serialize with Struct#to_yaml  and unserialize from a YAML stream. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Struct&nbsp;class&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- !ruby/struct:BookStruct 
+  author: Yukihiro Matsumoto 
+  title: Ruby in a Nutshell 
+  year: 2002 
+  isbn: 0-596-00214-9 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Struct&nbsp;class&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>book_struct = Struct::new( "BookStruct", :author, :title, :year, :isbn ) 
+</pre></div>
+		
+		<pre>book_struct.new( "Yukihiro Matsumoto", "Ruby in a Nutshell", 2002, "0-596-00214-9" ) 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="nested_structs">Nested Structs</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>As with other YAML builtins, you may nest the  Struct inside of other Structs or other data  types. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Nested&nbsp;Structs&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>- !ruby/struct:FoodStruct 
+  name: Nachos 
+  ingredients: 
+    - Mission Chips 
+    - !ruby/struct:FoodStruct 
+      name: Tostitos Nacho Cheese 
+      ingredients: 
+        - Milk and Enzymes 
+        - Jack Cheese 
+        - Some Volatile Chemicals 
+      taste: Angelic 
+    - Sour Cream 
+  taste: Zesty 
+- !ruby/struct:FoodStruct 
+  name: Banana Cream Pie 
+  ingredients: 
+    - Bananas 
+    - Creamy Stuff 
+    - And Such 
+  taste: Puffy 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Nested&nbsp;Structs&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>food_struct = Struct::new( "FoodStruct", :name, :ingredients, :taste ) 
+</pre></div>
+		
+		<pre>[ 
+  food_struct.new( 'Nachos', [ 'Mission Chips', 
+    food_struct.new( 'Tostitos Nacho Cheese', [ 'Milk and Enzymes', 'Jack Cheese', 'Some Volatile Chemicals' ], 'Angelic' ), 
+    'Sour Cream' ], 'Zesty' ), 
+  food_struct.new( 'Banana Cream Pie', [ 'Bananas', 'Creamy Stuff', 'And Such' ], 'Puffy' ) 
+] 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="objects">Objects</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>YAML has generic support for serializing objects  from any class available in Ruby.  If using the  generic object serialization, no extra code is  needed. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Objects&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- !ruby/object:YAML::Zoolander 
+  name: Derek 
+  look: Blue Steel 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Objects&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>class Zoolander 
+  attr_accessor :name, :look 
+  def initialize( look ) 
+    @name = "Derek" 
+    @look = look 
+  end 
+  def ==( z ) 
+    self.name == z.name and self.look == z.look 
+  end 
+end 
+</pre></div>
+		
+		<pre>Zoolander.new( "Blue Steel" ) 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="extending_kernel::array">Extending Kernel::Array</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>When extending the Array class, your instances  of such a class will dump as YAML sequences,  tagged with a class name. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Extending&nbsp;Kernel::Array&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- !ruby/array:YAML::MyArray 
+- jacket 
+- sweater 
+- windbreaker 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Extending&nbsp;Kernel::Array&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre>class MyArray < Kernel::Array; end 
+</pre></div>
+		
+		<pre>outerwear = MyArray.new 
+outerwear << 'jacket' 
+outerwear << 'sweater' 
+outerwear << 'windbreaker' 
+outerwear 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<h2><a NAME="extending_kernel::hash">Extending Kernel::Hash</a></h2>
+
+<div style="padding: 0px 0px 20px 20px; margin: 0px 0px 0px 0px;">
+
+<p>
+<h3>Brief</h3>
+</p>
+
+<p>When extending the Hash class, your instances  of such a class will dump as YAML maps, tagged  with a class name. 
+</p>
+
+<p>
+<h3>Yaml</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="yaml-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="yaml-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="yaml-box-header">&nbsp;Extending&nbsp;Kernel::Hash&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="yaml-box-link">&nbsp;in&nbsp;YAML?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td><pre>--- !ruby/hash:YAML::MyHash 
+Black Francis: Frank Black 
+Kim Deal: Breeders 
+Joey Santiago: Martinis 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+<p>
+<h3>Ruby</h3>
+</p>
+
+<table CELLPADDING="1" CELLSPACING="0" BORDER="0" CLASS="ruby-box-border" WIDTH="500">
+<tr><td>
+	<table WIDTH="500" BORDER="0" CELLPADDING="0" CELLSPACING="0" CLASS="ruby-box-body">
+	<tr><td>
+		<table BORDER="0" CELLPADDING="0" CELLSPACING="0">
+			<tr><td CLASS="ruby-box-header">&nbsp;Extending&nbsp;Kernel::Hash&nbsp;</td>
+			<td><tt>&nbsp;</tt></td>
+			<td CLASS="ruby-box-link">&nbsp;in&nbsp;Ruby?&nbsp;</td></tr>
+		</table>
+	</td></tr>
+	<tr><td>
+		<table CELLPADDING="12" CELLSPACING="0">
+		<tr><td>
+		
+		<div CLASS="ruby-box-highlight"><pre># Note that the @me attribute isn't dumped 
+# because the default to_yaml is trained 
+# to dump as a regular Hash. 
+class MyHash < Kernel::Hash 
+  attr_accessor :me 
+  def initialize 
+    @me = "Why" 
+  end 
+end 
+</pre></div>
+		
+		<pre>pixies = MyHash.new 
+pixies['Black Francis'] = 'Frank Black' 
+pixies['Kim Deal'] = 'Breeders' 
+pixies['Joey Santiago'] = 'Martinis' 
+pixies 
+</pre>
+		</td></tr>
+		</table>
+	</td></tr>
+	</table>
+</td></tr>
+</table>
+
+</div>
+
+
+
+<!-- YAML FOR RUBY END -->
+
+
+
+<BR /><BR />
+
+</BODY>
+</HTML>
+
+
