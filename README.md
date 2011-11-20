@@ -10,7 +10,7 @@ It currently is pushable by members of the 'yaml' organization on GitHub. If you
 
 If you are not a member, drop by #yaml on irc.freenode.net and we will add you.
 
-== GUIDELINES TO UPDATES
+## GUIDELINES TO UPDATES
 
 We are trusting that people will do the right thing. If you are unsure, please ask on IRC.
 
