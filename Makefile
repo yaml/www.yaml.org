@@ -6,6 +6,9 @@ SPEC_BUILDER_REPO := https://github.com/yaml/yaml-spec-builder-docker
 SPEC_VERSION := 1.2
 BUILDER += yaml-spec-builder
 
+html: 
+	./yaml2html.pl index.yml > index.html 
+
 site: $(SITE) $(SITE_FILES) $(SITE)/spec/$(SPEC_VERSION)
 
 publish: site

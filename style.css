@@ -29,3 +29,14 @@ a:link, a:visited, a:active {
     color: brown;
 }
 
+.yaml_dash {
+    color: red;
+}
+
+.yaml_bracket {
+    color: pink;
+}
+
+.yaml_quote {
+    color: #CCCCCC;
+}

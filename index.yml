@@ -1,0 +1,170 @@
+%YAML 1.2
+# The Official YAML Web site
+---
+Definition: YAML Ain't Markup Language
+
+What It Is: YAML is a human friendly data serialization
+  standard for all programming languages.
+
+Specifications:
+  1.2: '[http://yaml.org/spec/1.2/spec.html](http://yaml.org/spec/1.2/spec.html)' # (3nd Edition)
+  1.1: '[http://yaml.org/spec/1.1/](http://yaml.org/spec/1.1/)'          # (2nd Edition)
+  1.0: '[http://yaml.org/spec/1.0/](http://yaml.org/spec/1.0/)'          # (1st Edition)
+
+Resources:
+  Issues: https://github.com/yaml/yaml/issues
+  Mailing List: yaml-core@lists.sourceforge.net
+  IRC: {channel: '#yaml', server: irc.freenode.net}
+  Reference Parser: http://ben-kiki.org/ypaste/
+
+Languages:
+  C/C++:
+  - '[libyaml](http://pyyaml.org/wiki/LibYAML)': C Fast YAML 1.1
+  - '[yaml-cpp](https://github.com/jbeder/yaml-cpp/)': C++ YAML 1.2 implementation
+  Ruby:
+  - '[psych](https://github.com/ruby/psych)': libyaml wrapper (in Ruby core for 1.9.2)
+  - '[RbYaml](http://rbyaml.rubyforge.org/)': YAML 1.1 (PyYAML Port)'
+  - '[yaml4r](http://yaml4r.sourceforge.net/doc/)': YAML 1.0, standard library syck binding
+  Python:
+  - '[PyYAML](http://pyyaml.org/)': YAML 1.1, pure python and libyaml binding
+  - '[ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)': YAML 1.2, update of PyYAML with round-tripping of comments
+  - '[PySyck](http://pyyaml.org/wiki/PySyck)': YAML 1.0, syck binding
+  Java:
+  - '[SnakeYAML](https://bitbucket.org/asomov/snakeyaml)': Java 5 / YAML 1.1
+  - '[YamlBeans](https://github.com/EsotericSoftware/yamlbeans)': To/from JavaBeans
+  - '[JYaml](http://jyaml.sourceforge.net/)': Original Java Implementation (not maintained)'
+  Perl:
+  - '[YAML](http://search.cpan.org/dist/YAML/)': Pure Perl YAML Module
+  - '[YAML::XS](http://search.cpan.org/dist/YAML-LibYAML/)': Binding to libyaml
+  - '[YAML::Syck](http://search.cpan.org/dist/YAML-Syck/)': Binding to libsyck
+  - '[YAML::Tiny](http://search.cpan.org/dist/YAML-Tiny/)': A small YAML subset module
+  CSharp/.NET:
+  - '[SharpYaml](https://github.com/xoofx/SharpYaml)': .NET library that provides a YAML parser
+  - '[YamlDotNet](http://aaubry.net/pages/yamldotnet.html)': YAML 1.1 library with serialization support
+  - '[yaml-net](http://yaml-net-parser.sourceforge.net/)': YAML 1.1 library
+  Golang:
+  - '[Go-yaml](https://github.com/go-yaml/yaml)': YAML support for the Go language.
+  - '[Go-gypsy](https://github.com/kylelemons/go-gypsy)': Simplified YAML parser written in Go.
+  PHP:
+  - '[php-yaml](https://pecl.php.net/package/yaml)': libyaml bindings (YAML 1.1)'
+  - '[syck](https://pecl.php.net/package/syck)': syck bindings (YAML 1.0)'
+  - '[spyc](https://github.com/mustangostang/spyc)': yaml loader/dumper (YAML 1.0)'
+  - '[symfony-yaml](https://github.com/symfony/yaml)': Subtree split of the Symfony YAML component
+  OCaml:
+  - '[ocaml-syck](http://ocaml-syck.sourceforge.net/)': YAML 1.0 via syck bindings
+  Javascript:
+  - '[JS-YAML](https://github.com/nodeca/js-yaml)': Native PyYAML port to JavaScript.
+  - '[JS-YAML Online](http://nodeca.github.io/js-yaml/)': Browserified JS-YAML demo, to play with YAML in your browser.
+  Haskell:
+  - '[snoyberg-yaml](https://github.com/snoyberg/yaml)': Support for serialising Haskell to and from YAML
+  - '[YamlReference](http://hackage.haskell.org/package/YamlReference)': Haskell 1.2 reference parser
+  Dart:
+  - '[yaml](https://pub.dartlang.org/packages/yaml)': YAML package for Dart
+  Rust:
+  - '[yaml-rust](https://github.com/chyh1990/yaml-rust)': YAML 1.2 implementation in pure Rust
+  - '[serde-yaml](https://github.com/dtolnay/serde-yaml)': YAML de/serialization of structs
+  Swift:
+  - '[YamlSwift](https://github.com/behrang/YamlSwift)':
+  Vim:
+  - '[yamlvim](http://www.vim.org/scripts/script.php?script_id=3190)': YAML dumper/emitter in pure vimscript
+
+Validation Schemas:
+  - '[Rx](http://rx.codesimply.com/)': Multi-Language Schemata Tool for JSON/YAML
+  - '[Kwalify](http://www.kuwata-lab.com/kwalify/)': Ruby Schemata Tool for JSON/YAML    
+  - '[PyKwalify](https://github.com/Grokzen/pykwalify)': Python JSON/YAML validation library
+
+Related Projects:
+  - '[vim-ansible-yaml](https://github.com/chase/vim-ansible-yaml)': YAML syntax with ansible extensions
+  - '[yatools.net](http://yaml.codeplex.com/)': (in-progress)' YAML 1.1 implementation    
+  - '[JSON](http://json.org/)': Official JSON Website
+  - '[Pygments](http://pygments.org/demo/?lang=yaml)': Python language Syntax Colorizer /w YAML support
+                          
+News:
+  '2016-09-18':
+  - '[yaml.org](http://yaml.org) has been updated'
+  '2011-11-20': 
+  - '[JS-YAML](https://github.com/nodeca/js-yaml), a JavaScript YAML parser by [Alexey Zapparov](https://github.com/ixti) and [Vitaly Puzrin](https://github.com/puzrin).'
+  '2010-08-18': 
+  - '[Ruby 1.9.2 includes psych](http://svn.ruby-lang.org/repos/ruby/tags/v1_9_2_0/NEWS), a libyaml wrapper by Aaron Patterson.'
+  - '[vimscript](http://yamlvim.hg.sourceforge.net/hgweb/yamlvim/yamlvim/summary) parser/emitter was created by Nikolay Pavlov.'
+  '2009-10-01':
+  - '[YAML 1.2 (3rd Edition)](http://www.yaml.org/spec/1.2/spec.html) was patched.'
+  '2009-07-21':
+  - '[YAML 1.2 (3rd Edition)](http://www.yaml.org/spec/1.2/spec.html) was released.'
+  '2009-04-28':
+  - A new version of SnakeYAML was released.
+  '2009-04-01':
+  - The YAML 1.2 spec was planned to be finalized by the end of the month.
+  '2009-01-07':
+  - Andrey Somov releases SnakeYAML, a 1.1 YAML Parser
+  '2009-01-03':
+  - 'Burt Harris announced [YAML for .NET](http://yaml.codeplex.com/) and editor for Visual Studio'
+  '2008-12-02':
+  - Jesse Beder released YAML for C++
+  '2008-05-11':
+  - Oren Ben-Kiki has released a new YAML 1.2 spec draft
+  '2007-11-29':
+  - 'Alexey Zakhlestin has updated his [Syck (YAML 1.0)](https://pecl.php.net/package/syck) binding for PHP'
+  '2007-11-23':
+  - Derek Wischusen has release Action Script 3 YAML 1.1
+  '2006-08-01': 
+  - Kirill Simonov has released libyaml, a parser and emitter in C
+  '2006-06-06':
+  - Ola Bini is at it again, this time with a Java implementation
+  '2006-06-03':
+  - Christophe Lambrechts and Jonathan Slenders announced a .NET parser
+  '2006-05-07':
+  - Ola Bini released a pure-ruby YAML 1.1 parser and emitter
+  '2006-04-12':
+  - Kirill's YAML 1.1 parser for Python is now at PyYAML
+  '2006-02-05':
+  - Spyc YAML for PHP is now at version 0.3
+  '2005-12-17':
+  - Makoto Kuwata has released Kwalify 0.5, YAML/JSON schema validator
+  '2005-12-14':
+  - Toby Ho has released Jyaml, a Java library for YAML based on Rolf Veen's work
+  '2005-08-30':
+  - Kirill Simonov has produce a wonderful Python binding for Syck
+  '2005-04-08':
+  - As it turns out, YAML is a superset of the JSON serialization language
+  '2005-05-18':
+  - Why has released version 0.55 of Syck
+  '2004-12-28':
+  - Announcing YAML 1.1 Working Draft
+  '2004-10-01':
+  - YAML for Cocoa was released by Will Thimbley
+  '2004-02-08':
+  - Slaven Rezic announced a new version of his Javascript binding
+  '2004-01-29':
+  - Ingy, Oren, and Clark spent 4 days hacking on the spec in Portland.
+  '2003-10-10':
+  - The Syck implementation with bindings for Ruby, Python, and PHP is now at version .41
+  '2003-04-26':
+  - Mike Orr has taken over the Pure Python development.
+  - Brian Ingerson has created a FIT platform for Wiki-like testing.
+  '2003-01-24':
+  - Updates to specification.
+  '2002-07-25':
+  - Both the Ruby and Python parsers have made significant progress.
+    There is an article about YAML by Kendall Grant Clark at xml.com.
+    There is also a draft XML binding.
+  '2002-07-02':
+  - Brian Ingerson will be giving a 45 minute presentation on YAML at the
+    O'Reilly Open Source Conference in San Diego on July 24th 2002.
+  '2002-02-01':
+  - Brian's Perl implementation YAML.pm, has been updated with new documentation.
+    Included in this release is YSH, a test shell for learning how YAML works.
+  '2002-01-03':
+  - YAML(tm)' starts the new year with a new name YAML Ain't Markup Language.
+  '2001-05-17':
+  - YAML now has a mailing list at SourceForge.
+  '2001-05-15':
+  - YAML is started with a first pass specification.
+
+Maintainers:
+  - Oren Ben-Kiki: '[oren@ben-kiki.org](mailto:oren@ben-kiki.org)'
+  - Clark Evans: '[cce@clarkevans.com](mailto:cce@clarkevans.com)'
+  - Ingy döt Net: '[ingy@ingy.net](mailto:ingy@ingy.net)'
+
+# Click here to see this YAML source [index.yml](index.yml)
+...
