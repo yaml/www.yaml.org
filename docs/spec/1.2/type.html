@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>Language-Independent Types for YAML&#8482; Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp46857860016688"></a>
+      Language-Independent Types for
+      <span class="trademark">YAML</span>&#8482; Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>Last Updated On 2005-01-18</em>
+            </h3>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp46857859844656"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="idp46857859845216"></a>1. Introduction</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+      The following is the list of language-independent YAML tags defined under
+      the domain <strong class="userinput"><code>yaml.org</code></strong>. The use of these tags is not
+      mandatory. However these tags represent types that are useful across a
+      wide range of applications and it is strongly recommended they be used
+      whenever appropriate to promote interoperability.
+    </p>
+        <p>
+      New language-independent tags may be proposed on the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+      mailing list</a>. This mailing list is also the forum for raising any
+      question regarding these types.
+    </p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="idp46857859848176"></a>2. Collection Types</h2>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!map</code></strong>
+            <a class="ulink" href="http://yaml.org/type/map.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/map.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/map.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Unordered set of key: value pairs without duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!omap</code></strong>
+            <a class="ulink" href="http://yaml.org/type/omap.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/omap.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/omap.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Ordered sequence of key: value pairs without duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!pairs</code></strong>
+            <a class="ulink" href="http://yaml.org/type/pairs.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/pairs.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/pairs.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Ordered sequence of key: value pairs allowing duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!set</code></strong>
+            <a class="ulink" href="http://yaml.org/type/set.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/set.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/set.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Unordered set of non-equal values.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!seq</code></strong>
+            <a class="ulink" href="http://yaml.org/type/seq.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/seq.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/seq.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Sequence of arbitrary values.
+          </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="idp46857863783360"></a>3. Scalar Types</h2>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!binary</code></strong>
+            <a class="ulink" href="http://yaml.org/type/binary.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/binary.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/binary.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A sequence of zero or more octets (8 bit values).
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!bool</code></strong>
+            <a class="ulink" href="http://yaml.org/type/bool.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/bool.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/bool.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Mathematical Booleans.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!float</code></strong>
+            <a class="ulink" href="http://yaml.org/type/float.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/float.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/float.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Floating-point approximation to real numbers.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!int</code></strong>
+            <a class="ulink" href="http://yaml.org/type/int.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/int.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/int.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Mathematical integers.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!merge</code></strong>
+            <a class="ulink" href="http://yaml.org/type/merge.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/merge.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/merge.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify one or more mappings to be merged with the current one.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!null</code></strong>
+            <a class="ulink" href="http://yaml.org/type/null.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/null.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/null.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Devoid of value.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!str</code></strong>
+            <a class="ulink" href="http://yaml.org/type/str.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/str.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/str.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A sequence of zero or more Unicode characters.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!timestamp</code></strong>
+            <a class="ulink" href="http://yaml.org/type/timestamp.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/timestamp.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/timestamp.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A point in time.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!value</code></strong>
+            <a class="ulink" href="http://yaml.org/type/value.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/value.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/value.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify the default value of a mapping.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!yaml</code></strong>
+            <a class="ulink" href="http://yaml.org/type/yaml.html" target="_top">html</a>
+            <a class="ulink" href="http://yaml.org/type/yaml.pdf" target="_top">pdf</a>
+            <a class="ulink" href="http://yaml.org/type/yaml.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Keys for encoding YAML in YAML.
+          </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

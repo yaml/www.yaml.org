@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>YAML Encoding Keys Language-Independent Type for YAML&#8482; Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp46110420641648"></a>
+      YAML Encoding Keys Language-Independent Type for
+      <span class="trademark">YAML</span>&#8482; Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp46110420530816"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:yaml</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!yaml</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            N/A (single format).
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Regexp:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!|&amp;|\*</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Keys for encoding YAML in YAML.
+          </p>
+              <p>
+            YAML encoding keys are used to denote YAML structure information.
+            The in-memory representation of these keys must be different from
+            any value in any other type family. Specifically, these in-memory
+            values must not be implemented as strings. Normally, the encoding
+            keys should not be used in serialized YAML documents; the encoded
+            YAML node is serialized instead.
+          </p>
+              <p>
+            Encoding is useful when a YAML processor encounters a valid
+            YAML value of an unknown tag. For a schema-specific application,
+            this is not different from encountering any other valid YAML
+            document that does not satisfy the schema. Such an application may
+            safely use a processor that rejects any value of any unknown tag,
+            or discards the tag property with an appropriate warning and parses
+            the value as if the property was not present.
+          </p>
+              <p>
+            For a schema-independent application (for example, a hypothetical
+            YAML pretty print application), this is not an option. Processors
+            used by such applications should encode the value instead. This may
+            be done by wrapping the value in a mapping containing encoding
+            keys. The <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>!</code></strong></span>&#8221;</span> key denotes the
+            unsupported tag. In some cases it may be necessary to encode
+            anchors and alias nodes as well. The
+            <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>&amp;</code></strong></span>&#8221;</span> and
+            <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>*</code></strong></span>&#8221;</span> keys are used for this
+            purpose.
+          </p>
+              <p>
+            Encoding should be reversed on output, allowing the
+            schema-independent application to safely round-trip any valid YAML
+            document. In-memory, the encoded data may be accessed and
+            manipulated in a standard way using the three basic data types
+            (mapping, sequence and scalar), allowing limited processing to be
+            applied to arbitrary YAML data.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp46110424462928"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!yaml</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+# The following node should NOT be serialized this way.
+encoded YAML node :
+ !!yaml '!' : '!type'
+ !!yaml '&amp;' : 12
+ !!value = : value
+# The proper way to serialize the above node is as follows:
+node : !type &amp;12 value
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>
