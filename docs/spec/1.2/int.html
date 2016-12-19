@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    <title>Integer Language-Independent Type for YAML&#8482; Version 1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Integer Language-Independent Type for YAML™ Version 1.1</title>
     <link rel="stylesheet" type="text/css" href="single_html.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
   </head>
@@ -12,9 +12,9 @@
       <div class="titlepage">
         <div>
           <div>
-            <h2 class="title"><a id="idp49513328"></a>
+            <h2 class="title"><a id="idp49570000"></a>
       Integer Language-Independent Type for
-      <span class="trademark">YAML</span>&#8482; Version 1.1
+      <span class="trademark">YAML</span>™ Version 1.1
     </h2>
           </div>
           <div>
@@ -44,7 +44,7 @@
             <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
           </div>
           <div>
-            <div class="legalnotice"><a id="idp52866464"></a>
+            <div class="legalnotice"><a id="idp49475552"></a>
       This document may be freely copied provided it is not modified.
     </div>
           </div>
@@ -118,20 +118,20 @@
               <p>
             Integers represent arbitrarily sized finite mathematical integers.
             Integers can be formatted using the familiar decimal notation, may
-            have a leading <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>0x</code></strong></span>&#8221;</span> to signal
-            hexadecimal, a leading <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>0b</code></strong></span>&#8221;</span> to
+            have a leading <span class="quote">“<span class="quote"><strong class="userinput"><code>0x</code></strong></span>”</span> to signal
+            hexadecimal, a leading <span class="quote">“<span class="quote"><strong class="userinput"><code>0b</code></strong></span>”</span> to
             indicate binary bits (base 2), or have leading
-            <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>0</code></strong></span>&#8221;</span> to signal an octal base.
-            Using <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>:</code></strong></span>&#8221;</span> allows expressing
+            <span class="quote">“<span class="quote"><strong class="userinput"><code>0</code></strong></span>”</span> to signal an octal base.
+            Using <span class="quote">“<span class="quote"><strong class="userinput"><code>:</code></strong></span>”</span> allows expressing
             integers in base 60, which is convenient for time and angle values.
-            Any <span class="quote">&#8220;<span class="quote"><strong class="userinput"><code>_</code></strong></span>&#8221;</span> characters in the
+            Any <span class="quote">“<span class="quote"><strong class="userinput"><code>_</code></strong></span>”</span> characters in the
             number are ignored, allowing a readable representation of large
             values.
           </p>
               <p>
             Scalars of this type should be represented by a native integer data
             type, if possible. However, there are cases where an integer
-            provided may overflow the native type&#8217;s storage capability.
+            provided may overflow the native type’s storage capability.
             In this case, the processor should find some manner to round-trip
             the integer, perhaps using a string based representation. In
             general, integers representable using 32 binary digits should
@@ -174,7 +174,7 @@
           </dl>
         </div>
         <div class="example">
-          <a id="idp53728992"></a>
+          <a id="idp53742176"></a>
           <p class="title">
             <strong>Example 1. <code class="userinput">!!int</code> Examples</strong>
           </p>
