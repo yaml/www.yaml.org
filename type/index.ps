@@ -1,0 +1,957 @@
+%!PS-Adobe-3.0
+%%Title: Language-Independent Types for YAML" Version 1.1
+%%Creator: XEP 3.7.8 Developer Stamped
+%%Pages: 2
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Common_XEP_procedures
+/REENCODEFONT {
+  /Enc exch def findfont dup length dict copy
+  dup /Encoding Enc put definefont
+} bind def
+/BeginEPSF {
+  /b4_Inc_state save def
+  /dict_count countdictstack def
+  /op_count count 1 sub def
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where
+  { pop languagelevel 1 ne
+    {false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+/EndEPSF {
+  count op_count sub {pop} repeat
+  countdictstack dict_count sub {end} repeat
+  b4_Inc_state restore
+} bind def
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+/CreateDataArray {
+  /temp exch def
+  [
+  {
+    temp 16384 string readstring
+    not { exit } if
+  } loop
+  dup length 0 eq { pop } if
+  ]
+} bind def
+/EqualArray {
+  /array2 exch def
+  /array1 exch def
+  /lenarray array1 length def
+  lenarray array2 length ne {false} {
+    true
+    0 1 lenarray 1 sub {
+      /idxarr exch def
+      array1 idxarr get array2 idxarr get ne {pop false exit} if
+    } for
+  } ifelse
+} bind def
+/EqualDict {
+  /dict2 exch def
+  /dict1 exch def
+  /lendict dict1 length def
+  lendict dict2 length ne {false} {
+    true
+    dict1 {
+      exch dict2 exch get ne {pop false exit} if
+    } forall 
+  } ifelse
+} bind def
+/DeepEqual {
+  /obj2 exch def
+  /obj1 exch def
+  obj1 obj2 eq {true} {
+    obj1 type obj2 type ne {false} {
+      obj1 type /dicttype eq {
+        obj1 obj2 EqualDict
+      } {
+        obj1 type /arraytype eq {
+          obj1 obj2 EqualArray
+        } {false} ifelse
+      } ifelse
+    } ifelse
+  } ifelse
+} bind def
+/SafeSetPageDevice {
+  dup length /safedict exch dict def 
+  {
+    /devicevalue exch def
+    /devicekey exch def
+    currentpagedevice devicekey known {
+      currentpagedevice devicekey get devicevalue DeepEqual not {
+        safedict devicekey devicevalue put
+      } if
+    } if
+  } forall
+  safedict length 0 ne { safedict setpagedevice} if
+} bind def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+/Times-Bold.1.enc [  /trademark] def
+/Times-Bold.1 /Times-Bold Times-Bold.1.enc REENCODEFONT
+/Helvetica-Bold.1.enc [  /space] def
+/Helvetica-Bold.1 /Helvetica-Bold Helvetica-Bold.1.enc REENCODEFONT
+/Helvetica.1.enc [  /space] def
+/Helvetica.1 /Helvetica Helvetica.1.enc REENCODEFONT
+/Times-Roman.1.enc [  /copyright /space /trademark] def
+/Times-Roman.1 /Times-Roman Times-Roman.1.enc REENCODEFONT
+[/Creator (XEP 3.7.8 Developer Stamped)
+/Author (Unknown)
+/Title (Language-Independent Types for YAML’ Version 1.1)
+/DOCINFO pdfmark
+[/PageMode /UseOutlines
+/Page 1
+/View [/XYZ 0.0 792.0 0.0]
+/DOCVIEW pdfmark 
+[/Dest /id904757 /Page 1 /View [/XYZ 95.04 220.098 0] /DEST pdfmark
+[/Dest /id904547 /Page 1 /View [/XYZ 95.04 521.627 0] /DEST pdfmark
+[/Dest /id693809 /Page 1 /View [/XYZ 95.04 727.2 0] /DEST pdfmark
+[/Dest /id904516 /Page 1 /View [/XYZ 95.04 635.847 0] /DEST pdfmark
+[/Dest /id693809
+/Border [0 0 0 [0]]
+/Title (Language-Independent Types for YAML’ Version 1.1)
+/OUT pdfmark
+[/Dest /id904516
+/Border [0 0 0 [0]]
+/Title (1. Introduction)
+/OUT pdfmark
+[/Dest /id904547
+/Border [0 0 0 [0]]
+/Title (2. Collection Types)
+/OUT pdfmark
+[/Dest /id904757
+/Border [0 0 0 [0]]
+/Title (3. Scalar Types)
+/OUT pdfmark
+/XEPPS_BackupPageDevice 3 dict
+dup /Margins dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageOffset dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageSize dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+def
+3 dict
+dup /Margins [0 0] put
+dup /PageOffset [0 0] put
+dup /PageSize [612.0 792.0] put
+SafeSetPageDevice
+/XEPPS_DocumentPageDevice 3 dict
+dup /Margins dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageOffset dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageSize dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+def
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+XEPPS_DocumentPageDevice SafeSetPageDevice
+%%EndPageSetup
+0.0 setgray
+133.673 698.713 moveto
+/Helvetica-Bold 24.883 selectfont
+(Language-Independent Types for) show
+212.465 668.854 moveto
+(YAML) show
+282.959 668.854 moveto
+/Times-Bold.1 24.883 selectfont
+(\000) show
+307.842 668.854 moveto
+/Helvetica-Bold.1 24.883 selectfont
+(\000) show
+/Helvetica-Bold 24.883 selectfont
+(Version) show
+/Helvetica-Bold.1 24.883 selectfont
+(\000) show
+/Helvetica-Bold 24.883 selectfont
+(1.1) show
+265.24 651.167 moveto
+/Helvetica 10.0 selectfont
+(Last Updated On 2005-01-18) show
+180.585 634.167 moveto
+(Copyright ) show
+226.155 634.167 moveto
+/Times-Roman.1 10.0 selectfont
+(\000) show
+236.535 634.167 moveto
+/Helvetica 10.0 selectfont
+(2001-2005 ) show
+287.125 634.167 moveto
+(Oren ) show
+312.135 634.167 moveto
+(Ben-Kiki,) show
+/Helvetica.1 10.0 selectfont
+(\000) show
+/Helvetica 10.0 selectfont
+(Clark ) show
+381.035 634.167 moveto
+(Evans,) show
+/Helvetica.1 10.0 selectfont
+(\000) show
+/Helvetica 10.0 selectfont
+(Brian ) show
+440.505 634.167 moveto
+(Ingerson) show
+141.6 622.167 moveto
+/Times-Roman 10.0 selectfont
+(This document may be freely copied provided it is not modified.) show
+57.6 590.758 moveto
+/Helvetica-Bold 20.736 selectfont
+(1.) show
+/Helvetica-Bold.1 20.736 selectfont
+(\000) show
+/Helvetica-Bold 20.736 selectfont
+(Introduction) show
+105.6 565.255 moveto
+/Times-Roman 10.0 selectfont
+-0.102 0 32 (The following is the list of language-independent YAML tags defined under the domain ) widthshow
+459.504 565.255 moveto
+/Courier-Bold 10.0 selectfont
+-0.102 0 32 (yaml.org) widthshow
+507.504 565.255 moveto
+/Times-Roman 10.0 selectfont
+-0.102 0 32 (. The use of) widthshow
+105.6 553.255 moveto
+-0.446 0 32 (these tags is not mandatory. However these tags represent types that are useful across a wide range of applications) widthshow
+105.6 541.255 moveto
+(and it is strongly recommended they be used whenever appropriate to promote interoperability.) show
+105.6 519.255 moveto
+13.163 0 32 (New language-independent tags may be proposed on the ) widthshow
+439.744 519.255 moveto
+13.163 0 32 (yaml-core mailing list) widthshow
+105.6 507.255 moveto
+0.649 0 32 ([http://lists.sourceforge.net/lists/listinfo/yaml-core]) widthshow
+310.04 507.255 moveto
+0.649 0 32 (. This mailing list is also the forum for raising any question) widthshow
+105.6 495.255 moveto
+(regarding these types.) show
+57.6 463.846 moveto
+/Helvetica-Bold 20.736 selectfont
+(2.) show
+/Helvetica-Bold.1 20.736 selectfont
+(\000) show
+/Helvetica-Bold 20.736 selectfont
+(Collection ) show
+186.661 463.846 moveto
+(Types) show
+105.6 438.343 moveto
+/Courier-Bold 10.0 selectfont
+(!!map) show
+138.1 438.343 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 426.343 moveto
+([http://yaml.org/type/map.html]) show
+235.33 426.343 moveto
+(pdf) show
+259.6 438.373 moveto
+(Unordered ) show
+304.86 438.373 moveto
+(set ) show
+318.47 438.373 moveto
+(of ) show
+329.3 438.373 moveto
+(key:) show
+/Times-Roman.1 10.0 selectfont
+(\001) show
+/Times-Roman 10.0 selectfont
+(value ) show
+373.18 438.373 moveto
+(pairs ) show
+395.12 438.373 moveto
+(without ) show
+428.18 438.373 moveto
+(duplicates.) show
+105.6 414.343 moveto
+([http://yaml.org/type/map.pdf]) show
+230.32 414.343 moveto
+(ps) show
+105.6 402.343 moveto
+([http://yaml.org/type/map.ps]) show
+105.6 380.313 moveto
+/Courier-Bold 10.0 selectfont
+(!!omap) show
+144.1 380.313 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 368.313 moveto
+-0.5 0 32 -0.098 0 ([http://yaml.org/type/omap.html]) awidthshow
+236.596 368.313 moveto
+-0.5 0 32 -0.098 0 (pdf) awidthshow
+259.6 380.343 moveto
+(Ordered ) show
+294.86 380.343 moveto
+(sequence ) show
+334.01 380.343 moveto
+(of ) show
+344.84 380.343 moveto
+(key:) show
+/Times-Roman.1 10.0 selectfont
+(\001) show
+/Times-Roman 10.0 selectfont
+(value ) show
+388.72 380.343 moveto
+(pairs ) show
+410.66 380.343 moveto
+(without ) show
+443.72 380.343 moveto
+(duplicates.) show
+105.6 356.313 moveto
+([http://yaml.org/type/omap.pdf]) show
+235.32 356.313 moveto
+(ps) show
+105.6 344.313 moveto
+([http://yaml.org/type/omap.ps]) show
+105.6 322.283 moveto
+/Courier-Bold 10.0 selectfont
+(!!pairs) show
+150.1 322.283 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 310.283 moveto
+-0.486 0 32 -0.021 0 ([http://yaml.org/type/pairs.html]) awidthshow
+236.35 310.283 moveto
+-0.486 0 32 -0.021 0 (pdf) awidthshow
+259.6 322.313 moveto
+(Ordered ) show
+294.86 322.313 moveto
+(sequence ) show
+334.01 322.313 moveto
+(of ) show
+344.84 322.313 moveto
+(key:) show
+/Times-Roman.1 10.0 selectfont
+(\001) show
+/Times-Roman 10.0 selectfont
+(value ) show
+388.72 322.313 moveto
+(pairs ) show
+410.66 322.313 moveto
+(allowing ) show
+448.16 322.313 moveto
+(duplicates.) show
+105.6 298.283 moveto
+([http://yaml.org/type/pairs.pdf]) show
+232.54 298.283 moveto
+(ps) show
+105.6 286.283 moveto
+([http://yaml.org/type/pairs.ps]) show
+105.6 264.253 moveto
+/Courier-Bold 10.0 selectfont
+(!!set) show
+138.1 264.253 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 252.253 moveto
+([http://yaml.org/type/set.html]) show
+229.22 252.253 moveto
+(pdf) show
+259.6 264.283 moveto
+(Unordered set of non-equal values.) show
+105.6 240.253 moveto
+([http://yaml.org/type/set.pdf]) show
+224.21 240.253 moveto
+(ps) show
+105.6 228.253 moveto
+([http://yaml.org/type/set.ps]) show
+105.6 206.223 moveto
+/Courier-Bold 10.0 selectfont
+(!!seq) show
+138.1 206.223 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 194.223 moveto
+([http://yaml.org/type/seq.html]) show
+231.44 194.223 moveto
+(pdf) show
+259.6 206.253 moveto
+(Sequence of arbitrary values.) show
+105.6 182.223 moveto
+([http://yaml.org/type/seq.pdf]) show
+226.43 182.223 moveto
+(ps) show
+105.6 170.223 moveto
+([http://yaml.org/type/seq.ps]) show
+57.6 138.814 moveto
+/Helvetica-Bold 20.736 selectfont
+(3.) show
+/Helvetica-Bold.1 20.736 selectfont
+(\000) show
+/Helvetica-Bold 20.736 selectfont
+(Scalar ) show
+148.673 138.814 moveto
+(Types) show
+105.6 113.311 moveto
+/Courier-Bold 10.0 selectfont
+(!!binary) show
+156.1 113.311 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 101.311 moveto
+([http://yaml.org/type/binary.html]) show
+259.6 113.341 moveto
+(A sequence of zero or more octets \(8 bit values\).) show
+105.6 89.311 moveto
+-0.486 0 32 -0.051 0 (pdf) awidthshow
+118.777 89.311 moveto
+-0.486 0 32 -0.051 0 ( [http://yaml.org/type/binary.pdf]) awidthshow
+105.6 77.311 moveto
+(ps) show
+114.49 77.311 moveto
+( [http://yaml.org/type/binary.ps]) show
+0.0 -14.3 translate
+newpath
+57.6 64.3 moveto
+554.4 64.3 lineto
+554.4 64.8 lineto
+57.6 64.8 lineto
+closepath
+fill
+303.5 53.97 moveto
+(1) show
+0.0 14.3 translate
+newpath
+57.6 741.5 moveto
+554.4 741.5 lineto
+554.4 742.0 lineto
+57.6 742.0 lineto
+closepath
+fill
+[/Subtype /Link
+/Rect [439.744 517.085 554.4 526.085]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://lists.sourceforge.net/lists/listinfo/yaml-core)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [138.1 436.173 156.44 445.173]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/map.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [235.33 424.173 248.66 433.173]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/map.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [230.32 412.173 239.21 421.173]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/map.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [144.1 378.143 162.44 387.143]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/omap.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [236.596 366.143 249.632 375.143]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/omap.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [235.32 354.143 244.21 363.143]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/omap.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [150.1 320.113 168.44 329.113]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/pairs.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [236.35 308.113 249.617 317.113]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/pairs.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [232.54 296.113 241.43 305.113]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/pairs.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [138.1 262.083 156.44 271.083]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/set.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [229.22 250.083 242.55 259.083]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/set.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [224.21 238.083 233.1 247.083]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/set.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [138.1 204.053 156.44 213.053]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/seq.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [231.44 192.053 244.77 201.053]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/seq.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [226.43 180.053 235.32 189.053]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/seq.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [156.1 111.141 174.44 120.141]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/binary.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 87.141 118.777 96.141]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/binary.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 75.141 114.49 84.141]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/binary.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [6.0 17.064 49.548 40.184]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.w3.org/Style/XSL)>>
+/ANN pdfmark
+0.6 0.6 0.6 setrgbcolor
+6.0 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(XSL) show
+27.68 23.656 moveto
+/Helvetica 12.0 selectfont
+(·) show
+32.88 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(FO) show
+[/Subtype /Link
+/Rect [6.0 5.484 49.176 17.384]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.renderx.com/)>>
+/ANN pdfmark
+0.5 0.5 0.9 setrgbcolor
+6.0 7.764 moveto
+/Helvetica-Bold [10.5 0 0 10.0 0 0] selectfont
+(RenderX) show
+showpage
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+XEPPS_DocumentPageDevice SafeSetPageDevice
+%%EndPageSetup
+0.0 setgray
+105.6 701.64 moveto
+/Courier-Bold 10.0 selectfont
+(!!bool) show
+144.1 701.64 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 689.64 moveto
+([http://yaml.org/type/bool.html]) show
+235.89 689.64 moveto
+(pdf) show
+259.6 701.67 moveto
+(Mathematical Booleans.) show
+105.6 677.64 moveto
+([http://yaml.org/type/bool.pdf]) show
+230.88 677.64 moveto
+(ps) show
+105.6 665.64 moveto
+([http://yaml.org/type/bool.ps]) show
+105.6 643.61 moveto
+/Courier-Bold 10.0 selectfont
+(!!float) show
+150.1 643.61 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 631.61 moveto
+-0.17 0 32 ([http://yaml.org/type/float.html]) widthshow
+236.27 631.61 moveto
+-0.17 0 32 (pdf) widthshow
+259.6 643.64 moveto
+(Floating-point approximation to real numbers.) show
+105.6 619.61 moveto
+([http://yaml.org/type/float.pdf]) show
+231.43 619.61 moveto
+(ps) show
+105.6 607.61 moveto
+([http://yaml.org/type/float.ps]) show
+105.6 585.58 moveto
+/Courier-Bold 10.0 selectfont
+(!!int) show
+138.1 585.58 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 573.58 moveto
+([http://yaml.org/type/int.html]) show
+228.67 573.58 moveto
+(pdf) show
+259.6 585.61 moveto
+(Mathematical integers.) show
+105.6 561.58 moveto
+([http://yaml.org/type/int.pdf]) show
+223.66 561.58 moveto
+(ps) show
+105.6 549.58 moveto
+([http://yaml.org/type/int.ps]) show
+105.6 527.55 moveto
+/Courier-Bold 10.0 selectfont
+(!!merge) show
+150.1 527.55 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 515.55 moveto
+([http://yaml.org/type/merge.html]) show
+259.6 527.58 moveto
+(Specify one or more mappings to be merged with the current one.) show
+105.6 503.55 moveto
+-0.5 0 32 -0.036 0 (pdf) awidthshow
+118.822 503.55 moveto
+-0.5 0 32 -0.036 0 ( [http://yaml.org/type/merge.pdf]) awidthshow
+105.6 491.55 moveto
+(ps) show
+114.49 491.55 moveto
+( [http://yaml.org/type/merge.ps]) show
+105.6 469.52 moveto
+/Courier-Bold 10.0 selectfont
+(!!null) show
+144.1 469.52 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 457.52 moveto
+([http://yaml.org/type/null.html]) show
+233.67 457.52 moveto
+(pdf) show
+259.6 469.55 moveto
+(Devoid of value.) show
+105.6 445.52 moveto
+([http://yaml.org/type/null.pdf]) show
+228.66 445.52 moveto
+(ps) show
+105.6 433.52 moveto
+([http://yaml.org/type/null.ps]) show
+105.6 411.49 moveto
+/Courier-Bold 10.0 selectfont
+(!!str) show
+138.1 411.49 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 399.49 moveto
+([http://yaml.org/type/str.html]) show
+228.11 399.49 moveto
+(pdf) show
+259.6 411.52 moveto
+(A sequence of zero or more Unicode characters.) show
+105.6 387.49 moveto
+([http://yaml.org/type/str.pdf]) show
+223.1 387.49 moveto
+(ps) show
+105.6 375.49 moveto
+([http://yaml.org/type/str.ps]) show
+105.6 353.46 moveto
+/Courier-Bold 10.0 selectfont
+(!!timestamp) show
+174.1 353.46 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 341.46 moveto
+-0.207 0 ([http://yaml.org/type/timestamp.html]) ashow
+259.6 353.49 moveto
+(A point in time.) show
+105.6 329.46 moveto
+(pdf) show
+105.6 317.46 moveto
+-0.074 0 ([http://yaml.org/type/timestamp.pdf]) ashow
+105.6 305.46 moveto
+(ps) show
+105.6 293.46 moveto
+([http://yaml.org/type/timestamp.ps]) show
+105.6 271.43 moveto
+/Courier-Bold 10.0 selectfont
+(!!value) show
+150.1 271.43 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 259.43 moveto
+-0.486 0 32 -0.081 0 ([http://yaml.org/type/value.html]) awidthshow
+236.53 259.43 moveto
+-0.486 0 32 -0.081 0 (pdf) awidthshow
+259.6 271.46 moveto
+(Specify the default value of a mapping.) show
+105.6 247.43 moveto
+([http://yaml.org/type/value.pdf]) show
+234.76 247.43 moveto
+(ps) show
+105.6 235.43 moveto
+([http://yaml.org/type/value.ps]) show
+105.6 213.4 moveto
+/Courier-Bold 10.0 selectfont
+(!!yaml) show
+144.1 213.4 moveto
+/Times-Roman 10.0 selectfont
+(html) show
+105.6 201.4 moveto
+-0.5 0 32 -0.037 0 ([http://yaml.org/type/yaml.html]) awidthshow
+236.389 201.4 moveto
+-0.5 0 32 -0.037 0 (pdf) awidthshow
+259.6 213.43 moveto
+(Keys for encoding YAML in YAML.) show
+105.6 189.4 moveto
+([http://yaml.org/type/yaml.pdf]) show
+233.1 189.4 moveto
+(ps) show
+105.6 177.4 moveto
+([http://yaml.org/type/yaml.ps]) show
+0.0 -14.3 translate
+newpath
+57.6 64.3 moveto
+554.4 64.3 lineto
+554.4 64.8 lineto
+57.6 64.8 lineto
+closepath
+fill
+303.5 53.97 moveto
+(2) show
+0.0 14.3 translate
+newpath
+57.6 731.5 moveto
+554.4 731.5 lineto
+554.4 732.0 lineto
+57.6 732.0 lineto
+closepath
+fill
+239.355 747.67 moveto
+(Language-Independent Types for) show
+261.8 735.67 moveto
+(YAML) show
+291.24 735.67 moveto
+/Times-Roman.1 10.0 selectfont
+(\002) show
+301.04 735.67 moveto
+(\001) show
+/Times-Roman 10.0 selectfont
+(Version) show
+/Times-Roman.1 10.0 selectfont
+(\001) show
+/Times-Roman 10.0 selectfont
+(1.1) show
+[/Subtype /Link
+/Rect [144.1 699.47 162.44 708.47]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/bool.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [235.89 687.47 249.22 696.47]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/bool.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [230.88 675.47 239.77 684.47]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/bool.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [150.1 641.44 168.44 650.44]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/float.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [236.27 629.44 249.6 638.44]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/float.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [231.43 617.44 240.32 626.44]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/float.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [138.1 583.41 156.44 592.41]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/int.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [228.67 571.41 242.0 580.41]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/int.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [223.66 559.41 232.55 568.41]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/int.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [150.1 525.38 168.44 534.38]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/merge.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 501.38 118.822 510.38]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/merge.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 489.38 114.49 498.38]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/merge.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [144.1 467.35 162.44 476.35]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/null.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [233.67 455.35 247.0 464.35]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/null.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [228.66 443.35 237.55 452.35]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/null.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [138.1 409.32 156.44 418.32]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/str.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [228.11 397.32 241.44 406.32]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/str.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [223.1 385.32 231.99 394.32]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/str.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [174.1 351.29 192.44 360.29]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/timestamp.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 327.29 118.93 336.29]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/timestamp.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [105.6 303.29 114.49 312.29]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/timestamp.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [150.1 269.26 168.44 278.26]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/value.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [236.53 257.26 249.617 266.26]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/value.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [234.76 245.26 243.65 254.26]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/value.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [144.1 211.23 162.44 220.23]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/yaml.html)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [236.389 199.23 249.608 208.23]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/yaml.pdf)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [233.1 187.23 241.99 196.23]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://yaml.org/type/yaml.ps)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [6.0 17.064 49.548 40.184]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.w3.org/Style/XSL)>>
+/ANN pdfmark
+0.6 0.6 0.6 setrgbcolor
+6.0 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(XSL) show
+27.68 23.656 moveto
+/Helvetica 12.0 selectfont
+(·) show
+32.88 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(FO) show
+[/Subtype /Link
+/Rect [6.0 5.484 49.176 17.384]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.renderx.com/)>>
+/ANN pdfmark
+0.5 0.5 0.9 setrgbcolor
+6.0 7.764 moveto
+/Helvetica-Bold [10.5 0 0 10.0 0 0] selectfont
+(RenderX) show
+showpage
+%%PageTrailer
+%%Trailer
+XEPPS_BackupPageDevice SafeSetPageDevice
+%%EOF

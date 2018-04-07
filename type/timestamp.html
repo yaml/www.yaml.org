@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+      Timestamp Language-Independent Type for
+      YAML&#8482; Version 1.1
+    </title>
+    <link rel="stylesheet" href="single_html.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.67.2" />
+  </head>
+  <body>
+    <div class="article" lang="en" xml:lang="en">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="id664002"></a>
+      Timestamp Language-Independent Type for
+      <span class="trademark">YAML</span>&#8482; Version 1.1
+    </h1>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <i>
+      Working Draft 2005-01-18
+    </i>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="id838299"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <b>Status</b>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section" lang="en" xml:lang="en">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:timestamp</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!timestamp</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <pre class="screen">
+[0-9][0-9][0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (year)</span></em>
+-[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (month)</span></em>
+-[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (day)</span></em>
+T[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (hour)</span></em>
+:[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (minute)</span></em>
+:[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (second)</span></em>
+(\.[0-9]*[1-9])? <em class="lineannotation"><span class="lineannotation"># (fraction)</span></em>
+Z <em class="lineannotation"><span class="lineannotation"># (time zone)</span></em>
+</pre>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Regexp:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <pre class="screen">
+ [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (ymd)</span></em>
+|[0-9][0-9][0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (year)</span></em>
+ -[0-9][0-9]? <em class="lineannotation"><span class="lineannotation"># (month)</span></em>
+ -[0-9][0-9]? <em class="lineannotation"><span class="lineannotation"># (day)</span></em>
+ ([Tt]|[ \t]+)[0-9][0-9]? <em class="lineannotation"><span class="lineannotation"># (hour)</span></em>
+ :[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (minute)</span></em>
+ :[0-9][0-9] <em class="lineannotation"><span class="lineannotation"># (second)</span></em>
+ (\.[0-9]*)? <em class="lineannotation"><span class="lineannotation"># (fraction)</span></em>
+ (([ \t]*)Z|[-+][0-9][0-9]?(:[0-9][0-9])?)? <em class="lineannotation"><span class="lineannotation"># (time zone)</span></em>
+</pre>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A point in time.
+          </p>
+              <p>
+            A timestamp value represents a single point in time. This can be
+            serialized using a subset of the ISO8601 format and the formats
+            proposed by the W3C note on <a href="http://www.w3.org/TR/NOTE-datetime" target="_top">datetime</a>. In
+            addition, a more relaxed format is also supported for enhanced
+            readability, using white space separation.
+          </p>
+              <p>
+            If the time zone is omitted, the timestamp is assumed to be
+            specified in UTC. The time part may be omitted altogether,
+            resulting in a date format. In such a case, the time part is
+            assumed to be <strong class="userinput"><code>00:00:00Z</code></strong> (start of day, UTC).
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="id838540"></a>
+          <p class="title">
+            <b>Example 1. <code class="userinput">!!timestamp</code> Examples</b>
+          </p>
+          <pre class="programlisting">
+canonical:        2001-12-15T02:59:43.1Z
+valid iso8601:    2001-12-14t21:59:43.10-05:00
+space separated:  2001-12-14 21:59:43.10 -5
+no time zone (Z): 2001-12-15 2:59:43.10
+date (00:00:00Z): 2002-12-14
+</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

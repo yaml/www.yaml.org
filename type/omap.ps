@@ -1,0 +1,445 @@
+%!PS-Adobe-3.0
+%%Title: Ordered Mapping Language-Independent Type for YAML" Version 1.1
+%%Creator: XEP 3.7.8 Developer Stamped
+%%Pages: 2
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Common_XEP_procedures
+/REENCODEFONT {
+  /Enc exch def findfont dup length dict copy
+  dup /Encoding Enc put definefont
+} bind def
+/BeginEPSF {
+  /b4_Inc_state save def
+  /dict_count countdictstack def
+  /op_count count 1 sub def
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where
+  { pop languagelevel 1 ne
+    {false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+/EndEPSF {
+  count op_count sub {pop} repeat
+  countdictstack dict_count sub {end} repeat
+  b4_Inc_state restore
+} bind def
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+/CreateDataArray {
+  /temp exch def
+  [
+  {
+    temp 16384 string readstring
+    not { exit } if
+  } loop
+  dup length 0 eq { pop } if
+  ]
+} bind def
+/EqualArray {
+  /array2 exch def
+  /array1 exch def
+  /lenarray array1 length def
+  lenarray array2 length ne {false} {
+    true
+    0 1 lenarray 1 sub {
+      /idxarr exch def
+      array1 idxarr get array2 idxarr get ne {pop false exit} if
+    } for
+  } ifelse
+} bind def
+/EqualDict {
+  /dict2 exch def
+  /dict1 exch def
+  /lendict dict1 length def
+  lendict dict2 length ne {false} {
+    true
+    dict1 {
+      exch dict2 exch get ne {pop false exit} if
+    } forall 
+  } ifelse
+} bind def
+/DeepEqual {
+  /obj2 exch def
+  /obj1 exch def
+  obj1 obj2 eq {true} {
+    obj1 type obj2 type ne {false} {
+      obj1 type /dicttype eq {
+        obj1 obj2 EqualDict
+      } {
+        obj1 type /arraytype eq {
+          obj1 obj2 EqualArray
+        } {false} ifelse
+      } ifelse
+    } ifelse
+  } ifelse
+} bind def
+/SafeSetPageDevice {
+  dup length /safedict exch dict def 
+  {
+    /devicevalue exch def
+    /devicekey exch def
+    currentpagedevice devicekey known {
+      currentpagedevice devicekey get devicevalue DeepEqual not {
+        safedict devicekey devicevalue put
+      } if
+    } if
+  } forall
+  safedict length 0 ne { safedict setpagedevice} if
+} bind def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+/Times-Bold.1.enc [  /trademark /space] def
+/Times-Bold.1 /Times-Bold Times-Bold.1.enc REENCODEFONT
+/Helvetica-Bold.1.enc [  /space] def
+/Helvetica-Bold.1 /Helvetica-Bold Helvetica-Bold.1.enc REENCODEFONT
+/Helvetica.1.enc [  /space] def
+/Helvetica.1 /Helvetica Helvetica.1.enc REENCODEFONT
+/Times-Roman.1.enc [  /copyright /trademark /space] def
+/Times-Roman.1 /Times-Roman Times-Roman.1.enc REENCODEFONT
+[/Creator (XEP 3.7.8 Developer Stamped)
+/Author (Oren Ben-Kiki)
+/Title (Ordered Mapping Language-Independent Type for YAML’ Version 1.1)
+/DOCINFO pdfmark
+[/PageMode /UseOutlines
+/Page 1
+/View [/XYZ 0.0 792.0 0.0]
+/DOCVIEW pdfmark 
+[/Dest /id904577 /Page 1 /View [/XYZ 95.04 489.922 0] /DEST pdfmark
+[/Dest /id693809 /Page 1 /View [/XYZ 95.04 727.2 0] /DEST pdfmark
+[/Dest /id693809
+/Border [0 0 0 [0]]
+/Title (Ordered Mapping Language-Independent Type for YAML’ Version 1.1)
+/OUT pdfmark
+[/Dest /id904577
+/Border [0 0 0 [0]]
+/Title (1. )
+/OUT pdfmark
+/XEPPS_BackupPageDevice 3 dict
+dup /Margins dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageOffset dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageSize dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+def
+3 dict
+dup /Margins [0 0] put
+dup /PageOffset [0 0] put
+dup /PageSize [612.0 792.0] put
+SafeSetPageDevice
+/XEPPS_DocumentPageDevice 3 dict
+dup /Margins dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageOffset dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+dup /PageSize dup currentpagedevice exch known {dup currentpagedevice exch get put} {pop pop} ifelse 
+def
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+XEPPS_DocumentPageDevice SafeSetPageDevice
+%%EndPageSetup
+0.0 setgray
+226.997 698.713 moveto
+/Helvetica-Bold 24.883 selectfont
+(Ordered Mapping) show
+140.591 668.854 moveto
+(Language-Independent Type for) show
+212.465 638.995 moveto
+(YAML) show
+282.959 638.995 moveto
+/Times-Bold.1 24.883 selectfont
+(\000) show
+307.842 638.995 moveto
+/Helvetica-Bold.1 24.883 selectfont
+(\000) show
+/Helvetica-Bold 24.883 selectfont
+(Version) show
+/Helvetica-Bold.1 24.883 selectfont
+(\000) show
+/Helvetica-Bold 24.883 selectfont
+(1.1) show
+272.48 621.308 moveto
+/Helvetica 10.0 selectfont
+(Working Draft 2005-01-18) show
+201.106 598.344 moveto
+/Helvetica 14.4 selectfont
+(Oren Ben-Kiki ) show
+294.734 598.344 moveto
+/Courier 14.4 selectfont
+(<oren@ben-kiki.org>) show
+181.19 580.784 moveto
+/Helvetica 14.4 selectfont
+(Clark Evans ) show
+262.809 580.784 moveto
+/Courier 14.4 selectfont
+(<cce+yaml@clarkevans.com>) show
+216.376 563.224 moveto
+/Helvetica 14.4 selectfont
+(Brian Ingerson ) show
+314.023 563.224 moveto
+/Courier 14.4 selectfont
+(<ingy@ttul.org>) show
+180.585 544.428 moveto
+/Helvetica 10.0 selectfont
+(Copyright ) show
+226.155 544.428 moveto
+/Times-Roman.1 10.0 selectfont
+(\000) show
+236.535 544.428 moveto
+/Helvetica 10.0 selectfont
+(2001-2005 ) show
+287.125 544.428 moveto
+(Oren ) show
+312.135 544.428 moveto
+(Ben-Kiki,) show
+/Helvetica.1 10.0 selectfont
+(\000) show
+/Helvetica 10.0 selectfont
+(Clark ) show
+381.035 544.428 moveto
+(Evans,) show
+/Helvetica.1 10.0 selectfont
+(\000) show
+/Helvetica 10.0 selectfont
+(Brian ) show
+440.505 544.428 moveto
+(Ingerson) show
+141.6 532.428 moveto
+/Times-Roman 10.0 selectfont
+(This document may be freely copied provided it is not modified.) show
+141.6 506.762 moveto
+/Times-Bold 12.0 selectfont
+(Status) show
+141.6 484.028 moveto
+/Times-Roman 10.0 selectfont
+-0.218 0 32 (This specification is a draft reflecting consensus reached by members of the ) widthshow
+445.024 484.028 moveto
+-0.218 0 32 (yaml-core mailing) widthshow
+141.6 472.028 moveto
+-0.461 0 32 -0.097 0 (list) awidthshow
+153.442 472.028 moveto
+-0.461 0 32 -0.097 0 ( [http://lists.sourceforge.net/lists/listinfo/yaml-core]) awidthshow
+354.489 472.028 moveto
+-0.461 0 32 -0.097 0 (. Any questions regarding this draft should) awidthshow
+141.6 460.028 moveto
+(be raised on this list.) show
+105.6 438.028 moveto
+(URI:) show
+181.6 437.998 moveto
+/Courier-Bold 10.0 selectfont
+(tag:yaml.org,2002:omap) show
+105.6 415.998 moveto
+/Times-Roman 10.0 selectfont
+(Shorthand:) show
+181.6 415.968 moveto
+/Courier-Bold 10.0 selectfont
+(!!omap) show
+105.6 393.968 moveto
+/Times-Roman 10.0 selectfont
+(Kind:) show
+181.6 393.968 moveto
+(Sequence.) show
+105.6 371.968 moveto
+(Definition:) show
+181.6 371.968 moveto
+(Ordered sequence of key:value pairs without duplicates.) show
+181.6 349.968 moveto
+0.413 0 32 (A common type used for modeling is the ordered list of named values, where duplicates are) widthshow
+181.6 337.968 moveto
+(not allowed. For example, this is the basic collection data type used by the PHP language.) show
+181.6 315.968 moveto
+0.496 0 32 (Most programming languages do not have a built-in native data type for supporting ordered) widthshow
+181.6 303.968 moveto
+0.37 0 32 (maps. Such data types are usually provided by libraries. If no such data type is available, an) widthshow
+181.6 291.938 moveto
+0.291 0 32 (application may resort to loading an ª) widthshow
+334.436 291.938 moveto
+/Courier-Bold 10.0 selectfont
+0.291 0 32 (!!omap) widthshow
+370.436 291.938 moveto
+/Times-Roman 10.0 selectfont
+0.291 0 32 (º into a native array of hash tables containing) widthshow
+181.6 279.938 moveto
+(one key each.) show
+181.6 257.908 moveto
+-0.0070 0 32 (The ª) widthshow
+204.083 257.908 moveto
+/Courier-Bold 10.0 selectfont
+-0.0070 0 32 (!!omap) widthshow
+240.083 257.908 moveto
+/Times-Roman 10.0 selectfont
+-0.0070 0 32 (º tag may be given explicitly. Alternatively, the application may choose to im-) widthshow
+181.6 245.908 moveto
+1.315 0 32 (plicitly type a sequence of single-key mappings to ordered maps. In this case, an explicit) widthshow
+181.6 233.878 moveto
+1.087 0 32 (ª) widthshow
+186.04 233.878 moveto
+/Courier-Bold 10.0 selectfont
+1.087 0 32 (!seq) widthshow
+210.04 233.878 moveto
+/Times-Roman 10.0 selectfont
+1.087 0 32 (º transfer must be given to sequences of single-key mappings that do not represent) widthshow
+181.6 221.878 moveto
+(ordered maps.) show
+0.0 -14.3 translate
+newpath
+57.6 64.3 moveto
+554.4 64.3 lineto
+554.4 64.8 lineto
+57.6 64.8 lineto
+closepath
+fill
+303.5 53.97 moveto
+(1) show
+0.0 14.3 translate
+newpath
+57.6 741.5 moveto
+554.4 741.5 lineto
+554.4 742.0 lineto
+57.6 742.0 lineto
+closepath
+fill
+[/Subtype /Link
+/Rect [445.024 481.858 518.406 490.858]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://lists.sourceforge.net/lists/listinfo/yaml-core)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [141.6 469.858 153.442 478.858]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://lists.sourceforge.net/lists/listinfo/yaml-core)>>
+/ANN pdfmark
+[/Subtype /Link
+/Rect [6.0 17.064 49.548 40.184]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.w3.org/Style/XSL)>>
+/ANN pdfmark
+0.6 0.6 0.6 setrgbcolor
+6.0 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(XSL) show
+27.68 23.656 moveto
+/Helvetica 12.0 selectfont
+(·) show
+32.88 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(FO) show
+[/Subtype /Link
+/Rect [6.0 5.484 49.176 17.384]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.renderx.com/)>>
+/ANN pdfmark
+0.5 0.5 0.9 setrgbcolor
+6.0 7.764 moveto
+/Helvetica-Bold [10.5 0 0 10.0 0 0] selectfont
+(RenderX) show
+showpage
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+XEPPS_DocumentPageDevice SafeSetPageDevice
+%%EndPageSetup
+0.0 setgray
+105.6 709.968 moveto
+/Times-Bold 12.0 selectfont
+(Example) show
+/Times-Bold.1 12.0 selectfont
+(\001) show
+/Times-Bold 12.0 selectfont
+(1.) show
+/Times-Bold.1 12.0 selectfont
+(\001) show
+165.936 709.968 moveto
+/Courier-Bold 12.0 selectfont
+(!!omap) show
+209.136 709.968 moveto
+/Times-Bold 12.0 selectfont
+( Examples) show
+105.6 675.204 moveto
+/Courier 10.0 selectfont
+(# Explicitly typed ordered map \(dictionary\).) show
+105.6 663.204 moveto
+(Bestiary: !!omap) show
+105.6 651.204 moveto
+(  - aardvark: African pig-like ant eater. Ugly.) show
+105.6 639.204 moveto
+(  - anteater: South-American ant eater. Two species.) show
+105.6 627.204 moveto
+(  - anaconda: South-American constrictor snake. Scaly.) show
+105.6 615.204 moveto
+(  # Etc.) show
+105.6 603.204 moveto
+(# Flow style) show
+105.6 591.204 moveto
+(Numbers: !!omap [ one: 1, two: 2, three : 3 ]) show
+0.0 -14.3 translate
+newpath
+57.6 64.3 moveto
+554.4 64.3 lineto
+554.4 64.8 lineto
+57.6 64.8 lineto
+closepath
+fill
+303.5 53.97 moveto
+/Times-Roman 10.0 selectfont
+(2) show
+0.0 14.3 translate
+newpath
+57.6 731.5 moveto
+554.4 731.5 lineto
+554.4 732.0 lineto
+57.6 732.0 lineto
+closepath
+fill
+223.2 747.67 moveto
+-0.23 0 32 (Ordered Mapping Language-Independent) widthshow
+243.195 735.67 moveto
+(Type for YAML) show
+309.845 735.67 moveto
+/Times-Roman.1 10.0 selectfont
+(\001) show
+319.645 735.67 moveto
+(\002) show
+/Times-Roman 10.0 selectfont
+(Version) show
+/Times-Roman.1 10.0 selectfont
+(\002) show
+/Times-Roman 10.0 selectfont
+(1.1) show
+[/Subtype /Link
+/Rect [6.0 17.064 49.548 40.184]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.w3.org/Style/XSL)>>
+/ANN pdfmark
+0.6 0.6 0.6 setrgbcolor
+6.0 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(XSL) show
+27.68 23.656 moveto
+/Helvetica 12.0 selectfont
+(·) show
+32.88 21.564 moveto
+/Helvetica [12.0 0 0 20.0 0 0] selectfont
+(FO) show
+[/Subtype /Link
+/Rect [6.0 5.484 49.176 17.384]
+/Border [0 0 0 [0]]
+/Action <</Subtype /URI /URI 
+(http://www.renderx.com/)>>
+/ANN pdfmark
+0.5 0.5 0.9 setrgbcolor
+6.0 7.764 moveto
+/Helvetica-Bold [10.5 0 0 10.0 0 0] selectfont
+(RenderX) show
+showpage
+%%PageTrailer
+%%Trailer
+XEPPS_BackupPageDevice SafeSetPageDevice
+%%EOF

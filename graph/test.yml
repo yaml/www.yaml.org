@@ -1,0 +1,6 @@
+---
+- MyValue
+- 
+  KeyOne: ValOne
+  KeyTwo: &bing ValTwo
+- *bing

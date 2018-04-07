@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+      Language-Independent Types for
+      YAML&#8482; Version 1.1
+    </title>
+    <link rel="stylesheet" href="single_html.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.67.2" />
+  </head>
+  <body>
+    <div class="article" lang="en" xml:lang="en">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="id664002"></a>
+      Language-Independent Types for
+      <span class="trademark">YAML</span>&#8482; Version 1.1
+    </h1>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <i>Last Updated On 2005-01-18</i>
+            </h3>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="id838257"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section" lang="en" xml:lang="en">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id838262"></a>1. Introduction</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+      The following is the list of language-independent YAML tags defined under
+      the domain <strong class="userinput"><code>yaml.org</code></strong>. The use of these tags is not
+      mandatory. However these tags represent types that are useful across a
+      wide range of applications and it is strongly recommended they be used
+      whenever appropriate to promote interoperability.
+    </p>
+        <p>
+      New language-independent tags may be proposed on the <a href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+      mailing list</a>. This mailing list is also the forum for raising any
+      question regarding these types.
+    </p>
+      </div>
+      <div class="section" lang="en" xml:lang="en">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id838294"></a>2. Collection Types</h2>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!map</code></strong>
+            <a href="/type/map.html" target="_top">html</a>
+            <a href="/type/map.pdf" target="_top">pdf</a>
+            <a href="/type/map.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Unordered set of key: value pairs without duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!omap</code></strong>
+            <a href="/type/omap.html" target="_top">html</a>
+            <a href="/type/omap.pdf" target="_top">pdf</a>
+            <a href="/type/omap.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Ordered sequence of key: value pairs without duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!pairs</code></strong>
+            <a href="/type/pairs.html" target="_top">html</a>
+            <a href="/type/pairs.pdf" target="_top">pdf</a>
+            <a href="/type/pairs.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Ordered sequence of key: value pairs allowing duplicates.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!set</code></strong>
+            <a href="/type/set.html" target="_top">html</a>
+            <a href="/type/set.pdf" target="_top">pdf</a>
+            <a href="/type/set.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Unordered set of non-equal values.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!seq</code></strong>
+            <a href="/type/seq.html" target="_top">html</a>
+            <a href="/type/seq.pdf" target="_top">pdf</a>
+            <a href="/type/seq.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Sequence of arbitrary values.
+          </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="section" lang="en" xml:lang="en">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id838503"></a>3. Scalar Types</h2>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!binary</code></strong>
+            <a href="/type/binary.html" target="_top">html</a>
+            <a href="/type/binary.pdf" target="_top">pdf</a>
+            <a href="/type/binary.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A sequence of zero or more octets (8 bit values).
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!bool</code></strong>
+            <a href="/type/bool.html" target="_top">html</a>
+            <a href="/type/bool.pdf" target="_top">pdf</a>
+            <a href="/type/bool.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Mathematical Booleans.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!float</code></strong>
+            <a href="/type/float.html" target="_top">html</a>
+            <a href="/type/float.pdf" target="_top">pdf</a>
+            <a href="/type/float.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Floating-point approximation to real numbers.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!int</code></strong>
+            <a href="/type/int.html" target="_top">html</a>
+            <a href="/type/int.pdf" target="_top">pdf</a>
+            <a href="/type/int.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Mathematical integers.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!merge</code></strong>
+            <a href="/type/merge.html" target="_top">html</a>
+            <a href="/type/merge.pdf" target="_top">pdf</a>
+            <a href="/type/merge.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify one or more mappings to be merged with the current one.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!null</code></strong>
+            <a href="/type/null.html" target="_top">html</a>
+            <a href="/type/null.pdf" target="_top">pdf</a>
+            <a href="/type/null.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Devoid of value.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!str</code></strong>
+            <a href="/type/str.html" target="_top">html</a>
+            <a href="/type/str.pdf" target="_top">pdf</a>
+            <a href="/type/str.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A sequence of zero or more Unicode characters.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!timestamp</code></strong>
+            <a href="/type/timestamp.html" target="_top">html</a>
+            <a href="/type/timestamp.pdf" target="_top">pdf</a>
+            <a href="/type/timestamp.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            A point in time.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!value</code></strong>
+            <a href="/type/value.html" target="_top">html</a>
+            <a href="/type/value.pdf" target="_top">pdf</a>
+            <a href="/type/value.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify the default value of a mapping.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            <strong class="userinput"><code>!!yaml</code></strong>
+            <a href="/type/yaml.html" target="_top">html</a>
+            <a href="/type/yaml.pdf" target="_top">pdf</a>
+            <a href="/type/yaml.ps" target="_top">ps</a>
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Keys for encoding YAML in YAML.
+          </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
