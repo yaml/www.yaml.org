@@ -4,6 +4,10 @@ Contributing to www.yaml.org
 The upkeep of http://www.yaml.org is a community project. You can easily
 contribute! Just fork, make changes and send us a Pull Request.
 
+NOTE: for changes to `index.html`, please target your PR to the `gh-pages`
+branch directly. This is necessary until the process of generating
+`gh-pages` is fixed.
+
 This git repo is hosted at: https://github.com/yaml/www.yaml.org
 
 Please file issues and pull requests here:
