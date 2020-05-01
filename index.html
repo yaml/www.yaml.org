@@ -23,77 +23,70 @@
   <span class="yaml_key">YAML IRC Channel</span><span class="yaml_key_sep">:</span>       <a href="irc://irc.freenode.net/#yaml">"#yaml on irc.freenode.net"</a>
   <span class="yaml_key">YAML Reference Parser</span><span class="yaml_key_sep">:</span>  <a href="http://ben-kiki.org/ypaste">http://ben-kiki.org/ypaste/</a>
   <span class="yaml_key">YAML Spec</span><span class="yaml_key_sep">:</span>              <a href="https://github.com/yaml/yaml-spec">https://github.com/yaml/yaml-spec</a>
-  <span class="yaml_key">YAML Test Suite</span><span class="yaml_key_sep">:</span>        <a href="https://github.com/yaml/yaml-test-suite">https://github.com/yaml/yaml-test-suite</a>
+  <span class="yaml_key">YAML Test Suite</span><span class="yaml_key_sep">:</span>        <a href="https://github.com/yaml/yaml-test-suite" name="yts">https://github.com/yaml/yaml-test-suite</a>
   <span class="yaml_key">YAML Test Matrix</span><span class="yaml_key_sep">:</span>       <a href="https://matrix.yaml.io/">https://matrix.yaml.io/</a>
   <span class="yaml_key">YAML Docker Runtimes</span><span class="yaml_key_sep">:</span>   <a href="https://github.com/yaml/yaml-runtimes">https://github.com/yaml/yaml-runtimes</a>
   <span class="yaml_key">YAML Cookbook (Ruby)</span><span class="yaml_key_sep">:</span>   <a href="YAML_for_ruby.html">YAML_for_ruby.html</a> <!-- http://yaml4r.sourceforge.net/cookbook/ -->
 
 <span class="yaml_key">Projects</span><span class="yaml_key_sep">:</span>
-  <span class="yaml_key">C/C++ Libraries</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/pantoniou/libfyaml">libfyaml</a>           <span class="yaml_comment"># "C" YAML 1.2 processor</span>
-  - <a href="http://pyyaml.org/wiki/LibYAML">libyaml</a>            <span class="yaml_comment"># "C" Fast YAML 1.1</span>
-  - <a href="https://github.com/tlsa/libcyaml">libcyaml</a>           <span class="yaml_comment"># YAML de/serialization of C data structures (using libyaml)</span>
-  - <a href="http://whytheluckystiff.net/syck/">Syck</a>               <span class="yaml_comment"># (dated) "C" YAML 1.0</span>
-  - <a href="https://github.com/jbeder/yaml-cpp/">yaml-cpp</a>           <span class="yaml_comment"># C++ YAML 1.2 implementation</span>
+  <span class="yaml_key">C/C++</span><span class="yaml_key_sep">:</span>
+  - <a href="https://github.com/pantoniou/libfyaml"               >libfyaml</a>           <span class="yaml_comment"># "C" YAML 1.2 processor                            | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  - <a href="http://pyyaml.org/wiki/LibYAML"                      >libyaml</a>            <span class="yaml_comment"># "C" Fast YAML 1.1                                 | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  - <a href="https://github.com/tlsa/libcyaml"                    >libcyaml</a>           <span class="yaml_comment"># YAML de/serialization of C data structures (using libyaml)</span>
+  - <a href="https://github.com/jbeder/yaml-cpp/"                 >yaml-cpp</a>           <span class="yaml_comment"># C++ YAML 1.2 implementation</span>
   <span class="yaml_key">Crystal</span><span class="yaml_key_sep">:</span>
-  - <a href="https://crystal-lang.org/api/latest/YAML.html">YAML</a>               <span class="yaml_comment"># YAML 1.1 from the standard library</span>
-  <span class="yaml_key">D</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/dlang-community/D-YAML">D-YAML</a>             <span class="yaml_comment"># YAML 1.1 de/serialization library with official community support</span>
-  <span class="yaml_key">Ruby</span><span class="yaml_key_sep">:</span>
-  - <a href="http://github.com/tenderlove/psych">psych</a>              <span class="yaml_comment"># libyaml wrapper (in Ruby core for 1.9.2)</span>
-  - <a href="http://rubyforge.org/projects/rbyaml">RbYaml</a>             <span class="yaml_comment"># YAML 1.1 (PyYAML Port)</span>
-  - <a href="http://yaml4r.sourceforge.net/doc/">yaml4r</a>             <span class="yaml_comment"># YAML 1.0, standard library syck binding</span>
-  <span class="yaml_key">Python</span><span class="yaml_key_sep">:</span>
-  - <a href="http://pyyaml.org">PyYAML</a>             <span class="yaml_comment"># YAML 1.1, pure python and libyaml binding</span>
-  - <a href="https://pypi.python.org/pypi/ruamel.yaml">ruamel.yaml</a>        <span class="yaml_comment"># YAML 1.2, update of PyYAML with round-tripping of comments</span>
-  - <a href="http://pyyaml.org/wiki/PySyck">PySyck</a>             <span class="yaml_comment"># YAML 1.0, syck binding</span>
-  <span class="yaml_key">Java</span><span class="yaml_key_sep">:</span>
-  - <a href="https://jvyaml.dev.java.net">JvYaml</a>             <span class="yaml_comment"># Java port of RbYaml</span>
-  - <a href="http://www.snakeyaml.org/">SnakeYAML</a>          <span class="yaml_comment"># Java 5 / YAML 1.1</span>
-  - <a href="http://yamlbeans.sourceforge.net/">YamlBeans</a>          <span class="yaml_comment"># To/from JavaBeans</span>
-  - <a href="http://jyaml.sourceforge.net/">JYaml</a>              <span class="yaml_comment"># Original Java Implementation</span>
-  - <a href="https://www.github.com/decorators-squad/eo-yaml">eo-yaml</a>            <span class="yaml_comment"># YAML 1.2 for Java 8. Also packaged as a Module (Java 9+).</span>
-  <span class="yaml_key">Perl Modules</span><span class="yaml_key_sep">:</span>
-  - <a href="https://metacpan.org/release/YAML">YAML</a>               <span class="yaml_comment"># Pure Perl YAML Module</span>
-  - <a href="https://metacpan.org/release/YAML-LibYAML">YAML::XS</a>           <span class="yaml_comment"># Binding to libyaml</span>
-  - <a href="https://metacpan.org/release/YAML-Syck">YAML::Syck</a>         <span class="yaml_comment"># Binding to libsyck</span>
-  - <a href="https://metacpan.org/release/YAML-Tiny">YAML::Tiny</a>         <span class="yaml_comment"># A small YAML subset module</span>
-  - <a href="https://metacpan.org/release/YAML-PP">YAML::PP</a>           <span class="yaml_comment"># A YAML 1.2 processor</span>
-  - <a href="http://trac.yaml.com/trac/wiki/PlYaml">PlYaml</a>             <span class="yaml_comment"># Perl port of PyYAML</span>
+  - <a href="https://crystal-lang.org/api/latest/YAML.html"       >YAML</a>               <span class="yaml_comment"># YAML 1.1 from the standard library</span>
   <span class="yaml_key">C#/.NET</span><span class="yaml_key_sep">:</span>
-  - <a href="http://www.aaubry.net/page/YamlDotNet">YamlDotNet</a>         <span class="yaml_comment"># YAML 1.1 library with serialization support</span>
-  - <a href="http://yaml-net-parser.sourceforge.net/">yaml-net</a>           <span class="yaml_comment"># YAML 1.1 library</span>
-  - <a href="http://www.codeplex.com/yaml/">yatools.net</a>        <span class="yaml_comment"># (in-progress) YAML 1.1 implementation</span>
+  - <a href="http://www.aaubry.net/page/YamlDotNet"               >YamlDotNet</a>         <span class="yaml_comment"># YAML 1.1 library with serialization support       | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  - <a href="http://yaml-net-parser.sourceforge.net/"             >yaml-net</a>           <span class="yaml_comment"># YAML 1.1 library</span>
+  <span class="yaml_key">D</span><span class="yaml_key_sep">:</span>
+  - <a href="https://github.com/dlang-community/D-YAML"           >D-YAML</a>             <span class="yaml_comment"># YAML 1.1 de/serialization library with official community support</span>
+  <span class="yaml_key">Dart</span><span class="yaml_key_sep"    >:</span>
+  - <a href="https://pub.dartlang.org/packages/yaml"              >yaml</a>               <span class="yaml_comment"># YAML package for Dart</span>
+  <span class="yaml_key">Delphi</span><span class="yaml_key_sep">:</span>
+  - <a href="https://github.com/neslib/Neslib.Yaml"               >Neslib.Yaml</a>        <span class="yaml_comment"># YAML 1.1 Delphi binding to libyaml                | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
   <span class="yaml_key">Golang</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/go-yaml/yaml">Go-yaml</a>            <span class="yaml_comment"># YAML support for the Go language.</span>
-  - <a href="https://github.com/kylelemons/go-gypsy">Go-gypsy</a>           <span class="yaml_comment"># Simplified YAML parser written in Go.</span>
+  - <a href="https://github.com/go-yaml/yaml"                     >Go-yaml</a>            <span class="yaml_comment"># YAML support for the Go language.</span>
+  - <a href="https://github.com/kylelemons/go-gypsy"              >Go-gypsy</a>           <span class="yaml_comment"># Simplified YAML parser written in Go.</span>
+  <span class="yaml_key">Haskell</span><span class="yaml_key_sep">:</span>
+  - <a href="https://hackage.haskell.org/package/HsYAML"          >HsYAML</a>             <span class="yaml_comment"># YAML 1.2 implementation in pure Haskell           | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  - <a href="https://hackage.haskell.org/package/YamlReference"   >YamlReference</a>      <span class="yaml_comment"># Haskell 1.2 reference parser</span>
+  - <a href="https://hackage.haskell.org/package/yaml"            >yaml</a>               <span class="yaml_comment"># YAML 1.1 parser/renderer for Haskell (based on libyaml)</span>
+  <span class="yaml_key">Java</span><span class="yaml_key_sep">:</span>
+  - <a href="http://www.snakeyaml.org/"                           >SnakeYAML</a>          <span class="yaml_comment"># Java 5 / YAML 1.1</span>
+  - <a href="https://github.com/EsotericSoftware/yamlbeans"       >YamlBeans</a>          <span class="yaml_comment"># To/from JavaBeans. YAML 1.0/1.1</span>
+  - <a href="https://github.com/decorators-squad/eo-yaml"         >eo-yaml</a>            <span class="yaml_comment"># YAML 1.2 for Java 8. Also packaged as a Module (Java 9+).</span>
+  <span class="yaml_key">Javascript</span><span class="yaml_key_sep">:</span>
+  - <a href="https://github.com/nodeca/js-yaml"                   >js-yaml</a>            <span class="yaml_comment"># Native PyYAML port to JavaScript. <a href="http://nodeca.github.com/js-yaml/">Demo</a></span>
+  - <a href="https://github.com/eemeli/yaml"                      >yaml</a>               <span class="yaml_comment"># JavaScript parser and stringifier (YAML 1.2, 1.1) | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  <span class="yaml_key">Nim</span><span class="yaml_key_sep">:</span>
+  - <a href="https://nimyaml.org"                                 >NimYAML</a>            <span class="yaml_comment"># YAML 1.2 implementation in pure Nim               | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
+  <span class="yaml_key">OCaml</span><span class="yaml_key_sep">:</span>
+  - <a href="http://ocaml-syck.sourceforge.net"                   >ocaml-syck</a>         <span class="yaml_comment"># YAML 1.0 via syck bindings</span>
+  <span class="yaml_key">Perl Modules</span><span class="yaml_key_sep">:</span>
+  - <a href="https://metacpan.org/release/YAML"                   >YAML</a>               <span class="yaml_comment"># Pure Perl YAML 1.0 Module</span>
+  - <a href="https://metacpan.org/release/YAML-LibYAML"           >YAML::XS</a>           <span class="yaml_comment"># Binding to libyaml</span>
+  - <a href="https://metacpan.org/release/YAML-Syck"              >YAML::Syck</a>         <span class="yaml_comment"># Binding to libsyck</span>
+  - <a href="https://metacpan.org/release/YAML-Tiny"              >YAML::Tiny</a>         <span class="yaml_comment"># A small YAML subset module</span>
+  - <a href="https://metacpan.org/release/YAML-PP"                >YAML::PP</a>           <span class="yaml_comment"># A YAML 1.2/1.1 processor                          | <a href="#yts" title="Uses YAML Test Suite">YTS</a></span>
   <span class="yaml_key">PHP</span><span class="yaml_key_sep">:</span>
   - <a href="https://symfony.com/doc/current/components/yaml.html">The Yaml Component</a> <span class="yaml_comment"># Symfony Yaml Component - Loads and dumps YAML files (YAML 1.2)</span>  
-  - <a href="https://pecl.php.net/package/yaml">php-yaml</a>           <span class="yaml_comment"># libyaml bindings (YAML 1.1)</span>
-  - <a href="http://pecl.php.net/package/syck">syck</a>               <span class="yaml_comment"># syck bindings (YAML 1.0)</span>
-  - <a href="https://github.com/mustangostang/spyc">spyc</a>               <span class="yaml_comment"># yaml loader/dumper (YAML 1.?)</span>
-  <span class="yaml_key">OCaml</span><span class="yaml_key_sep">:</span>
-  - <a href="http://ocaml-syck.sourceforge.net">ocaml-syck</a>         <span class="yaml_comment"># YAML 1.0 via syck bindings</span>
-  <span class="yaml_key">Javascript</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/nodeca/js-yaml">JS-YAML</a>            <span class="yaml_comment"># Native PyYAML port to JavaScript.</span>
-  - <a href="http://nodeca.github.com/js-yaml/">JS-YAML Online</a>     <span class="yaml_comment"># Browserified JS-YAML demo, to play with YAML in your browser.</span>
-  <span class="yaml_key">Actionscript</span><span class="yaml_key_sep">:</span>
-  - <a href="http://flexonrails.net/">as3yaml</a>            <span class="yaml_comment"># port of JvYAML (1.1)</span>
-  <span class="yaml_key">Haskell</span><span class="yaml_key_sep">:</span>
-  - <a href="https://hackage.haskell.org/package/HsYAML">HsYAML</a>             <span class="yaml_comment"># YAML 1.2 implementation in pure Haskell</span>
-  - <a href="https://hackage.haskell.org/package/YamlReference">YamlReference</a>      <span class="yaml_comment"># Haskell 1.2 reference parser</span>
-  - <a href="https://hackage.haskell.org/package/yaml">yaml</a>               <span class="yaml_comment"># YAML 1.1 parser/renderer for Haskell (based on libyaml)</span>
-  <span class="yaml_key">Dart</span><span class="yaml_key_sep">:</span>
-  - <a href="https://pub.dartlang.org/packages/yaml">yaml</a>               <span class="yaml_comment"># YAML package for Dart</span>
-  <span class="yaml_key">Rust</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/chyh1990/yaml-rust">yaml-rust</a>          <span class="yaml_comment"># YAML 1.2 implementation in pure Rust</span>
-  - <a href="https://github.com/dtolnay/serde-yaml">serde-yaml</a>         <span class="yaml_comment"># YAML de/serialization of structs</span>
-  <span class="yaml_key">Nim</span><span class="yaml_key_sep">:</span>
-  - <a href="https://nimyaml.org">NimYAML</a>            <span class="yaml_comment"># YAML 1.2 implementation in pure Nim</span>
+  - <a href="https://pecl.php.net/package/yaml"                   >php-yaml</a>           <span class="yaml_comment"># libyaml bindings (YAML 1.1)</span>
+  - <a href="http://pecl.php.net/package/syck"                    >syck</a>               <span class="yaml_comment"># syck bindings (YAML 1.0)</span>
+  - <a href="https://github.com/mustangostang/spyc"               >spyc</a>               <span class="yaml_comment"># yaml loader/dumper (YAML 1.?)</span>
+  <span class="yaml_key">Python</span><span class="yaml_key_sep">:</span>
+  - <a href="http://pyyaml.org"                                   >PyYAML</a>             <span class="yaml_comment"># YAML 1.1, pure python and libyaml binding</span>
+  - <a href="https://pypi.python.org/pypi/ruamel.yaml"            >ruamel.yaml</a>        <span class="yaml_comment"># YAML 1.2, update of PyYAML with round-tripping of comments</span>
+  - <a href="https://github.com/yaml/pysyck"                      >PySyck</a>             <span class="yaml_comment"># YAML 1.0, syck binding</span>
   <span class="yaml_key">R</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/viking/r-yaml">R YAML</a>             <span class="yaml_comment"># libyaml wrapper</span>  
-  <span class="yaml_key">Delphi</span><span class="yaml_key_sep">:</span>
-  - <a href="https://github.com/neslib/Neslib.Yaml">Neslib.Yaml</a>        <span class="yaml_comment"># YAML 1.1 Delphi binding to libyaml</span>  
+  - <a href="https://github.com/viking/r-yaml"                    >R YAML</a>             <span class="yaml_comment"># libyaml wrapper</span>  
+  <span class="yaml_key">Ruby</span><span class="yaml_key_sep">:</span>
+  - <a href="http://github.com/tenderlove/psych"                  >psych</a>              <span class="yaml_comment"># libyaml wrapper (in Ruby core for 1.9.2)</span>
+  - <a href="https://rubygems.org/gems/RbYAML/versions/0.2.0"     >RbYaml</a>             <span class="yaml_comment"># YAML 1.1 (PyYAML Port)</span>
+  - <a href="http://yaml4r.sourceforge.net/doc/"                  >yaml4r</a>             <span class="yaml_comment"># YAML 1.0, standard library syck binding</span>
+  <span class="yaml_key">Rust</span><span class="yaml_key_sep">:</span>
+  - <a href="https://github.com/chyh1990/yaml-rust"               >yaml-rust</a>          <span class="yaml_comment"># YAML 1.2 implementation in pure Rust</span>
+  - <a href="https://github.com/dtolnay/serde-yaml"               >serde-yaml</a>         <span class="yaml_comment"># YAML de/serialization of structs</span>
   <span class="yaml_key">Others</span><span class="yaml_key_sep">:</span>
   - <a href="http://www.vim.org/scripts/script.php?script_id=3190">yamlvim</a> <a href="http://yamlvim.hg.sourceforge.net/hgweb/yamlvim/yamlvim/">(src)</a>      <span class="yaml_comment"># YAML dumper/emitter in pure vimscript</span>
 
@@ -152,6 +145,20 @@
 <span class="yaml_comment"># <a href="https://github.com/yaml/www.yaml.org">Fork This on GitHub</a></span>
 <span class="yaml_doc_sep">...</span>
 </pre>
+
+  <!-- Outdated links/libraries
+  <span class="yaml_key">Actionscript</span><span class="yaml_key_sep">:</span>
+  - <a href="http://flexonrails.net/"                             >as3yaml</a>            <span class="yaml_comment"># port of JvYAML (1.1)</span>
+  C
+  - <a href="http://whytheluckystiff.net/syck/">Syck</a>               <span class="yaml_comment"># (dated) "C" YAML 1.0</span>
+  C#
+  - <a href="http://www.codeplex.com/yaml/"                       >yatools.net</a>        <span class="yaml_comment"># (in-progress) YAML 1.1 implementation</span>
+  Java
+  - <a href="https://jvyaml.dev.java.net"                         >JvYaml</a>             <span class="yaml_comment"># Java port of RbYaml</span>
+  - <a href="http://jyaml.sourceforge.net/"                       >JYaml</a>              <span class="yaml_comment"># Original Java Implementation</span>
+  Perl
+  - <a href="http://trac.yaml.com/trac/wiki/PlYaml"               >PlYaml</a>             <span class="yaml_comment"># Perl port of PyYAML</span>
+  -->
 
     </body> 
 </html>
