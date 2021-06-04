@@ -226,7 +226,7 @@ a[href^="#"] {
   text-decoration: none;
   color: black;
   background-color: green;
-  background: url(term.png) no-repeat bottom right;
+  background: url(term.png) repeat-x bottom right;
 }
 
 a[href^="#"]:hover,
