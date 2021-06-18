@@ -46,7 +46,7 @@ This git repo is hosted at: https://github.com/yaml/www.yaml.org
 Please file issues and pull requests here:
 https://github.com/yaml/www.yaml.org/issues
 
-If you want to chat about YAML or this site, drop by #yaml on irc.freenode.net
+If you want to chat about YAML or this site, drop by #yaml on irc.libera.chat
 
 ## Building the site locally
 

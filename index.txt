@@ -25,8 +25,8 @@
         </ul>
            <p>Please join us on the <a 
            href="http://lists.sourceforge.net/lists/listinfo/yaml-core">
-           mailing list</a> or via <a href="irc://freenode.net/%23yaml">
-           irc at #yaml on freenode.net</a>.
+           mailing list</a> or via <a href="irc://libera.chat/%23yaml">
+           irc at #yaml on libera.chat</a>.
         </p>
         <hr width="50%" noshade size="1" align="left">
         <p class="main_title">RECENT NEWS</p>
