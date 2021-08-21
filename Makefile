@@ -6,6 +6,7 @@ publish: build
 	git -C gh-pages add -A .
 	git -C gh-pages commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
 	git -C gh-pages push origin gh-pages
+	rm -fr gh-pages
 
 build: gh-pages
 	rm -fr $</*
