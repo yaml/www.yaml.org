@@ -262,9 +262,9 @@ You can learn more about YAML at <a href="http://www.yaml.org">YAML.org</a> or t
 <h3>Brief</h3>
 </p>
 
-<p>You can specify a list in YAML by placing each 
-member of the list on a new line with an opening 
-dash. These lists are called sequences. 
+<p>You can specify a list in YAML by placing each
+member of the list on a new line with an opening
+dash. These lists are called sequences.
 </p>
 
 <p>
@@ -283,9 +283,9 @@ dash. These lists are called sequences.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- apple 
-- banana 
-- carrot 
+		<tr><td><pre>- apple
+- banana
+- carrot
 </pre>
 		</td></tr>
 		</table>
@@ -312,7 +312,7 @@ dash. These lists are called sequences.
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>['apple', 'banana', 'carrot']  
+		<pre>['apple', 'banana', 'carrot']
 </pre>
 		</td></tr>
 		</table>
@@ -333,9 +333,9 @@ dash. These lists are called sequences.
 <h3>Brief</h3>
 </p>
 
-<p>You can include a sequence within another 
-sequence by giving the sequence an empty 
-dash, followed by an indented list. 
+<p>You can include a sequence within another
+sequence by giving the sequence an empty
+dash, followed by an indented list.
 </p>
 
 <p>
@@ -354,10 +354,10 @@ dash, followed by an indented list.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- 
- - foo 
- - bar 
- - baz 
+		<tr><td><pre>-
+ - foo
+ - bar
+ - baz
 </pre>
 		</td></tr>
 		</table>
@@ -384,7 +384,7 @@ dash, followed by an indented list.
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[['foo', 'bar', 'baz']] 
+		<pre>[['foo', 'bar', 'baz']]
 </pre>
 		</td></tr>
 		</table>
@@ -405,8 +405,8 @@ dash, followed by an indented list.
 <h3>Brief</h3>
 </p>
 
-<p>Sequences can contain any YAML data, 
-including strings and other sequences. 
+<p>Sequences can contain any YAML data,
+including strings and other sequences.
 </p>
 
 <p>
@@ -425,13 +425,13 @@ including strings and other sequences.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- apple 
-- 
- - foo 
- - bar 
- - x123 
-- banana 
-- carrot 
+		<tr><td><pre>- apple
+-
+ - foo
+ - bar
+ - x123
+- banana
+- carrot
 </pre>
 		</td></tr>
 		</table>
@@ -458,7 +458,7 @@ including strings and other sequences.
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>['apple', ['foo', 'bar', 'x123'], 'banana', 'carrot'] 
+		<pre>['apple', ['foo', 'bar', 'x123'], 'banana', 'carrot']
 </pre>
 		</td></tr>
 		</table>
@@ -479,9 +479,9 @@ including strings and other sequences.
 <h3>Brief</h3>
 </p>
 
-<p>Sequences can be nested even deeper, with each 
-level of indentation representing a level of 
-depth. 
+<p>Sequences can be nested even deeper, with each
+level of indentation representing a level of
+depth.
 </p>
 
 <p>
@@ -500,10 +500,10 @@ depth.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- 
- - 
-  - uno 
-  - dos 
+		<tr><td><pre>-
+ -
+  - uno
+  - dos
 </pre>
 		</td></tr>
 		</table>
@@ -530,7 +530,7 @@ depth.
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[[['uno', 'dos']]] 
+		<pre>[[['uno', 'dos']]]
 </pre>
 		</td></tr>
 		</table>
@@ -551,11 +551,11 @@ depth.
 <h3>Brief</h3>
 </p>
 
-<p>You can add a keyed list (also known as a dictionary or 
-hash) to your document by placing each member of the 
-list on a new line, with a colon seperating the key 
-from its value.  In YAML, this type of list is called 
-a mapping. 
+<p>You can add a keyed list (also known as a dictionary or
+hash) to your document by placing each member of the
+list on a new line, with a colon seperating the key
+from its value.  In YAML, this type of list is called
+a mapping.
 </p>
 
 <p>
@@ -574,8 +574,8 @@ a mapping.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>foo: whatever 
-bar: stuff 
+		<tr><td><pre>foo: whatever
+bar: stuff
 </pre>
 		</td></tr>
 		</table>
@@ -602,7 +602,7 @@ bar: stuff
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'foo' => 'whatever', 'bar' => 'stuff' } 
+		<pre>{ 'foo' => 'whatever', 'bar' => 'stuff' }
 </pre>
 		</td></tr>
 		</table>
@@ -623,7 +623,7 @@ bar: stuff
 <h3>Brief</h3>
 </p>
 
-<p>A value in a mapping can be a sequence. 
+<p>A value in a mapping can be a sequence.
 </p>
 
 <p>
@@ -642,10 +642,10 @@ bar: stuff
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>foo: whatever 
-bar: 
- - uno 
- - dos 
+		<tr><td><pre>foo: whatever
+bar:
+ - uno
+ - dos
 </pre>
 		</td></tr>
 		</table>
@@ -672,7 +672,7 @@ bar:
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'foo' => 'whatever', 'bar' => [ 'uno', 'dos' ] } 
+		<pre>{ 'foo' => 'whatever', 'bar' => [ 'uno', 'dos' ] }
 </pre>
 		</td></tr>
 		</table>
@@ -693,7 +693,7 @@ bar:
 <h3>Brief</h3>
 </p>
 
-<p>A value in a mapping can be another mapping. 
+<p>A value in a mapping can be another mapping.
 </p>
 
 <p>
@@ -712,11 +712,11 @@ bar:
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>foo: whatever 
-bar: 
- fruit: apple 
- name: steve 
- sport: baseball 
+		<tr><td><pre>foo: whatever
+bar:
+ fruit: apple
+ name: steve
+ sport: baseball
 </pre>
 		</td></tr>
 		</table>
@@ -743,13 +743,13 @@ bar:
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'foo' => 'whatever',  
-  'bar' => { 
-     'fruit' => 'apple',  
-     'name' => 'steve', 
-     'sport' => 'baseball' 
-   } 
-} 
+		<pre>{ 'foo' => 'whatever',
+  'bar' => {
+     'fruit' => 'apple',
+     'name' => 'steve',
+     'sport' => 'baseball'
+   }
+}
 </pre>
 		</td></tr>
 		</table>
@@ -770,8 +770,8 @@ bar:
 <h3>Brief</h3>
 </p>
 
-<p>A mapping can contain any assortment 
-of mappings and sequences as values. 
+<p>A mapping can contain any assortment
+of mappings and sequences as values.
 </p>
 
 <p>
@@ -790,17 +790,17 @@ of mappings and sequences as values.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>foo: whatever 
-bar: 
- - 
-   fruit: apple 
-   name: steve 
-   sport: baseball 
- - more 
- - 
-   python: rocks 
-   perl: papers 
-   ruby: scissorses 
+		<tr><td><pre>foo: whatever
+bar:
+ -
+   fruit: apple
+   name: steve
+   sport: baseball
+ - more
+ -
+   python: rocks
+   perl: papers
+   ruby: scissorses
 </pre>
 		</td></tr>
 		</table>
@@ -827,21 +827,21 @@ bar:
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'foo' => 'whatever',  
-  'bar' => [ 
-    { 
-        'fruit' => 'apple',  
-        'name' => 'steve', 
-        'sport' => 'baseball' 
-    }, 
-    'more', 
-    { 
-        'python' => 'rocks', 
-        'perl' => 'papers', 
-        'ruby' => 'scissorses' 
-    } 
-  ] 
-} 
+		<pre>{ 'foo' => 'whatever',
+  'bar' => [
+    {
+        'fruit' => 'apple',
+        'name' => 'steve',
+        'sport' => 'baseball'
+    },
+    'more',
+    {
+        'python' => 'rocks',
+        'perl' => 'papers',
+        'ruby' => 'scissorses'
+    }
+  ]
+}
 </pre>
 		</td></tr>
 		</table>
@@ -862,9 +862,9 @@ bar:
 <h3>Brief</h3>
 </p>
 
-<p>If you are adding a mapping to a sequence, you 
-can place the mapping on the same line as the 
-dash as a shortcut. 
+<p>If you are adding a mapping to a sequence, you
+can place the mapping on the same line as the
+dash as a shortcut.
 </p>
 
 <p>
@@ -883,8 +883,8 @@ dash as a shortcut.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- work on YAML.py: 
-   - work on Store 
+		<tr><td><pre>- work on YAML.py:
+   - work on Store
 </pre>
 		</td></tr>
 		</table>
@@ -911,7 +911,7 @@ dash as a shortcut.
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[ { 'work on YAML.py' => ['work on Store'] } ] 
+		<pre>[ { 'work on YAML.py' => ['work on Store'] } ]
 </pre>
 		</td></tr>
 		</table>
@@ -1093,7 +1093,7 @@ pairs is inserted into the current mapping.
 <h3>Brief</h3>
 </p>
 
-<p>Sequences can be contained on a  single line, using the inline syntax.  Separate each entry with commas and  enclose in square brackets. 
+<p>Sequences can be contained on a  single line, using the inline syntax.  Separate each entry with commas and  enclose in square brackets.
 </p>
 
 <p>
@@ -1112,8 +1112,8 @@ pairs is inserted into the current mapping.
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>---  
-seq: [ a, b, c ] 
+		<tr><td><pre>---
+seq: [ a, b, c ]
 </pre>
 		</td></tr>
 		</table>
@@ -1140,7 +1140,7 @@ seq: [ a, b, c ]
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'seq' => [ 'a', 'b', 'c' ] } 
+		<pre>{ 'seq' => [ 'a', 'b', 'c' ] }
 </pre>
 		</td></tr>
 		</table>
@@ -1161,7 +1161,7 @@ seq: [ a, b, c ]
 <h3>Brief</h3>
 </p>
 
-<p>Mapping can also be contained on  a single line, using the inline  syntax.  Each key-value pair is  separated by a colon, with a comma  between each entry in the mapping.  Enclose with curly braces. 
+<p>Mapping can also be contained on  a single line, using the inline  syntax.  Each key-value pair is  separated by a colon, with a comma  between each entry in the mapping.  Enclose with curly braces.
 </p>
 
 <p>
@@ -1180,8 +1180,8 @@ seq: [ a, b, c ]
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- 
-hash: { name: Steve, foo: bar } 
+		<tr><td><pre>---
+hash: { name: Steve, foo: bar }
 </pre>
 		</td></tr>
 		</table>
@@ -1208,7 +1208,7 @@ hash: { name: Steve, foo: bar }
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'hash' => { 'name' => 'Steve', 'foo' => 'bar' } } 
+		<pre>{ 'hash' => { 'name' => 'Steve', 'foo' => 'bar' } }
 </pre>
 		</td></tr>
 		</table>
@@ -1229,7 +1229,7 @@ hash: { name: Steve, foo: bar }
 <h3>Brief</h3>
 </p>
 
-<p>Both inline sequences and inline mappings  can span multiple lines, provided that you  indent the additional lines. 
+<p>Both inline sequences and inline mappings  can span multiple lines, provided that you  indent the additional lines.
 </p>
 
 <p>
@@ -1248,13 +1248,13 @@ hash: { name: Steve, foo: bar }
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>languages: [ Ruby, 
-             Perl, 
-             Python ] 
-websites: { YAML: yaml.org, 
-            Ruby: ruby-lang.org, 
-            Python: python.org, 
-            Perl: use.perl.org } 
+		<tr><td><pre>languages: [ Ruby,
+             Perl,
+             Python ]
+websites: { YAML: yaml.org,
+            Ruby: ruby-lang.org,
+            Python: python.org,
+            Perl: use.perl.org }
 </pre>
 		</td></tr>
 		</table>
@@ -1281,14 +1281,14 @@ websites: { YAML: yaml.org,
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'languages' => [ 'Ruby', 'Perl', 'Python' ], 
-  'websites' => { 
-    'YAML' => 'yaml.org', 
-    'Ruby' => 'ruby-lang.org', 
-    'Python' => 'python.org', 
-    'Perl' => 'use.perl.org'  
-  } 
-} 
+		<pre>{ 'languages' => [ 'Ruby', 'Perl', 'Python' ],
+  'websites' => {
+    'YAML' => 'yaml.org',
+    'Ruby' => 'ruby-lang.org',
+    'Python' => 'python.org',
+    'Perl' => 'use.perl.org'
+  }
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1309,7 +1309,7 @@ websites: { YAML: yaml.org,
 <h3>Brief</h3>
 </p>
 
-<p>List items in collections are delimited by commas, but   there must be a space after each comma.  This allows you  to add numbers without quoting. 
+<p>List items in collections are delimited by commas, but   there must be a space after each comma.  This allows you  to add numbers without quoting.
 </p>
 
 <p>
@@ -1328,7 +1328,7 @@ websites: { YAML: yaml.org,
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>attendances: [ 45,123, 70,000, 17,222 ] 
+		<tr><td><pre>attendances: [ 45,123, 70,000, 17,222 ]
 </pre>
 		</td></tr>
 		</table>
@@ -1355,7 +1355,7 @@ websites: { YAML: yaml.org,
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'attendances' => [ 45123, 70000, 17222 ] } 
+		<pre>{ 'attendances' => [ 45123, 70000, 17222 ] }
 </pre>
 		</td></tr>
 		</table>
@@ -1387,7 +1387,7 @@ websites: { YAML: yaml.org,
 <h3>Brief</h3>
 </p>
 
-<p>Any group of characters beginning with an  alphabetic or numeric character is a string,  unless it belongs to one of the groups below  (such as an Integer or Time).   
+<p>Any group of characters beginning with an  alphabetic or numeric character is a string,  unless it belongs to one of the groups below  (such as an Integer or Time).
 </p>
 
 <p>
@@ -1433,7 +1433,7 @@ websites: { YAML: yaml.org,
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>'String' 
+		<pre>'String'
 </pre>
 		</td></tr>
 		</table>
@@ -1454,7 +1454,7 @@ websites: { YAML: yaml.org,
 <h3>Brief</h3>
 </p>
 
-<p>A string can contain any alphabetic or  numeric character, along with many  punctuation characters, including the  period, dash, space, quotes, exclamation, and  question mark. 
+<p>A string can contain any alphabetic or  numeric character, along with many  punctuation characters, including the  period, dash, space, quotes, exclamation, and  question mark.
 </p>
 
 <p>
@@ -1473,12 +1473,12 @@ websites: { YAML: yaml.org,
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- What's Yaml? 
-- It's for writing data structures in plain text. 
-- And? 
-- And what? That's not good enough for you? 
-- No, I mean, "And what about Yaml?" 
-- Oh, oh yeah. Uh.. Yaml for Ruby. 
+		<tr><td><pre>- What's Yaml?
+- It's for writing data structures in plain text.
+- And?
+- And what? That's not good enough for you?
+- No, I mean, "And what about Yaml?"
+- Oh, oh yeah. Uh.. Yaml for Ruby.
 </pre>
 		</td></tr>
 		</table>
@@ -1505,14 +1505,14 @@ websites: { YAML: yaml.org,
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[ 
-  "What's Yaml?", 
-  "It's for writing data structures in plain text.", 
-  "And?", 
-  "And what? That's not good enough for you?", 
-  "No, I mean, \"And what about Yaml?\"", 
-  "Oh, oh yeah. Uh.. Yaml for Ruby." 
-] 
+		<pre>[
+  "What's Yaml?",
+  "It's for writing data structures in plain text.",
+  "And?",
+  "And what? That's not good enough for you?",
+  "No, I mean, \"And what about Yaml?\"",
+  "Oh, oh yeah. Uh.. Yaml for Ruby."
+]
 </pre>
 		</td></tr>
 		</table>
@@ -1533,7 +1533,7 @@ websites: { YAML: yaml.org,
 <h3>Brief</h3>
 </p>
 
-<p>Be careful using indicators in strings.  In particular,  the comma, colon, and pound sign must be used carefully. 
+<p>Be careful using indicators in strings.  In particular,  the comma, colon, and pound sign must be used carefully.
 </p>
 
 <p>
@@ -1552,9 +1552,9 @@ websites: { YAML: yaml.org,
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>the colon followed by space is an indicator: but is a string:right here 
-same for the pound sign: here we have it#in a string 
-the comma can, honestly, be used in most cases: [ but not in, inline collections ] 
+		<tr><td><pre>the colon followed by space is an indicator: but is a string:right here
+same for the pound sign: here we have it#in a string
+the comma can, honestly, be used in most cases: [ but not in, inline collections ]
 </pre>
 		</td></tr>
 		</table>
@@ -1581,11 +1581,11 @@ the comma can, honestly, be used in most cases: [ but not in, inline collections
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'the colon followed by space is an indicator' => 'but is a string:right here', 
-  'same for the pound sign' => 'here we have it#in a string', 
-  'the comma can, honestly, be used in most cases' => [ 'but not in', 'inline collections' ] 
-} 
+		<pre>{
+  'the colon followed by space is an indicator' => 'but is a string:right here',
+  'same for the pound sign' => 'here we have it#in a string',
+  'the comma can, honestly, be used in most cases' => [ 'but not in', 'inline collections' ]
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1606,7 +1606,7 @@ the comma can, honestly, be used in most cases: [ but not in, inline collections
 <h3>Brief</h3>
 </p>
 
-<p>Any YAML type can be forced into a string using the  explicit !str method. 
+<p>Any YAML type can be forced into a string using the  explicit !str method.
 </p>
 
 <p>
@@ -1625,8 +1625,8 @@ the comma can, honestly, be used in most cases: [ but not in, inline collections
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>date string: !str 2001-08-01 
-number string: !str 192 
+		<tr><td><pre>date string: !str 2001-08-01
+number string: !str 192
 </pre>
 		</td></tr>
 		</table>
@@ -1653,10 +1653,10 @@ number string: !str 192
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'date string' => '2001-08-01', 
-  'number string' => '192' 
-} 
+		<pre>{
+  'date string' => '2001-08-01',
+  'number string' => '192'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1677,7 +1677,7 @@ number string: !str 192
 <h3>Brief</h3>
 </p>
 
-<p>You can also enclose your strings within single quotes,  which allows use of slashes, colons, and other indicators  freely.  Inside single quotes, you can represent a single  quote in your string by using two single quotes next to  each other. 
+<p>You can also enclose your strings within single quotes,  which allows use of slashes, colons, and other indicators  freely.  Inside single quotes, you can represent a single  quote in your string by using two single quotes next to  each other.
 </p>
 
 <p>
@@ -1696,9 +1696,9 @@ number string: !str 192
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>all my favorite symbols: '#:!/%.)' 
-a few i hate: '&(*' 
-why do i hate them?: 'it''s very hard to explain' 
+		<tr><td><pre>all my favorite symbols: '#:!/%.)'
+a few i hate: '&(*'
+why do i hate them?: 'it''s very hard to explain'
 </pre>
 		</td></tr>
 		</table>
@@ -1725,11 +1725,11 @@ why do i hate them?: 'it''s very hard to explain'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'all my favorite symbols' => '#:!/%.)', 
-  'a few i hate' => '&(*', 
-  'why do i hate them?' => 'it\'s very hard to explain' 
-} 
+		<pre>{
+  'all my favorite symbols' => '#:!/%.)',
+  'a few i hate' => '&(*',
+  'why do i hate them?' => 'it\'s very hard to explain'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1750,7 +1750,7 @@ why do i hate them?: 'it''s very hard to explain'
 <h3>Brief</h3>
 </p>
 
-<p>Enclosing strings in double quotes allows you  to use escapings to represent ASCII and  Unicode characters. 
+<p>Enclosing strings in double quotes allows you  to use escapings to represent ASCII and  Unicode characters.
 </p>
 
 <p>
@@ -1769,7 +1769,7 @@ why do i hate them?: 'it''s very hard to explain'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>i know where i want my line breaks: "one here\nand another here\n" 
+		<tr><td><pre>i know where i want my line breaks: "one here\nand another here\n"
 </pre>
 		</td></tr>
 		</table>
@@ -1796,9 +1796,9 @@ why do i hate them?: 'it''s very hard to explain'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'i know where i want my line breaks' => "one here\nand another here\n" 
-} 
+		<pre>{
+  'i know where i want my line breaks' => "one here\nand another here\n"
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1867,10 +1867,10 @@ why do i hate them?: 'it''s very hard to explain'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'i want a long string' => "so i'm going to " + 
-     "let it go on and on to other lines " + 
-     "until i end it with a quote." 
-} 
+		<pre>{ 'i want a long string' => "so i'm going to " +
+     "let it go on and on to other lines " +
+     "until i end it with a quote."
+}
 </pre>
 		</td></tr>
 		</table>
@@ -1946,14 +1946,14 @@ why do i hate them?: 'it''s very hard to explain'
 		<tr><td>
 		
 		<pre>[
-  "My little toe is broken in two places;", 
-  "I'm crazy to have skied this way;", 
+  "My little toe is broken in two places;",
+  "I'm crazy to have skied this way;",
   "I'm not the craziest he's seen, since there was always " +
-     "the German guy who skied for 3 hours on a broken shin " + 
-     "bone (just below the kneecap);", 
-  "Nevertheless, second place is respectable, and he doesn't " + 
-     "recommend going for the record;", 
-  "He's going to put my foot in plaster for a month;", 
+     "the German guy who skied for 3 hours on a broken shin " +
+     "bone (just below the kneecap);",
+  "Nevertheless, second place is respectable, and he doesn't " +
+     "recommend going for the record;",
+  "He's going to put my foot in plaster for a month;",
   "This would impair my skiing ability somewhat for the duration, " +
      "as can be imagined."
 ]
@@ -1977,7 +1977,7 @@ why do i hate them?: 'it''s very hard to explain'
 <h3>Brief</h3>
 </p>
 
-<p>You can use the tilde '~' character for a null value. 
+<p>You can use the tilde '~' character for a null value.
 </p>
 
 <p>
@@ -1996,9 +1996,9 @@ why do i hate them?: 'it''s very hard to explain'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>name: Mr. Show 
-hosted by: Bob and David 
-date of next season: ~ 
+		<tr><td><pre>name: Mr. Show
+hosted by: Bob and David
+date of next season: ~
 </pre>
 		</td></tr>
 		</table>
@@ -2025,11 +2025,11 @@ date of next season: ~
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'name' => 'Mr. Show', 
-  'hosted by' => 'Bob and David', 
-  'date of next season' => nil 
-} 
+		<pre>{
+  'name' => 'Mr. Show',
+  'hosted by' => 'Bob and David',
+  'date of next season' => nil
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2050,7 +2050,7 @@ date of next season: ~
 <h3>Brief</h3>
 </p>
 
-<p>You can use 'true' and 'false' for boolean values. 
+<p>You can use 'true' and 'false' for boolean values.
 </p>
 
 <p>
@@ -2097,10 +2097,10 @@ Do I rely on Gus for Sustenance?: false
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'Is Gus a Liar?' => true, 
-  'Do I rely on Gus for Sustenance?' => false 
-} 
+		<pre>{
+  'Is Gus a Liar?' => true,
+  'Do I rely on Gus for Sustenance?' => false
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2121,7 +2121,7 @@ Do I rely on Gus for Sustenance?: false
 <h3>Brief</h3>
 </p>
 
-<p>An integer is a series of numbers, optionally  starting with a positive or negative sign.  Integers  may also contain commas for readability. 
+<p>An integer is a series of numbers, optionally  starting with a positive or negative sign.  Integers  may also contain commas for readability.
 </p>
 
 <p>
@@ -2140,10 +2140,10 @@ Do I rely on Gus for Sustenance?: false
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>zero: 0 
-simple: 12 
-one-thousand: 1,000 
-negative one-thousand: -1,000 
+		<tr><td><pre>zero: 0
+simple: 12
+one-thousand: 1,000
+negative one-thousand: -1,000
 </pre>
 		</td></tr>
 		</table>
@@ -2170,12 +2170,12 @@ negative one-thousand: -1,000
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'zero' => 0, 
-  'simple' => 12, 
-  'one-thousand' => 1000, 
-  'negative one-thousand' => -1000 
-} 
+		<pre>{
+  'zero' => 0,
+  'simple' => 12,
+  'one-thousand' => 1000,
+  'negative one-thousand' => -1000
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2196,7 +2196,7 @@ negative one-thousand: -1,000
 <h3>Brief</h3>
 </p>
 
-<p>An integer can be used a dictionary key. 
+<p>An integer can be used a dictionary key.
 </p>
 
 <p>
@@ -2215,9 +2215,9 @@ negative one-thousand: -1,000
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>1: one 
-2: two 
-3: three 
+		<tr><td><pre>1: one
+2: two
+3: three
 </pre>
 		</td></tr>
 		</table>
@@ -2244,11 +2244,11 @@ negative one-thousand: -1,000
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-    1 => 'one', 
-    2 => 'two', 
-    3 => 'three' 
-} 
+		<pre>{
+    1 => 'one',
+    2 => 'two',
+    3 => 'three'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2269,7 +2269,7 @@ negative one-thousand: -1,000
 <h3>Brief</h3>
 </p>
 
-<p>Floats are represented by numbers with decimals,  allowing for scientific notation, as well as  positive and negative infinity and "not a number." 
+<p>Floats are represented by numbers with decimals,  allowing for scientific notation, as well as  positive and negative infinity and "not a number."
 </p>
 
 <p>
@@ -2288,9 +2288,9 @@ negative one-thousand: -1,000
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>a simple float: 2.00 
-larger float: 1,000.09 
-scientific notation: 1.00009e+3 
+		<tr><td><pre>a simple float: 2.00
+larger float: 1,000.09
+scientific notation: 1.00009e+3
 </pre>
 		</td></tr>
 		</table>
@@ -2317,11 +2317,11 @@ scientific notation: 1.00009e+3
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'a simple float' => 2.0, 
-  'larger float' => 1000.09, 
-  'scientific notation' => 1000.09 
-} 
+		<pre>{
+  'a simple float' => 2.0,
+  'larger float' => 1000.09,
+  'scientific notation' => 1000.09
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2342,7 +2342,7 @@ scientific notation: 1.00009e+3
 <h3>Brief</h3>
 </p>
 
-<p>You can represent timestamps by using  ISO8601 format, or a variation which  allows spaces between the date, time and  time zone. 
+<p>You can represent timestamps by using  ISO8601 format, or a variation which  allows spaces between the date, time and  time zone.
 </p>
 
 <p>
@@ -2361,8 +2361,8 @@ scientific notation: 1.00009e+3
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>iso8601: 2001-12-14t21:59:43.10-05:00 
-space seperated: 2001-12-14 21:59:43.10 -05:00 
+		<tr><td><pre>iso8601: 2001-12-14t21:59:43.10-05:00
+space seperated: 2001-12-14 21:59:43.10 -05:00
 </pre>
 		</td></tr>
 		</table>
@@ -2389,10 +2389,10 @@ space seperated: 2001-12-14 21:59:43.10 -05:00
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-  'iso8601' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ), 
-  'space seperated' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ) 
-} 
+		<pre>{
+  'iso8601' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ),
+  'space seperated' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" )
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2413,7 +2413,7 @@ space seperated: 2001-12-14 21:59:43.10 -05:00
 <h3>Brief</h3>
 </p>
 
-<p>A date can be represented by its year,  month and day in ISO8601 order. 
+<p>A date can be represented by its year,  month and day in ISO8601 order.
 </p>
 
 <p>
@@ -2459,7 +2459,7 @@ space seperated: 2001-12-14 21:59:43.10 -05:00
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>Date.new( 1976, 7, 31 ) 
+		<pre>Date.new( 1976, 7, 31 )
 </pre>
 		</td></tr>
 		</table>
@@ -2540,7 +2540,7 @@ this: |
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'this' => "Foo\nBar\n" } 
+		<pre>{ 'this' => "Foo\nBar\n" }
 </pre>
 		</td></tr>
 		</table>
@@ -2561,7 +2561,7 @@ this: |
 <h3>Brief</h3>
 </p>
 
-<p>The '+' indicator says to keep newlines at the end of text  blocks. 
+<p>The '+' indicator says to keep newlines at the end of text  blocks.
 </p>
 
 <p>
@@ -2614,11 +2614,11 @@ dummy: value
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-    'normal' => "extra new lines not kept\n", 
-    'preserving' => "extra new lines are kept\n\n\n", 
-    'dummy' => 'value' 
-} 
+		<pre>{
+    'normal' => "extra new lines not kept\n",
+    'preserving' => "extra new lines are kept\n\n\n",
+    'dummy' => 'value'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2639,7 +2639,7 @@ dummy: value
 <h3>Brief</h3>
 </p>
 
-<p>To give you more control over how space  is preserved in text blocks, YAML has  the keep '+' and chomp '-' indicators.  The keep indicator will preserve all  ending newlines, while the chomp indicator  will strip all ending newlines. 
+<p>To give you more control over how space  is preserved in text blocks, YAML has  the keep '+' and chomp '-' indicators.  The keep indicator will preserve all  ending newlines, while the chomp indicator  will strip all ending newlines.
 </p>
 
 <p>
@@ -2704,14 +2704,14 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{  
-  'clipped' => "This has one newline.\n", 
-  'same as "clipped" above' => "This has one newline.\n", 
-  'stripped' => 'This has no newline.', 
-  'same as "stripped" above' => 'This has no newline.', 
-  'kept' => "This has four newlines.\n\n\n\n", 
-  'same as "kept" above' => "This has four newlines.\n\n\n\n" 
-} 
+		<pre>{
+  'clipped' => "This has one newline.\n",
+  'same as "clipped" above' => "This has one newline.\n",
+  'stripped' => 'This has no newline.',
+  'same as "stripped" above' => 'This has no newline.',
+  'kept' => "This has four newlines.\n\n\n\n",
+  'same as "kept" above' => "This has four newlines.\n\n\n\n"
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2732,7 +2732,7 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 <h3>Brief</h3>
 </p>
 
-<p>Normally, only a single newline is kept  from the end of a literal block, unless the  keep '+' character is used in combination  with the pipe.  The following example  will preserve all ending whitespace  since the last line of both literal blocks  contains spaces which extend past the indentation  level. 
+<p>Normally, only a single newline is kept  from the end of a literal block, unless the  keep '+' character is used in combination  with the pipe.  The following example  will preserve all ending whitespace  since the last line of both literal blocks  contains spaces which extend past the indentation  level.
 </p>
 
 <p>
@@ -2784,8 +2784,8 @@ kept: |+
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'this' => "Foo\n\n  \n",  
-  'kept' => "Foo\n\n  \n" } 
+		<pre>{ 'this' => "Foo\n\n  \n",
+  'kept' => "Foo\n\n  \n" }
 </pre>
 		</td></tr>
 		</table>
@@ -2806,7 +2806,7 @@ kept: |+
 <h3>Brief</h3>
 </p>
 
-<p>A greater-then character, followed by an indented  block of text is treated as a folded block, in  which lines of text separated by a single newline  are concatenated as a single line. 
+<p>A greater-then character, followed by an indented  block of text is treated as a folded block, in  which lines of text separated by a single newline  are concatenated as a single line.
 </p>
 
 <p>
@@ -2859,12 +2859,12 @@ kept: |+
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[ 
-    'apple',  
-    'banana',  
-    "can't you see the beauty of yaml? hmm\n", 
-    'dog' 
-] 
+		<pre>[
+    'apple',
+    'banana',
+    "can't you see the beauty of yaml? hmm\n",
+    'dog'
+]
 </pre>
 		</td></tr>
 		</table>
@@ -2885,7 +2885,7 @@ kept: |+
 <h3>Brief</h3>
 </p>
 
-<p>Both literal and folded blocks can be  used in collections, as values in a   sequence or a mapping. 
+<p>Both literal and folded blocks can be  used in collections, as values in a   sequence or a mapping.
 </p>
 
 <p>
@@ -2936,10 +2936,10 @@ source: espn
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{  
-    'quote' => "Mark McGwire's year was crippled by a knee injury.\n", 
-    'source' => 'espn' 
-} 
+		<pre>{
+    'quote' => "Mark McGwire's year was crippled by a knee injury.\n",
+    'source' => 'espn'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -2960,7 +2960,7 @@ source: espn
 <h3>Brief</h3>
 </p>
 
-<p>The keep and chomp indicators can also  be applied to folded blocks. 
+<p>The keep and chomp indicators can also  be applied to folded blocks.
 </p>
 
 <p>
@@ -2984,7 +2984,7 @@ source: espn
 
 
 
-same as "clipped" above: "This has one newline.\n" 
+same as "clipped" above: "This has one newline.\n"
 
 stripped: >-
     This has no newline.
@@ -3025,14 +3025,14 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{  
-  'clipped' => "This has one newline.\n", 
-  'same as "clipped" above' => "This has one newline.\n", 
-  'stripped' => 'This has no newline.', 
-  'same as "stripped" above' => 'This has no newline.', 
-  'kept' => "This has four newlines.\n\n\n\n", 
-  'same as "kept" above' => "This has four newlines.\n\n\n\n" 
-} 
+		<pre>{
+  'clipped' => "This has one newline.\n",
+  'same as "clipped" above' => "This has one newline.\n",
+  'stripped' => 'This has no newline.',
+  'same as "stripped" above' => 'This has no newline.',
+  'kept' => "This has four newlines.\n\n\n\n",
+  'same as "kept" above' => "This has four newlines.\n\n\n\n"
+}
 </pre>
 		</td></tr>
 		</table>
@@ -3064,7 +3064,7 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 <h3>Brief</h3>
 </p>
 
-<p>If you need to refer to the same item of data twice,  you can give that item an alias.  The alias is a plain  string, starting with an ampersand.  The item may then  be referred to by the alias throughout your document  by using an asterisk before the name of the alias.  This is called an anchor. 
+<p>If you need to refer to the same item of data twice,  you can give that item an alias.  The alias is a plain  string, starting with an ampersand.  The item may then  be referred to by the alias throughout your document  by using an asterisk before the name of the alias.  This is called an anchor.
 </p>
 
 <p>
@@ -3083,11 +3083,11 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- &showell Steve 
-- Clark 
-- Brian 
-- Oren 
-- *showell 
+		<tr><td><pre>- &showell Steve
+- Clark
+- Brian
+- Oren
+- *showell
 </pre>
 		</td></tr>
 		</table>
@@ -3114,10 +3114,10 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>showell = 'Steve' 
+		<div CLASS="ruby-box-highlight"><pre>showell = 'Steve'
 </pre></div>
 		
-		<pre>[ showell, 'Clark', 'Brian', 'Oren', showell ] 
+		<pre>[ showell, 'Clark', 'Brian', 'Oren', showell ]
 </pre>
 		</td></tr>
 		</table>
@@ -3138,7 +3138,7 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 <h3>Brief</h3>
 </p>
 
-<p>An alias can be used on any item of data, including  sequences, mappings, and other complex data types. 
+<p>An alias can be used on any item of data, including  sequences, mappings, and other complex data types.
 </p>
 
 <p>
@@ -3157,11 +3157,11 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- &hello 
-    Meat: pork 
-    Starch: potato 
-- banana 
-- *hello 
+		<tr><td><pre>- &hello
+    Meat: pork
+    Starch: potato
+- banana
+- *hello
 </pre>
 		</td></tr>
 		</table>
@@ -3188,14 +3188,14 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>hello = { 'Meat' => 'pork', 'Starch' => 'potato' } 
+		<div CLASS="ruby-box-highlight"><pre>hello = { 'Meat' => 'pork', 'Starch' => 'potato' }
 </pre></div>
 		
-		<pre>[  
-  hello,  
-  'banana', 
-  hello 
-] 
+		<pre>[
+  hello,
+  'banana',
+  hello
+]
 </pre>
 		</td></tr>
 		</table>
@@ -3227,7 +3227,7 @@ same as "kept" above: "This has four newlines.\n\n\n\n"
 <h3>Brief</h3>
 </p>
 
-<p>You can separate YAML documents  with a string of three dashes. 
+<p>You can separate YAML documents  with a string of three dashes.
 </p>
 
 <p>
@@ -3297,7 +3297,7 @@ more: stuff
 <h3>Brief</h3>
 </p>
 
-<p>You can explicity give an opening  document separator to your YAML stream. 
+<p>You can explicity give an opening  document separator to your YAML stream.
 </p>
 
 <p>
@@ -3347,7 +3347,7 @@ more: stuff
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>[ { 'foo' => 1, 'bar' => 2 } ] 
+		<pre>[ { 'foo' => 1, 'bar' => 2 } ]
 </pre>
 		</td></tr>
 		</table>
@@ -3368,7 +3368,7 @@ more: stuff
 <h3>Brief</h3>
 </p>
 
-<p>The opening separator can contain directives  to the YAML parser, such as the version  number. 
+<p>The opening separator can contain directives  to the YAML parser, such as the version  number.
 </p>
 
 <p>
@@ -3387,9 +3387,9 @@ more: stuff
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- %YAML:1.0 
-foo: 1 
-bar: 2 
+		<tr><td><pre>--- %YAML:1.0
+foo: 1
+bar: 2
 </pre>
 		</td></tr>
 		</table>
@@ -3416,8 +3416,8 @@ bar: 2
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>y = Stream.new 
-y.add( { 'foo' => 1, 'bar' => 2 } ) 
+		<pre>y = Stream.new
+y.add( { 'foo' => 1, 'bar' => 2 } )
 </pre>
 		</td></tr>
 		</table>
@@ -3438,7 +3438,7 @@ y.add( { 'foo' => 1, 'bar' => 2 } )
 <h3>Brief</h3>
 </p>
 
-<p>Separators included in blocks or strings  are treated as blocks or strings, as the  document separator should have no indentation  preceding it. 
+<p>Separators included in blocks or strings  are treated as blocks or strings, as the  document separator should have no indentation  preceding it.
 </p>
 
 <p>
@@ -3485,7 +3485,7 @@ y.add( { 'foo' => 1, 'bar' => 2 } )
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'foo' => "---\n" } 
+		<pre>{ 'foo' => "---\n" }
 </pre>
 		</td></tr>
 		</table>
@@ -3506,7 +3506,7 @@ y.add( { 'foo' => 1, 'bar' => 2 } )
 <h3>Brief</h3>
 </p>
 
-<p>This technique allows you to embed other YAML  documents within literal blocks. 
+<p>This technique allows you to embed other YAML  documents within literal blocks.
 </p>
 
 <p>
@@ -3525,12 +3525,12 @@ y.add( { 'foo' => 1, 'bar' => 2 } )
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>foo: | 
+		<tr><td><pre>foo: |
     ---
     foo: bar
     ---
     yo: baz
-bar: | 
+bar: |
     fooness
 </pre>
 		</td></tr>
@@ -3558,10 +3558,10 @@ bar: |
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 
-   'foo' => "---\nfoo: bar\n---\nyo: baz\n", 
-   'bar' => "fooness\n" 
-} 
+		<pre>{
+   'foo' => "---\nfoo: bar\n---\nyo: baz\n",
+   'bar' => "fooness\n"
+}
 </pre>
 		</td></tr>
 		</table>
@@ -3593,7 +3593,7 @@ bar: |
 <h3>Brief</h3>
 </p>
 
-<p>Ruby Symbols can be simply serialized using  the !ruby/symbol transfer method, or the  abbreviated !ruby/sym. 
+<p>Ruby Symbols can be simply serialized using  the !ruby/symbol transfer method, or the  abbreviated !ruby/sym.
 </p>
 
 <p>
@@ -3612,14 +3612,14 @@ bar: |
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>simple symbol: !ruby/symbol Simple 
-shortcut syntax: !ruby/sym Simple 
-symbols in seqs: 
-  - !ruby/symbol ValOne 
-  - !ruby/symbol ValTwo 
-  - !ruby/symbol ValThree 
-symbols in maps: 
-  - !ruby/symbol MapKey: !ruby/symbol MapValue 
+		<tr><td><pre>simple symbol: !ruby/symbol Simple
+shortcut syntax: !ruby/sym Simple
+symbols in seqs:
+  - !ruby/symbol ValOne
+  - !ruby/symbol ValTwo
+  - !ruby/symbol ValThree
+symbols in maps:
+  - !ruby/symbol MapKey: !ruby/symbol MapValue
 </pre>
 		</td></tr>
 		</table>
@@ -3646,11 +3646,11 @@ symbols in maps:
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'simple symbol' => :Simple, 
-  'shortcut syntax' => :Simple, 
-  'symbols in seqs' => [ :ValOne, :ValTwo, :ValThree ], 
+		<pre>{ 'simple symbol' => :Simple,
+  'shortcut syntax' => :Simple,
+  'symbols in seqs' => [ :ValOne, :ValTwo, :ValThree ],
   'symbols in maps' => [ { :MapKey => :MapValue } ]
-} 
+}
 </pre>
 		</td></tr>
 		</table>
@@ -3671,7 +3671,7 @@ symbols in maps:
 <h3>Brief</h3>
 </p>
 
-<p>Ranges are serialized with the !ruby/range  type family. 
+<p>Ranges are serialized with the !ruby/range  type family.
 </p>
 
 <p>
@@ -3690,11 +3690,11 @@ symbols in maps:
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>normal range: !ruby/range 10..20 
-exclusive range: !ruby/range 11...20 
-negative range: !ruby/range -1..-5 
-? !ruby/range 0..40 
-: range as a map key 
+		<tr><td><pre>normal range: !ruby/range 10..20
+exclusive range: !ruby/range 11...20
+negative range: !ruby/range -1..-5
+? !ruby/range 0..40
+: range as a map key
 </pre>
 		</td></tr>
 		</table>
@@ -3721,11 +3721,11 @@ negative range: !ruby/range -1..-5
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'normal range' => (10..20), 
-  'exclusive range' => (11...20), 
-  'negative range' => (-1..-5), 
-  (0..40) => 'range as a map key' 
-} 
+		<pre>{ 'normal range' => (10..20),
+  'exclusive range' => (11...20),
+  'negative range' => (-1..-5),
+  (0..40) => 'range as a map key'
+}
 </pre>
 		</td></tr>
 		</table>
@@ -3746,7 +3746,7 @@ negative range: !ruby/range -1..-5
 <h3>Brief</h3>
 </p>
 
-<p>Regexps may be serialized to YAML, both its  syntax and any modifiers. 
+<p>Regexps may be serialized to YAML, both its  syntax and any modifiers.
 </p>
 
 <p>
@@ -3765,9 +3765,9 @@ negative range: !ruby/range -1..-5
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>case-insensitive: !ruby/regexp "/George McFly/i" 
-complex: !ruby/regexp "/\\A\"((?:[^\"]|\\\")+)\"/" 
-simple: !ruby/regexp '/a.b/' 
+		<tr><td><pre>case-insensitive: !ruby/regexp "/George McFly/i"
+complex: !ruby/regexp "/\\A\"((?:[^\"]|\\\")+)\"/"
+simple: !ruby/regexp '/a.b/'
 </pre>
 		</td></tr>
 		</table>
@@ -3794,8 +3794,8 @@ simple: !ruby/regexp '/a.b/'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>{ 'simple' => /a.b/, 'complex' => /\A"((?:[^"]|\")+)"/, 
-  'case-insensitive' => /George McFly/i } 
+		<pre>{ 'simple' => /a.b/, 'complex' => /\A"((?:[^"]|\")+)"/,
+  'case-insensitive' => /George McFly/i }
 </pre>
 		</td></tr>
 		</table>
@@ -3816,7 +3816,7 @@ simple: !ruby/regexp '/a.b/'
 <h3>Brief</h3>
 </p>
 
-<p>Regexps may also be imported from serialized  Perl. 
+<p>Regexps may also be imported from serialized  Perl.
 </p>
 
 <p>
@@ -3835,9 +3835,9 @@ simple: !ruby/regexp '/a.b/'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- !perl/regexp: 
-  REGEXP: "R[Uu][Bb][Yy]$" 
-  MODIFIERS: i 
+		<tr><td><pre>--- !perl/regexp:
+  REGEXP: "R[Uu][Bb][Yy]$"
+  MODIFIERS: i
 </pre>
 		</td></tr>
 		</table>
@@ -3864,7 +3864,7 @@ simple: !ruby/regexp '/a.b/'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<pre>/R[Uu][Bb][Yy]$/i 
+		<pre>/R[Uu][Bb][Yy]$/i
 </pre>
 		</td></tr>
 		</table>
@@ -3885,7 +3885,7 @@ simple: !ruby/regexp '/a.b/'
 <h3>Brief</h3>
 </p>
 
-<p>The Ruby Struct class is registered as a YAML  builtin type through Ruby, so it can safely   be serialized.  To use it, first make sure you  define your Struct with Struct::new.  Then,  you are able to serialize with Struct#to_yaml  and unserialize from a YAML stream. 
+<p>The Ruby Struct class is registered as a YAML  builtin type through Ruby, so it can safely   be serialized.  To use it, first make sure you  define your Struct with Struct::new.  Then,  you are able to serialize with Struct#to_yaml  and unserialize from a YAML stream.
 </p>
 
 <p>
@@ -3904,11 +3904,11 @@ simple: !ruby/regexp '/a.b/'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- !ruby/struct:BookStruct 
-  author: Yukihiro Matsumoto 
-  title: Ruby in a Nutshell 
-  year: 2002 
-  isbn: 0-596-00214-9 
+		<tr><td><pre>--- !ruby/struct:BookStruct
+  author: Yukihiro Matsumoto
+  title: Ruby in a Nutshell
+  year: 2002
+  isbn: 0-596-00214-9
 </pre>
 		</td></tr>
 		</table>
@@ -3935,10 +3935,10 @@ simple: !ruby/regexp '/a.b/'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>book_struct = Struct::new( "BookStruct", :author, :title, :year, :isbn ) 
+		<div CLASS="ruby-box-highlight"><pre>book_struct = Struct::new( "BookStruct", :author, :title, :year, :isbn )
 </pre></div>
 		
-		<pre>book_struct.new( "Yukihiro Matsumoto", "Ruby in a Nutshell", 2002, "0-596-00214-9" ) 
+		<pre>book_struct.new( "Yukihiro Matsumoto", "Ruby in a Nutshell", 2002, "0-596-00214-9" )
 </pre>
 		</td></tr>
 		</table>
@@ -3959,7 +3959,7 @@ simple: !ruby/regexp '/a.b/'
 <h3>Brief</h3>
 </p>
 
-<p>As with other YAML builtins, you may nest the  Struct inside of other Structs or other data  types. 
+<p>As with other YAML builtins, you may nest the  Struct inside of other Structs or other data  types.
 </p>
 
 <p>
@@ -3978,26 +3978,26 @@ simple: !ruby/regexp '/a.b/'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>- !ruby/struct:FoodStruct 
-  name: Nachos 
-  ingredients: 
-    - Mission Chips 
-    - !ruby/struct:FoodStruct 
-      name: Tostitos Nacho Cheese 
-      ingredients: 
-        - Milk and Enzymes 
-        - Jack Cheese 
-        - Some Volatile Chemicals 
-      taste: Angelic 
-    - Sour Cream 
-  taste: Zesty 
-- !ruby/struct:FoodStruct 
-  name: Banana Cream Pie 
-  ingredients: 
-    - Bananas 
-    - Creamy Stuff 
-    - And Such 
-  taste: Puffy 
+		<tr><td><pre>- !ruby/struct:FoodStruct
+  name: Nachos
+  ingredients:
+    - Mission Chips
+    - !ruby/struct:FoodStruct
+      name: Tostitos Nacho Cheese
+      ingredients:
+        - Milk and Enzymes
+        - Jack Cheese
+        - Some Volatile Chemicals
+      taste: Angelic
+    - Sour Cream
+  taste: Zesty
+- !ruby/struct:FoodStruct
+  name: Banana Cream Pie
+  ingredients:
+    - Bananas
+    - Creamy Stuff
+    - And Such
+  taste: Puffy
 </pre>
 		</td></tr>
 		</table>
@@ -4024,15 +4024,15 @@ simple: !ruby/regexp '/a.b/'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>food_struct = Struct::new( "FoodStruct", :name, :ingredients, :taste ) 
+		<div CLASS="ruby-box-highlight"><pre>food_struct = Struct::new( "FoodStruct", :name, :ingredients, :taste )
 </pre></div>
 		
-		<pre>[ 
-  food_struct.new( 'Nachos', [ 'Mission Chips', 
-    food_struct.new( 'Tostitos Nacho Cheese', [ 'Milk and Enzymes', 'Jack Cheese', 'Some Volatile Chemicals' ], 'Angelic' ), 
-    'Sour Cream' ], 'Zesty' ), 
-  food_struct.new( 'Banana Cream Pie', [ 'Bananas', 'Creamy Stuff', 'And Such' ], 'Puffy' ) 
-] 
+		<pre>[
+  food_struct.new( 'Nachos', [ 'Mission Chips',
+    food_struct.new( 'Tostitos Nacho Cheese', [ 'Milk and Enzymes', 'Jack Cheese', 'Some Volatile Chemicals' ], 'Angelic' ),
+    'Sour Cream' ], 'Zesty' ),
+  food_struct.new( 'Banana Cream Pie', [ 'Bananas', 'Creamy Stuff', 'And Such' ], 'Puffy' )
+]
 </pre>
 		</td></tr>
 		</table>
@@ -4053,7 +4053,7 @@ simple: !ruby/regexp '/a.b/'
 <h3>Brief</h3>
 </p>
 
-<p>YAML has generic support for serializing objects  from any class available in Ruby.  If using the  generic object serialization, no extra code is  needed. 
+<p>YAML has generic support for serializing objects  from any class available in Ruby.  If using the  generic object serialization, no extra code is  needed.
 </p>
 
 <p>
@@ -4072,9 +4072,9 @@ simple: !ruby/regexp '/a.b/'
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- !ruby/object:YAML::Zoolander 
-  name: Derek 
-  look: Blue Steel 
+		<tr><td><pre>--- !ruby/object:YAML::Zoolander
+  name: Derek
+  look: Blue Steel
 </pre>
 		</td></tr>
 		</table>
@@ -4101,19 +4101,19 @@ simple: !ruby/regexp '/a.b/'
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>class Zoolander 
-  attr_accessor :name, :look 
-  def initialize( look ) 
-    @name = "Derek" 
-    @look = look 
-  end 
-  def ==( z ) 
-    self.name == z.name and self.look == z.look 
-  end 
-end 
+		<div CLASS="ruby-box-highlight"><pre>class Zoolander
+  attr_accessor :name, :look
+  def initialize( look )
+    @name = "Derek"
+    @look = look
+  end
+  def ==( z )
+    self.name == z.name and self.look == z.look
+  end
+end
 </pre></div>
 		
-		<pre>Zoolander.new( "Blue Steel" ) 
+		<pre>Zoolander.new( "Blue Steel" )
 </pre>
 		</td></tr>
 		</table>
@@ -4134,7 +4134,7 @@ end
 <h3>Brief</h3>
 </p>
 
-<p>When extending the Array class, your instances  of such a class will dump as YAML sequences,  tagged with a class name. 
+<p>When extending the Array class, your instances  of such a class will dump as YAML sequences,  tagged with a class name.
 </p>
 
 <p>
@@ -4153,10 +4153,10 @@ end
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- !ruby/array:YAML::MyArray 
-- jacket 
-- sweater 
-- windbreaker 
+		<tr><td><pre>--- !ruby/array:YAML::MyArray
+- jacket
+- sweater
+- windbreaker
 </pre>
 		</td></tr>
 		</table>
@@ -4183,14 +4183,14 @@ end
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre>class MyArray < Kernel::Array; end 
+		<div CLASS="ruby-box-highlight"><pre>class MyArray < Kernel::Array; end
 </pre></div>
 		
-		<pre>outerwear = MyArray.new 
-outerwear << 'jacket' 
-outerwear << 'sweater' 
-outerwear << 'windbreaker' 
-outerwear 
+		<pre>outerwear = MyArray.new
+outerwear << 'jacket'
+outerwear << 'sweater'
+outerwear << 'windbreaker'
+outerwear
 </pre>
 		</td></tr>
 		</table>
@@ -4211,7 +4211,7 @@ outerwear
 <h3>Brief</h3>
 </p>
 
-<p>When extending the Hash class, your instances  of such a class will dump as YAML maps, tagged  with a class name. 
+<p>When extending the Hash class, your instances  of such a class will dump as YAML maps, tagged  with a class name.
 </p>
 
 <p>
@@ -4230,10 +4230,10 @@ outerwear
 	</td></tr>
 	<tr><td>
 		<table CELLPADDING="12" CELLSPACING="0">
-		<tr><td><pre>--- !ruby/hash:YAML::MyHash 
-Black Francis: Frank Black 
-Kim Deal: Breeders 
-Joey Santiago: Martinis 
+		<tr><td><pre>--- !ruby/hash:YAML::MyHash
+Black Francis: Frank Black
+Kim Deal: Breeders
+Joey Santiago: Martinis
 </pre>
 		</td></tr>
 		</table>
@@ -4260,22 +4260,22 @@ Joey Santiago: Martinis
 		<table CELLPADDING="12" CELLSPACING="0">
 		<tr><td>
 		
-		<div CLASS="ruby-box-highlight"><pre># Note that the @me attribute isn't dumped 
-# because the default to_yaml is trained 
-# to dump as a regular Hash. 
-class MyHash < Kernel::Hash 
-  attr_accessor :me 
-  def initialize 
-    @me = "Why" 
-  end 
-end 
+		<div CLASS="ruby-box-highlight"><pre># Note that the @me attribute isn't dumped
+# because the default to_yaml is trained
+# to dump as a regular Hash.
+class MyHash < Kernel::Hash
+  attr_accessor :me
+  def initialize
+    @me = "Why"
+  end
+end
 </pre></div>
 		
-		<pre>pixies = MyHash.new 
-pixies['Black Francis'] = 'Frank Black' 
-pixies['Kim Deal'] = 'Breeders' 
-pixies['Joey Santiago'] = 'Martinis' 
-pixies 
+		<pre>pixies = MyHash.new
+pixies['Black Francis'] = 'Frank Black'
+pixies['Kim Deal'] = 'Breeders'
+pixies['Joey Santiago'] = 'Martinis'
+pixies
 </pre>
 		</td></tr>
 		</table>

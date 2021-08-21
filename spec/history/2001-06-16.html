@@ -16,11 +16,11 @@
     :link { color: #00C; background: transparent }
     :visited { color: #609; background: transparent }
     :active { color: #C00; background: transparent }
-    
+
     th, td { /* ns 4 */
       font-family: sans-serif;
     }
-    
+
     h1, h2, h3, h4, h5, h6 { text-align: left }
     h1, h2, h3 { color: #005A9C; background: white }
     h1 { font: 170% sans-serif }
@@ -29,52 +29,52 @@
     h4 { font: bold 100% sans-serif }
     h5 { font: italic 100% sans-serif }
     h6 { font: small-caps 100% sans-serif }
-    
+
     .hide { display: none }
-    
+
     div.head { margin-bottom: 1em }
     div.head h1 { margin-top: 2em; clear: both }
     div.head table { margin-left: 2em; margin-top: 2em }
     div.head img { color: white; border: none } /* remove border from top image */
-    
+
     @media screen {  /* hide from IE3 */
-    a:hover { background: #ffa } 
+    a:hover { background: #ffa }
     }
 
-    
+
     pre { margin-left: 2em }
     dt, dd { margin-top: 0; margin-bottom: 0 } /* opera 3.50 */
     dt { font-weight: bold }
-    
+
     pre, code { font-family: monospace } /* navigator 4 requires this */
-    
+
     ul.toc {
       list-style: disc; /* Mac NS has problem with 'none' */
       list-style: none;
     }
-    
-    @media aural {  
+
+    @media aural {
       h1, h2, h3 { stress: 20; richness: 90 }
       .hide { speak: none }
       p.copyright { volume: x-soft; speech-rate: x-fast }
       dt { pause-before: 20% }
-      pre { speak-punctuation: code } 
+      pre { speak-punctuation: code }
     }
-    
+
     code  { font-family: monospace; }
     div.constraint, div.issue, div.note, div.notice { margin-left: 2em; }
     dt.label { display: run-in; }
     li p     { margin-top: 0.3em; margin-bottom: 0.3em; }
-    
+
     pre { font-family: monospace;
-          border-style: ridge; 
+          border-style: ridge;
           padding: 20px;
-          background: #99ffff; 
+          background: #99ffff;
           margin-left: 2em;
     }
   </style>
 </head>
-<body>  
+<body>
 <div class="head">
   <h1>Yet Another Markup Language (YAML) 1.0</h1>
   <h2>Working Draft 16 Jun 2001</h2>
@@ -96,29 +96,29 @@
 <div>
   <h2><a name="sec-abstract">Abstract</a></h2>
     <p>YAML (pronounced "yaamel") is a straightforward
-       machine parable data serialization format designed 
-       for human readability and interaction with scripting 
-       languages such as Perl and Python. YAML is optimized 
-       for configuration settings, log files, Internet 
+       machine parable data serialization format designed
+       for human readability and interaction with scripting
+       languages such as Perl and Python. YAML is optimized
+       for configuration settings, log files, Internet
        messaging and filtering.  This specification
        describes the serialization format, a "C" API for the
        parser and emitter, and several language bindings.</p>
 
   <h2><a name="sec-status">Status of this Document</a></h2>
-    <p>This specification is a working draft and reflects 
+    <p>This specification is a working draft and reflects
        consensus reached by the members of the
        <a href="http://lists.sourceforge.net/lists/listinfo/yaml-core">
-       yaml-core</a> mailing list.  Any questions regarding 
+       yaml-core</a> mailing list.  Any questions regarding
        this draft should be raised on this list.  This is
        a draft and changes are expected, therefore implementers
        should closely follow this mailing list to stay up-to-date
        on trends and announcements.</p>
-       
+
     <p>There are many productions which may have bugs,
        and the MIME productions are yet to be completed,
        although this should not stop an implementer!
        Feedback is welcome.</p>
-       
+
    </div>
 
 <div class="sec-toc"><h2><a name="sec-contents">Table of Contents</a></h2>
@@ -181,10 +181,10 @@
      a class of data objects called YAML documents and partially
      describes the behavior of computer programs that
      process them.</p>
-     
+
   <p>YAML documents encode into a serialized form information
-     having a recursive scalar, map, or list structure.  YAML 
-     also includes a method to encode references and binary 
+     having a recursive scalar, map, or list structure.  YAML
+     also includes a method to encode references and binary
      values.  At its core, a YAML document consists of a sequence
      of characters, some of which are considered part of the
      document's content, and others that are used to indicate
@@ -195,16 +195,16 @@
      structure.  In a similar way, a YAML emitter is used
      to write YAML documents, serializing their content and
      structure.  A YAML processor is a module that provides
-     for parser or emitter functionality or both.  It is assumed 
-     that a YAML processor does its work on behalf of another 
-     module, called an application.  This specification describes 
-     the interface and required behavior of an YAML processor in 
+     for parser or emitter functionality or both.  It is assumed
+     that a YAML processor does its work on behalf of another
+     module, called an application.  This specification describes
+     the interface and required behavior of an YAML processor in
      terms of how it must read or write YAML documents and the
      information it must provide or obtain from the application.</p>
-  
-<div class="div2"> 
+
+<div class="div2">
 <h3><a name="sec-goals">1.1 Origin and Goals</a></h3>
-     
+
   <p>The design goals for YAML are:</p>
   <ol>
     <li>YAML documents are very readable by humans.</li>
@@ -217,21 +217,21 @@
     <li>YAML is expressive and extensible.</li>
     <li>YAML is easy to implement.</li>
   </ol>
-  
+
   <p>YAML was designed with experience gained from the
-     construction and deployment of 
+     construction and deployment of
      <a href="http://search.cpan.org/doc/INGY/Data-Denter-0.12/Denter.pod">
      Data::Denter</a>.  YAML has
      also enjoyed much markup language critique
      from <a href="http://groups.yahoo.com/group/sml-dev">
      SML-DEV</a> list participants, including experience
      with the <a href="http://www.docuverse.com/smldev/minxml.html">
-     Minimal XML</a> and  
+     Minimal XML</a> and
      <a href="http://www.simonstl.com/articles/cxmlspec.txt">
      Common XML</a> specifications.</p>
-     
-  <p>This specification, together with associated standards (Unicode 
-     and ISO/IEC 10646 for characters), provides all the 
+
+  <p>This specification, together with associated standards (Unicode
+     and ISO/IEC 10646 for characters), provides all the
      information necessary to understand YAML Version 1.0 and
      construct computer programs to process it.</p>
 
@@ -241,7 +241,7 @@
   <p>YAML builds upon the structures and concepts described by
   <a href="http://www.w3.org/TR/REC-xml.html">XML</a>,
   <a href="http://www.w3.org/TR/SOAP">SOAP</a>,
-  <a href="http://www.wall.org/~larry/perl.html">Perl</a>, 
+  <a href="http://www.wall.org/~larry/perl.html">Perl</a>,
   <a href="http://www.ics.uci.edu/pub/ietf/html/rfc1866.txt">HTML</a>,
   <a href="http://www.python.org">Python</a>,
   <a href="http://cm.bell-labs.com/cm/cs/cbook/index.html">C</a>,
@@ -249,60 +249,60 @@
   <a href="http://www.ietf.org/rfc/rfc2045.txt">rfc2045</a>,
   <a href="http://www.ietf.org/rfc/rfc2046.txt">rfc2046</a>,
   <a href="http://www.megginson.com/SAX">SAX</a>.
-     
-  <p>YAML's type structures are similar to those of Perl.  In YAML, 
+
+  <p>YAML's type structures are similar to those of Perl.  In YAML,
      there are three fundamental structures: scalars (text and binary),
      maps (%) and lists (@).
      YAML also supports references to enable the serialization of graphs.
-     Furthermore, each data value can be associated with a class name 
+     Furthermore, each data value can be associated with a class name
      to allow the use of specific data types.  This type structure is
      common to many other languages and provides a solid basis
      for an information model.  Furthermore, it enables the programmer
      to use their programming language's native data constructs
      for YAML manipulation, instead of a document object.</p>
-      
+
   <p>YAML handles whitespace somewhat like HTML does. In YAML, sequences
-     of spaces, tabs, and carriage return characters are usually folded 
+     of spaces, tabs, and carriage return characters are usually folded
      into a single space during parsing. This wonderful technique makes
      markup code readable by allowing indentation and word-wrapping
-     without affecting the canonical form of the content.  This 
+     without affecting the canonical form of the content.  This
      folding technique can also be found in the structured headers
      of RFC 822.</p>
 
   <p>YAML's block scoping is similar to Python's. In YAML, the extent
-     of a node is indicated by its child's nesting level, i.e., what 
-     column it is in. Block indenting provides for easy inspection 
+     of a node is indicated by its child's nesting level, i.e., what
+     column it is in. Block indenting provides for easy inspection
      of the document's structure and greatly improves readability.
      This block scoping is possible due to the whitespace folding
      technique.</p>
-      
+
   <p>YAML's quoted strings are similar to C's.  In YAML, text scalars can be
-     surrounded by quotes enabling escape sequences such as \n 
+     surrounded by quotes enabling escape sequences such as \n
      to represent a new line, \t to represent a tab, and \\ to
      represent the backslash. Unlike C, since whitespace is folded,
-     YAML introduces bash style "\ " to escape additional spaces 
+     YAML introduces bash style "\ " to escape additional spaces
      that are part of the content and should not be folded.  Further,
-     the trailing \ is used as a continuation marker, allowing 
+     the trailing \ is used as a continuation marker, allowing
      content to be broken into multiple  lines without introducing
-     unwanted whitespace.  Lastly, ISO 8859-1 characters can be 
-     specified using "\x3B" style escapes and Unicode characters 
+     unwanted whitespace.  Lastly, ISO 8859-1 characters can be
+     specified using "\x3B" style escapes and Unicode characters
      can be specified using the similar escaping techniques
      "\u003B" and "\U0000003B".</p>
-      
-  <p>The syntax of YAML is an extension of rfc822, allowing for 
+
+  <p>The syntax of YAML is an extension of rfc822, allowing for
      direct usage of YAML in mail handlers.  YAML also has a
      binary scalar type using base64 encoding.</p>
-     
-  <p>In addition to a native in-memory load/save interface, YAML 
-     provides both a pull style input stream and a push style (SAX 
+
+  <p>In addition to a native in-memory load/save interface, YAML
+     provides both a pull style input stream and a push style (SAX
      like) output stream interface.  This enables YAML to directly
-     support the processing of large documents, such as a 
-     transaction log, or continuous streams, such as a feed from 
+     support the processing of large documents, such as a
+     transaction log, or continuous streams, such as a feed from
      a production machine.
 
 </div><div class="div2">
 <h3><a name="sec-example">1.3 Example</a></h3>
- 
+
 <P>Following is a simple example of an invoice
 represented as a YAML document. The colon is
 used to separate name:value pairs.  The percent
@@ -350,26 +350,26 @@ total    : $4237.50
 
   <p>There are many differences between YAML and the eXtensible
      Markup Language ("XML").&nbsp; XML was designed to be backwards
-     compatible with Standard Generalized Markup Language 
-     ("SGML") and thus had many design constraints placed on 
+     compatible with Standard Generalized Markup Language
+     ("SGML") and thus had many design constraints placed on
      it that YAML does not share.  Also XML, inheriting
      SGML's legacy, is designed to support structured documents,
      where YAML is more closely targeted at messaging with direct
      support for the native data structures of modern programming
      languages.  Further, XML is a pioneer in many domains and
-     YAML has been grown on the lessons learned by the XML 
+     YAML has been grown on the lessons learned by the XML
      community.  These points aside, there are many differences.</p>
 
   <p>The YAML and XML information model are starkly different.
      In XML, the primary construct is an attributed tree,
-     where each element has a ordered, named list of children 
+     where each element has a ordered, named list of children
      and an unordered mapping of names to strings.  In YAML,
      the primary hierarchical construct alternates between an
-     anonymous list, named map, and scalar values.  This 
-     difference is critical since YAML's model is directly 
-     supported by native data structures in most modern 
-     programming languages, where XML's model requires mapping, 
-     conventions, or an alternative programming component, 
+     anonymous list, named map, and scalar values.  This
+     difference is critical since YAML's model is directly
+     supported by native data structures in most modern
+     programming languages, where XML's model requires mapping,
+     conventions, or an alternative programming component,
      a document object model.</p>
 
   <p>The YAML and XML syntax vary significantly.  In XML,
@@ -378,11 +378,11 @@ total    : $4237.50
      YAML builds upon RFC 822 and MIME for its declaration
      section and support for binary and/or large scalar
      values, XML has its own processing instruction mechanism
-     and relies upon layered technologies for support for 
+     and relies upon layered technologies for support for
      binary leaves.  Furthermore, YAML has a simple whitespace
      policy, where XML's whitespace policy is completely
      configurable.</p>
-     
+
 </div><div class="div2">
 <h3><a name="sec-terminology">1.5 Terminology</a></h3>
 
@@ -399,7 +399,7 @@ total    : $4237.50
       <dd>Conformant YAML texts and processors are required to
           behave as described, otherwise they are in error.</dd>
       <dt class="label"><a name="error">error</a></dt>
-      <dd>A violation of the rules of this specification; 
+      <dd>A violation of the rules of this specification;
           results are undefined. Conforming software may detect
           and report an error and may recover from it.</dd>
       <dt class="label"><a name="fatal">fatal error</a></dt>
@@ -415,22 +415,22 @@ total    : $4237.50
 <div class="div1">
 <h2><a name="sec-serialization">2 Serialization</a></h2>
 
-  <p>A YAML document can reside in many different 
+  <p>A YAML document can reside in many different
      forms as long as it complies with the information
      model below.  This includes a sequence of bytes
-     in memory, on disk, or arriving via a network 
+     in memory, on disk, or arriving via a network
      socket as much as it includes events from a
      sequential interface or a language specific
      in-memory representation.  After covering the
      information model, this section focuses on the
      serialized representation.</a>
-     
+
 <div class="div2">
 <h3><a name="sec-model">2.1 Information Model</a></h3>
 
   <p>The information model for YAML is a directed acyclic graph
-     having map, list, and scalar nodes.  These data structures 
-     are directly supported in modern programming languages 
+     having map, list, and scalar nodes.  These data structures
+     are directly supported in modern programming languages
      such as Python, Perl, Java, and C++.</p>
 
   <p>Since the information model is a graph, a separate
@@ -438,10 +438,10 @@ total    : $4237.50
      model adds an additional node type, the reference,
      to record subsequent occurrences of a given node
      within a sequence.  This enables a more compact
-     notation so that duplicate occurrences of a given node 
+     notation so that duplicate occurrences of a given node
      need not be serialized more than once.</p>
 
-  
+
   <table cellpadding="5">
       <tr><td valign="top" class="label"><nobr><b>
       document
@@ -459,7 +459,7 @@ total    : $4237.50
       </b></nobr></td><td valign="top">
           An ordered sequence of zero or more
           nodes.  Nodes are included by reference,
-          thus they may be part of more than one 
+          thus they may be part of more than one
           list or map.  </td></tr>
       <tr><td valign="top" class="label"><nobr><b>
       binary scalar
@@ -495,30 +495,30 @@ total    : $4237.50
       </b></nobr></td><td valign="top">
           An additional attribute added to each node that
           provides for identification of the node within
-          a given node sequence.  Only nodes which could be 
-          referenced further in the sequence must be given 
+          a given node sequence.  Only nodes which could be
+          referenced further in the sequence must be given
           an anchor.  It is not necessary that the anchor
           be unique.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       reference
       </b></nobr></td><td valign="top">
           An additional node type consisting of an anchor
-          which is used to indicate the repetition of 
+          which is used to indicate the repetition of
           the node with the same anchor most previously
           encountered.</td></tr>
-          
+
   </table>
-  
+
   <p>In the serialization model, it is important that
      each node is serialized exactly once.  If a node
      appears more than once in the graph, only the
      first occurrence of the node should be serialized.
-     All remaining occurrences of this node should be 
+     All remaining occurrences of this node should be
      represented with reference nodes.  In this scheme,
      if a YAML document is loaded into an random access
      representation, then the reference nodes and anchor
-     indicators should not be available as the 
+     indicators should not be available as the
      non-serialized information model should be used.
      Also note that anchors can repeat to allow for
      concatenation, although only the most recent
@@ -531,15 +531,15 @@ total    : $4237.50
   <P>Characters are the basis for a serialized version
      of a YAML document.  Below is a general definition
      of a character followed by several characters
-     which have specific meaning in particular 
+     which have specific meaning in particular
      contexts.</p>
-     
+
 <div class="div3">
 <h4><a name="sec-set">2.2.1 Character Set</a></h4>
 
   <P>By default, serialized YAML uses a subset of the
      <a href="#ISO10646">ISO/IEC 10646</a> character set.
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="char"></a><code>[01]</code></td><td valign="top"><code>
      char
@@ -561,7 +561,7 @@ total    : $4237.50
      not comply with the above character set. Such
      values are taken to contain arbitrary non-textual data
      and therefore are not concerned with character set issues.
-     
+
 </div>
 <div class="div3">
 <h4><a name="sec-bom">2.2.2 Encoding</a></h4>
@@ -569,20 +569,20 @@ total    : $4237.50
   <P>A YAML processor is required to support both
      <a href="#UTF-16">UTF-16</a> and <a href="#UTF-8">UTF-8</a>
      character encodings.  If an input stream begins
-     with a <a href="#bom">byte order mark</a>, then the 
-     initial character encoding shall be UTF-16. Otherwise, 
+     with a <a href="#bom">byte order mark</a>, then the
+     initial character encoding shall be UTF-16. Otherwise,
      the initial encoding shall be UTF-8.
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="bom"></a><code>[02]</code></td><td valign="top"><code>
      bom
      </code></td><td valign="top">::=<code><nobr>
-       #xFEFF 
+       #xFEFF
      </nobr></code></td><td><i>
        <nobr>/* the</nobr> Unicode ZERO WIDTH NON-BREAKING SPACE character used
           to mark a UTF-16 stream and determine byte <nobr>ordering. */</nobr>
      </i></td></tr></table>
-     
+
   <p>If the stream begins with <code>#xFFFE</code>, then
      the byte order of the input stream must be swapped
      when reading.  For more information on the
@@ -592,12 +592,12 @@ total    : $4237.50
 </div>
 <div class="div3">
 <h4><a name="sec-eol">2.2.3 End-of-Line Normalization</a></h4>
-  <P>On input and before parsing, a compliant YAML parser 
+  <P>On input and before parsing, a compliant YAML parser
      must translate both the two-character sequence #xD #xA
-     (CR LF) and any #xD (CR) which is not followed by 
-     a #xA (LF) into a single #xA (LF) character.  This 
+     (CR LF) and any #xD (CR) which is not followed by
+     a #xA (LF) into a single #xA (LF) character.  This
      allows for the definition of an end-of-line marker.
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="eol"></a><code>[03]</code></td><td valign="top"><code>
      eol
@@ -622,10 +622,10 @@ total    : $4237.50
 <div class="div3">
 <h4><a name="sec-ind">2.2.4 Indicators</a></h4>
 
-  <P>Indicators are special <a href="#char">characters</a> 
-     which are used to describe the structure of a YAML 
+  <P>Indicators are special <a href="#char">characters</a>
+     which are used to describe the structure of a YAML
      document.</p>
-     
+
 
      <table cellpadding="5"><tr><td valign="top">
      <a name="imap"></a><code>[05]</code></td><td valign="top"><code>
@@ -719,14 +719,14 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* indicates</nobr> end of binary <nobr>scalar */</nobr>
      </i></td></tr></table>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="ireserved"></a><code>[18]</code></td><td valign="top"><code>
      ireserved
      </code></td><td valign="top">::=<code><nobr>
          '^' | '#' | ';' <br />
        | '`' | ',' | '.'  <br />
-       | '(' | ')' | '{' | '}' 
+       | '(' | ')' | '{' | '}'
      </nobr></code></td><td><i>
        <nobr>/* reserved */</nobr>
      </i></td></tr><tr><td valign="top">
@@ -745,7 +745,7 @@ total    : $4237.50
        | <a href="#ianchor">ianchor</a>
        | <a href="#ibin">ibin</a>
        | <a href="#ibinend">ibinend</a> <br />
-       | <a href="#ireserved">ireserved</a> 
+       | <a href="#ireserved">ireserved</a>
      </nobr></code></td><td><i>
        <nobr>/* indicator</nobr> <nobr>characters */</nobr>
      </i></td></tr></table>
@@ -759,7 +759,7 @@ total    : $4237.50
      whitespace, specify <a href="#char">characters</a>
      by a <a href="#hex">hexadecimal</a> value, and
      produce the literal quote and escape indicators.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="eescape"></a><code>[20]</code></td><td valign="top"><code>
      eescape
@@ -897,19 +897,19 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* escape</nobr> <nobr>sequences */</nobr>
      </i></td></tr></table>
-     
+
 </div>
 <div class="div3">
 <h4><a name="sec-misc">2.2.6 Miscellaneous Characters</a></h4>
 
-  <p>This section includes several common character 
+  <p>This section includes several common character
      range definitions.</p>
 
      <table cellpadding="5"><tr><td valign="top">
      <a name="lwsp"></a><code>[36]</code></td><td valign="top"><code>
      lwsp
      </code></td><td valign="top">::=<code><nobr>
-       #x20 | #x9 
+       #x20 | #x9
      </nobr></code></td><td><i>
        <nobr>/* linear</nobr> whitespace, the space or tab <nobr>character. */</nobr>
      </i></td></tr><tr><td valign="top">
@@ -918,7 +918,7 @@ total    : $4237.50
      </code></td><td valign="top">::=<code><nobr>
        <a href="#lwsp">lwsp</a> | <a href="#eol">eol</a>
      </nobr></code></td><td><i>
-       <nobr>/* a single</nobr> whitespace character, including 
+       <nobr>/* a single</nobr> whitespace character, including
           the space, tab, new line.  Excluding the
           carriage <nobr>return. */</nobr>
      </i></td></tr><tr><td valign="top">
@@ -932,7 +932,7 @@ total    : $4237.50
      <a name="lchr"></a><code>[39]</code></td><td valign="top"><code>
      <nobr>lchr</nobr>
      </code></td><td valign="top">::=<code><nobr>
-       <a href="#pchr">pchr</a> | <a href="#lwsp">lwsp</a> 
+       <a href="#pchr">pchr</a> | <a href="#lwsp">lwsp</a>
      </nobr></code></td><td><i>
        <nobr>/* printables</nobr> and linear <nobr>whitespace */</nobr>
      </i></td></tr><tr><td valign="top">
@@ -958,7 +958,7 @@ total    : $4237.50
      <nobr>ichr</nobr>
      </code></td><td valign="top">::=<code><nobr>
        ( <a href="#pchr">pchr</a>
-       - <a href="#indicator">indicator</a> )  
+       - <a href="#indicator">indicator</a> )
      </nobr></code></td><td><i>
        <nobr>/* printables</nobr> less the indicator <nobr>characters. */</nobr>
      </i></td></tr><tr><td valign="top">
@@ -1008,22 +1008,22 @@ total    : $4237.50
      sequences of characters, or strings.  This
      section describes whitespace folding and indentation
      policies, as well as quoted and raw strings.</p>
-     
+
 <div class="div3">
 <h4><a name="sec-tab">2.3.1 Indentation</a></h4>
 
-  <p>In a YAML serialization, structure is determined from 
+  <p>In a YAML serialization, structure is determined from
      indentation, where indentation is defined as an end of
      line marker followed by zero or more spaces or tabs.
      Indentation level is defined recursively.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="tab0"></a><code>[48]</code></td><td valign="top"><code>
      <nobr>tab(0)</nobr>
      </code></td><td valign="top">::=<code><nobr>
        <a href="#eol">eol</a>
      </nobr></code></td><td><i>
-       <nobr>/* the</nobr> first level of indentation is 
+       <nobr>/* the</nobr> first level of indentation is
           a single end of line marker (new <nobr>line). */</nobr>
      </i></td></tr><tr><td valign="top">
      <a name="tabn"></a><code>[49]</code></td><td valign="top"><code>
@@ -1035,14 +1035,14 @@ total    : $4237.50
           more spaces or <nobr>tabs. */</nobr>
      </i></td></tr></table>
 
-  <p>It should be noted that this production does not imply 
+  <p>It should be noted that this production does not imply
      that tab(3) is a constant thought the entire serialization,
-     as the particular indentation style may change over time.  
+     as the particular indentation style may change over time.
      Specifically, an indentation level tab(n) is set with
      the first subordinate line of a node at tab(n-1).
-     All subordinate lines must share this same indentation 
-     setting.  This allows indentation to vary over the 
-     serialization as long as it remains constant for a given 
+     All subordinate lines must share this same indentation
+     setting.  This allows indentation to vary over the
+     serialization as long as it remains constant for a given
      node's content.</p>
 
   <p>Since the YAML serialization depends upon indentation level
@@ -1060,9 +1060,9 @@ total    : $4237.50
      indentation, in many cases the parser must condense
      sequences of one or more whitespace characters
      into a single space (#x20).   When this functionality
-     is implied, the <a href="#lfold">lfold</a> production 
+     is implied, the <a href="#lfold">lfold</a> production
      below will be used.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="fstr"></a><code>[50]</code></td><td valign="top"><code>
      <nobr>lfold</nobr>
@@ -1071,10 +1071,10 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* linear</nobr> folded <nobr>whitespace */</nobr>
      </i></td></tr></table>
-     
+
   <P>With this definition, there are two sorts of
      folded strings which are useful to describe.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="fstr"></a><code>[51]</code></td><td valign="top"><code>
      <nobr>fstr</nobr>
@@ -1090,7 +1090,7 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* indicator</nobr> free, folded <nobr>string */</nobr>
      </i></td></tr></table>
-     
+
   <p>A folded string starts with a printable which is not an
      indicator.  It is then followed by a sequence of printable
      words with intermediate folded whitespace.  At parse time,
@@ -1101,20 +1101,20 @@ total    : $4237.50
 <div class="div3">
 <h4><a name="sec-qstr">2.3.3 Quoted String</a></h4>
 
-  <P>A quoted string is a mechanism to treat a sequence 
+  <P>A quoted string is a mechanism to treat a sequence
      of <a href="#char">characters</a> as a single unit.
      Within a quoted string, <a href="#sec-ind">indicators</a>
      (with the exception of <a href="#iquote">&quot;</a> and
       <a href="#iescape">\</a>) can be used
-     without worry and <a href="#sec-escape">escape 
-     sequences</a> can be used to introduce significant 
-     whitespace which would otherwise be subject to 
+     without worry and <a href="#sec-escape">escape
+     sequences</a> can be used to introduce significant
+     whitespace which would otherwise be subject to
      folding.</p>
-     
+
   <p>A quoted string begins and ends with a quote
      character.  It can extend for as many lines
-     as necessary, although an editor or emitter is 
-     free to re-break and indent a quoted string as 
+     as necessary, although an editor or emitter is
+     free to re-break and indent a quoted string as
      needed to maintain readability.</p>
 
   <p>A line break in a multi-line quoted string is considered to be
@@ -1128,7 +1128,7 @@ total    : $4237.50
      contain an un-escaped quote or an invalid escape sequence.</p>
 
    <p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="qstr"></a><code>[53]</code></td><td valign="top"><code>
      <nobr>qstr(n)</nobr>
@@ -1169,15 +1169,15 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* any</nobr> sequence of digits <nobr>0-9. */</nobr>
      </i></td></tr></table>
-     
-     
+
+
 <div class="div3">
 <h4><a name="sec-cstr">2.3.5 Class String</a></h4>
 
   <P>Each node can be adorned with a class string.
      There are three types of class strings: local,
      qualified, and built-in.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="cstr"></a><code>[56]</code></td><td valign="top"><code>
        cstr
@@ -1191,8 +1191,8 @@ total    : $4237.50
 
   <p>Local class strings, which are unique within a controlled
      context, are a sequence of printable characters without
-     save the period.  These strings may not be globally unique 
-     and should only be used for local usage or for experimentation 
+     save the period.  These strings may not be globally unique
+     and should only be used for local usage or for experimentation
      where data exchange is not likely.</p>
 
      <table cellpadding="5"><tr><td valign="top">
@@ -1203,13 +1203,13 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* a local</nobr> class <nobr>string */</nobr>
      </i></td></tr></table>
-     
+
   <p>Qualified class strings are globally unique since
-     they are serialized with a reverse domain name format 
+     they are serialized with a reverse domain name format
      similar to "com.clarkevans.timesheet".  The definition
      of a qualified class is determined by the domain name
      holder.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="cqual"></a><code>[58]</code></td><td valign="top"><code>
      cqual
@@ -1218,13 +1218,13 @@ total    : $4237.50
      </nobr></code></td><td><i>
        <nobr>/* a reverse</nobr> dns qualified class <nobr>string */</nobr>
      </i></td></tr></table>
-     
-  <p>Built-in class strings, reserved for YAML usage, are 
+
+  <p>Built-in class strings, reserved for YAML usage, are
      also globally unique and begin with a period.
      Core classes include <a href="#real">real</a>, designating
      an inprecise floating point value, and <a href="#int">int</a>,
      designating a precise integer value.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="cbltn"></a><code>[59]</code></td><td valign="top"><code>
      cbltn
@@ -1237,7 +1237,7 @@ total    : $4237.50
       The above definitions depend upon domain name strings.
       These are defined below.
      </p>
-     
+
      <table><tr><td valign="top">
      <a name="dnsrev"></a><code>[60]</code></td><td valign="top"><code>
        dnsrev
@@ -1273,9 +1273,9 @@ total    : $4237.50
 <div class="div2">
 <h3><a name="sec-document">2.4 Document</a></h3>
 
-  <p>A serialized object is a YAML document if, taken 
+  <p>A serialized object is a YAML document if, taken
      as a whole, it complies with the following production.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="document"></a><code>[63]</code></td><td valign="top"><code>
      document
@@ -1290,14 +1290,14 @@ total    : $4237.50
              <a href="#pair">pair(0)</a> )* )? )* <br />
        <a href="#eol">eol</a>
      </nobr></code></td><td><i>
-       <nobr>/* a byte</nobr> order mark followed by a sequence of 
+       <nobr>/* a byte</nobr> order mark followed by a sequence of
           maps seperated by a blank <nobr>line. */</nobr>
      </i></td></tr></table>
-     
+
 </div>
 <div class="div3">
 <h4><a name="sec-node">2.4.1 Node</a></h4>
-  <P>A node begins at a particular level of 
+  <P>A node begins at a particular level of
      indentation, n, and its content is indented
      at a level n+1.  A node can either be a
      <a href="#sec-scalar">scalar</a>,
@@ -1321,7 +1321,7 @@ total    : $4237.50
          <a href="#tabn">tab(n+1)<a>
          <a href="#scalar">scalar(n+1)</a>
      </nobr></code></td><td><i>
-     <nobr>/* an optional</nobr> node color followed by either a 
+     <nobr>/* an optional</nobr> node color followed by either a
         map, list, scalar, or <nobr>reference */</nobr>
      </i></td></tr><tr><td valign="top">
      <a name="color"></a><code>[65]</code></td><td valign="top"><code>
@@ -1330,36 +1330,36 @@ total    : $4237.50
        <a href="#anchor">anchor</a>
        | <a href="#class">class</a> <br />
        | ( <a href="#anchor">anchor</a>
-           <a href="#lwsp">lwsp</a>+ 
+           <a href="#lwsp">lwsp</a>+
            <a href="#class">class</a> ) <br />
        | ( <a href="#class">class</a>
-           <a href="#lwsp">lwsp</a>+  
+           <a href="#lwsp">lwsp</a>+
            <a href="#anchor">anchor</a> )
      </nobr></code></td><td><i>
        <nobr>/* either</nobr> an anchor, or class, or both in any <nobr>order */</nobr>
      </i></td></tr></table>
-     
+
 
 </div>
 <div class="div3">
 <h4><a name="sec-class">2.4.2 Class</a></h4>
-  <p>YAML indirectly supports the serialization of 
+  <p>YAML indirectly supports the serialization of
      data types and object class name with a class
-     attribute on each node.  If this attribute is provided, 
-     then each specific language binding may use this 
+     attribute on each node.  If this attribute is provided,
+     then each specific language binding may use this
      information to dress the node appropriately, otherwise
-     a warning must be issued and the must data treated as 
+     a warning must be issued and the must data treated as
      if the class attribute was not provided.</p>
 
      <table cellpadding="5"><tr><td valign="top">
      <a name="class"></a><code>[66]</code></td><td valign="top"><code>
      class
        </code></td><td valign="top">::=<code><nobr>
-       <a href="#iclass">iclass</a> <a href="#cstr">cstr</a> 
+       <a href="#iclass">iclass</a> <a href="#cstr">cstr</a>
      </nobr></code></td><td><i>
        <nobr>/* associates</nobr> an class string with a given <nobr>node */</nobr>
      </i></td></tr></table>
-     
+
 <PRE>
 built-in:  !.real              23.42
 local:     !local              Local class name.
@@ -1381,18 +1381,18 @@ qualified: !com.clarkevans.ts  Qualified class name.
      removal of any leading 0 characters.</p>
 
   <p>It is an error to have a reference use an anchor
-     string which does not occur previously in the 
+     string which does not occur previously in the
      serialization.</p>
 
   <p>Two anchor strings are
-  
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="anchor"></a><code>[67]</code></td><td valign="top"><code>
      anchor
      </code></td><td valign="top">::=<code><nobr>
-       <a href="#ianchor">ianchor</a> <a href="#astr">astr</a> 
+       <a href="#ianchor">ianchor</a> <a href="#astr">astr</a>
      </nobr></code></td><td><i>
-       <nobr>/* associates</nobr> an anchor string with a 
+       <nobr>/* associates</nobr> an anchor string with a
           given node for further <nobr>reference */</nobr>
      </i></td></tr><tr><td valign="top">
      <a name="ref"></a><code>[68]</code></td><td valign="top"><code>
@@ -1402,7 +1402,7 @@ qualified: !com.clarkevans.ts  Qualified class name.
      </nobr></code></td><td><i>
        <nobr>/* a reference</nobr> <nobr>node */</nobr>
      </i></td></tr></table>
-     
+
 <PRE>
 anchor:    &0001         This scalar has an anchor.
 clsanc:    !cls &0002    Has alocal class and an anchor.
@@ -1494,12 +1494,12 @@ list: @
      </nobr></code></td><td><i>
        <nobr>/* a single</nobr> line folded string, or a quoted <nobr>string */</nobr>
      </i></td></tr></table>
-     
-  <p>In a given map, there is the further restriction 
+
+  <p>In a given map, there is the further restriction
      that within a given map, two folded key values
      cannot be identical.  Also, the canonical serialization
      orders the keys alphabetically.</p>
-     
+
 
 <PRE>
 map: %
@@ -1524,10 +1524,10 @@ map: %
   <P>While most of the document productions
      above are fairly strict, the scalar production
      is generous.  It offers four in-line styles of
-     expressing scalar values depending upon the 
-     readability requirements.  The table below 
+     expressing scalar values depending upon the
+     readability requirements.  The table below
      describes the various styles.</p>
-     
+
      <table cellpadding="5">
      <tr><td width="70"></td>
          <td><a href="#sec-fold">Folded?</a></td>
@@ -1546,7 +1546,7 @@ map: %
   <p>Note that if a YAML document is loaded into a random access representation, then
      the representation may ignore the distinction between the three text scalar styles,
      but must distinguish between a text scalar and a binary scalar.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="scalar"></a><code>[74]</code></td><td valign="top"><code>
      <nobr>scalar(n)</nobr>
@@ -1565,8 +1565,8 @@ map: %
 
   <p>For this case, each line is indented, whitespace is folded
      (line breaks always counts as white space),
-     escaping is not available, and the content 
-     must not start with an indicator.  To delineate the 
+     escaping is not available, and the content
+     must not start with an indicator.  To delineate the
      end of this scalar, indention is employed.</p>
 
      <table cellpadding="5"><tr><td valign="top">
@@ -1576,14 +1576,14 @@ map: %
        <a href="#ichr">ichr</a>
        ( <a href="#fstr">fstr</a>?
          <a href="#tabn">tab(n+1)</a>
-         <a href="#pchr">pchr</a> )* 
+         <a href="#pchr">pchr</a> )*
        <a href="#fstr">fstr</a>
      </nobr></code></td><td><i>
-       <nobr>/* one</nobr> or more indented, non-escaped, 
+       <nobr>/* one</nobr> or more indented, non-escaped,
           folded <nobr>characters */</nobr>
      </i></td></tr></table>
 <pre>
-first: This is a one line scalar. 
+first: This is a one line scalar.
 second:
     &lt;html>&lt;head>&lt;title>Embedded HTML!&lt;/title>&lt;/head>
     &lt;body>&lt;p class="none">This can even
@@ -1591,7 +1591,7 @@ second:
     escaping, and since &lt; (the starting character)
     is not an indicator!
     &lt;/p>&lt;/body>
-third: Indicators like @ : % are allowed, as 
+third: Indicators like @ : % are allowed, as
        well as quotes, as long as the first
        character is not an indicator.  Further,
        whitespace     is   folded.
@@ -1603,13 +1603,13 @@ fourth: @
       entry, with the
       optional : prefix.
 </pre>
-     
+
 </div>
 <div class="div3">
 <h4><a name="sec-block">2.5.2 Block Scalar</a></h4>
 
   <P>This mechanism supports source code or other text
-     values with significant use of indicators, quoted 
+     values with significant use of indicators, quoted
      escaping, or significant whitespace.  To retain
      readability for this case, the block scalar allows
      raw text strings to be used in an indented fashion
@@ -1645,11 +1645,11 @@ second:
    \No leading nor trailing new line.
 third: @
    |
-   |First list item which has a 
+   |First list item which has a
    |leading and trailing new line.
    \
-   |Second list item. Does not have 
-   |leading nor trailing new line.  
+   |Second list item. Does not have
+   |leading nor trailing new line.
    |Does have three new lines in the
    \middle.
 </PRE>
@@ -1659,12 +1659,12 @@ third: @
 <h4><a name="sec-quoted">2.5.3 Quoted Scalar</a></h4>
   <p>A quoted scalar uses quoted strings.  With
      this mechanism, the indicators (excepting the
-     quote and slash) can be used freely, whitespace 
+     quote and slash) can be used freely, whitespace
      is folded (line breaks count as white space unless escaped),
      and escape sequences can be used to
      indicate significant whitespace, non-printable characters,
      quotes and slashes.</p>
-  
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="quoted"></a><code>[77]</code></td><td valign="top"><code>
      <nobr>quoted(n)</nobr>
@@ -1673,7 +1673,7 @@ third: @
      </nobr></code></td><td><i>
        <nobr>/* a quoted</nobr> scalar <nobr>value. */</nobr>
      </i></td></tr></table>
-     
+
 <PRE>
 first: &quot;Quoted scalar.\nWith a new line.&quot;
 second: @
@@ -1703,7 +1703,7 @@ second: @
      base64 processor.  An additional constraint is that
      no more than 76 base64 characters are allowed
      within each line.</p>
-     
+
      <table cellpadding="5"><tr><td valign="top">
      <a name="binary"></a><code>[78]</code></td><td valign="top"><code>
      <nobr>binary(n)</nobr>
@@ -1731,7 +1731,7 @@ binary: [R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAO
          ZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLCAgjo
          EwnuNAFOhpEMTRiggc z4BNJHrv/zCFcLiwMWYN
          G84BwwEeECcgggoBADs=]
-desc:   
+desc:
   The binary value above is a tiny arrow encoded
   as a gif image.
 </pre>
@@ -1743,7 +1743,7 @@ desc:
 
   <p>There are two basic types of interfaces used for
      sequential processing, pull and push.  The difference
-     lies primarly in who has the primary control of the 
+     lies primarly in who has the primary control of the
      process, the consumer or the producer.  With a push
      interface, the producer has the primary control and
      with a pull interface is is the consumer who drives
@@ -1757,7 +1757,7 @@ desc:
 <h3><a name="sec-parser">3.1 Parser Interface</a></h3>
 
   <p>The parser or iterator interface provides a sequential
-     access to a YAML document where the flow control is 
+     access to a YAML document where the flow control is
      dicated by the consumer.  The parser interface uses
      the serialization model, handling duplicate nodes
      within the graph through a reference.  The parser
@@ -1772,40 +1772,40 @@ desc:
           or reference), the node's class, the node's
           anchor, and, if the node is part of a map,
           the key associated with the node.</td></tr>
-      
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_create">open()
       </a></b></nobr></td><td valign="top">
           A function which returns the document's top level
           list cursor.  This method may require an input stream
-          such as a string buffer, a file object, or a 
+          such as a string buffer, a file object, or a
           open socket.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_first">first()
       </a></b></nobr></td><td valign="top">
           A function which takes a map or list cursor and
           returns a cursor for the first child within the
-          sequence, if any.  It is an error to call this 
+          sequence, if any.  It is an error to call this
           function on cursor currently holding a reference
           or scalar.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_next">next()
       </a></b></nobr></td><td valign="top">
           A method which advances the cursor passed to the next
-          node within the current map or list.  If there is not 
-          a subsequent node within the sequence, then this 
-          function must free the cursor and should indicate that 
+          node within the current map or list.  If there is not
+          a subsequent node within the sequence, then this
+          function must free the cursor and should indicate that
           additional siblings are not to be found.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_close">close()
       </a></b></nobr></td><td valign="top">
           A method on the top level cursor which can be
           used on the top level cursor to stop iteration
           and invalidate all subordinate cursors.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_read">read()
       </a></b></nobr></td><td valign="top">
@@ -1813,31 +1813,31 @@ desc:
           to read an arbitrary sized chunk of it's value.
           A scalar's value can only be read once, but multiple
           calls to this function may be required.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="pull_deref">deref()
       </a></b></nobr></td><td valign="top">
           An optional method which can be called on a cursor
-          with a reference node to return a new cursor for 
+          with a reference node to return a new cursor for
           the node referenced.  This method need only be supported
           by those iterators over a random access input stream.</td></tr>
   </table>
   <p>As part of this interface, each cursor returned from
      the parser must remain valid until close() is called,
-     or the next() is called on the cursor, or next() 
-     is called on an ancestral cursor.  Note that this 
-     implies that N cursors may be open at any given time, 
+     or the next() is called on the cursor, or next()
+     is called on an ancestral cursor.  Note that this
+     implies that N cursors may be open at any given time,
      one cursor for each map or list in a given lineage.
-     It is the parser's task to make sure that each cursor 
+     It is the parser's task to make sure that each cursor
      points to valid information.</p>
 
 </div>
 <div class="div2">
 <h3><a name="sec-emitter">3.2 Emitter Interface</a></h3>
 
-  <p>The emitter or visitor interface interface provides a 
-     sequential access to a YAML document where the flow 
-     control is dicated by the producer.  The emitter interface 
+  <p>The emitter or visitor interface interface provides a
+     sequential access to a YAML document where the flow
+     control is dicated by the producer.  The emitter interface
      uses the serialization model, handling duplicate nodes
      within the graph through a reference.  The emitter
      interface has several components.</p>
@@ -1848,14 +1848,14 @@ desc:
       </a></b></nobr></td><td valign="top">
           The emitter may require a cursor for its bookkeeping
           which is opaque.</td></tr>
-      
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="push_start">start()
       </a></b></nobr></td><td valign="top">
           A function which must be called to start the emitter.
           This function returns a cursor to be used for subsequent
           operations.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="push_begin">begin()
       </a></b></nobr></td><td valign="top">
@@ -1865,7 +1865,7 @@ desc:
           used for subordinate operations.  This cursor takes
           the node's type, a class, an anchor, and possibly
           a key if the node is in the context of a map.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="push_write">write()
       </a></b></nobr></td><td valign="top">
@@ -1877,19 +1877,19 @@ desc:
       <a name="push_ref">ref()
       </a></b></nobr></td><td valign="top">
           An optional method which can be called on a
-          map or list cursor to add a reference to the 
+          map or list cursor to add a reference to the
           sequence of children.  This method takes the
           current cursor and an anchor as parameters.
-          If this method is not provided, the caller 
+          If this method is not provided, the caller
           must recursively visit the referenced node.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="push_end">end()
       </a></b></nobr></td><td valign="top">
           A method called on a cursor to indicate that
           the node in question is no longer in scope.
           The cursor passed should no longer be used.</td></tr>
-          
+
       <tr><td valign="top" class="label"><nobr><b>
       <a name="push_finish">finish()
       </a></b></nobr></td><td valign="top">
@@ -1897,7 +1897,7 @@ desc:
           cursor to indicate that the document stream
           has finished.</td></tr>
   </table>
-  <p>As part of this interface, a cursor is deemed 
+  <p>As part of this interface, a cursor is deemed
      valid untill end() has been called on it.  It is
      an error to call end() on a cursor when a subordinate
      cursor is still valid.  This implies that the emitter
@@ -1915,7 +1915,7 @@ desc:
      approach or a large intermediate memory buffer.
      To help automate conversions, the YAML processing
      library includes both interface converters.</p>
-     
+
 </div>
 </div>
 <div class="div1">
@@ -1926,25 +1926,25 @@ desc:
      are the official bindings for Python, Perl, and C.
      A language binding is not required to implement the
      sequential interface.</p>
-     
+
   <p>TODO: This section needs much work</p>
-     
+
 <div class="div2">
 <h3><a name="sec-c">4.1 "C" Language</a></h3>
 
   <p>Since the "C" programming language does not have
      dynamic lists or maps, this binding only implements
      the sequential interface.</p>
-  
+
 </div>
 
 <div class="div2">
 <h3><a name="sec-python">4.2 Python</a></h3>
 
   <p>For the Python binding, unless specified otherwise
-     by a class, scalar values are bound to the string type, 
-     lists are bound to the list type, and maps are bound 
-     to the dictionary type with the key represented as 
+     by a class, scalar values are bound to the string type,
+     lists are bound to the list type, and maps are bound
+     to the dictionary type with the key represented as
      a string.</a>
   <p>If a scalar has a <a href="!real">real</a> class, then
      the scalar must be bound as a floating point value if
@@ -1959,7 +1959,7 @@ desc:
      is used to construct a class with the same package name.
      And then, depending upon the type, initialization
      is carried out differently.  If the node is a map,
-     then the keys are assumed to be attributes, and 
+     then the keys are assumed to be attributes, and
      the setattr method is used to initialize the object.
      If the node is a scalar, then repr is used.  Otherwise,
      if the node is a array, then additem method is used.</p>
@@ -1969,7 +1969,7 @@ desc:
 <h3><a name="sec-perl">4.3 Perl</a></h3>
 
   <p>For the Perl binding...</p>
-  
+
 </div>
 
 
@@ -1977,7 +1977,7 @@ desc:
 <h3><a name="sec-java">4.4 Java</a></h3>
 
   <p>For the Java binding...</p>
-  
+
 </div></div>
 <div class="div1">
 <h2><a name="sec-changes">5 Changes From Other Versions</a></h3>
@@ -2049,7 +2049,7 @@ desc:
     <dd>The information model now distinguishes between text and binary scalars.</dd>
 
   </dl>
-  
+
 </div>
 <div class="div2">
 <h3><a name="sec-future">5.3 Probable Future Changes</a></h3>

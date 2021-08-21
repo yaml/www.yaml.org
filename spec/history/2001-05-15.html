@@ -11,7 +11,7 @@
 </head>
 <body bgcolor="#fffff7" link="#000079">
 <TABLE ALIGN=CENTER WIDTH=95% CELLSPACING=1 CELLPADDING=4 BORDER=1>
-<TR><TD BGCOLOR="#000079" ALIGN=center>    
+<TR><TD BGCOLOR="#000079" ALIGN=center>
 <BIG><B><FONT COLOR="#fffff7" >
 Welcome to YAML (tm) -- WORKING DRAFT 0.19a
 </FONT></B></BIG>
@@ -36,58 +36,58 @@ successful languages. </P>
 
 <UL>
 
-<LI>YAML uses similar type structure as Perl. In YAML, 
+<LI>YAML uses similar type structure as Perl. In YAML,
 there there are three fundamental structures: scalars ($),
 maps (%), and lists (@).  YAML also supports references to
-enable the serilization of graphs.  Furthermore, 
+enable the serilization of graphs.  Furthermore,
 each data value can be associated with a class name
 to allow the use of specific data types.
 
 <LI>YAML uses block scoping similar to Python.  In YAML,
 the extent of a node is indicated by its child's
 nesting level, i.e., what column it is in.   Block
-indenting provides for easy inspection of the document's 
+indenting provides for easy inspection of the document's
 structure which helps to identify scope errors.
 
-<LI>YAML uses similar whitespace handling as HTML. In 
-YAML, sequences of spaces, tabs, and carriage return 
-characters are folded into a single space during parse.  
-This wonderful technique makes markup code readable by 
-enabling indentation and word-wrapping without affecting 
+<LI>YAML uses similar whitespace handling as HTML. In
+YAML, sequences of spaces, tabs, and carriage return
+characters are folded into a single space during parse.
+This wonderful technique makes markup code readable by
+enabling indentation and word-wrapping without affecting
 the canonical form of the content.
 
-<LI>YAML uses similar slash style escape sequences as C.  
+<LI>YAML uses similar slash style escape sequences as C.
 In YAML, \n is used to represent a new line, \t is used to
 represent a tab, and \\ is used to represent the slash.
 In addition, since whitespace is folded, YAML uses bash
 style "\ " to escape additional spaces that are part of
-the content and should not be folded.  Lastly, the trailing 
-\ is used as a continuation marker, allowing 
-content to be broken into multiple lines without 
+the content and should not be folded.  Lastly, the trailing
+\ is used as a continuation marker, allowing
+content to be broken into multiple lines without
 introducing unwanted whitespace.
 
 <LI>YAML allows for a
   <a href="http://www.ietf.org/rfc/rfc0822.txt">rfc822</a>
 compatible header area for comments, specific processing
-instructions, and encoding declarations.  This provides 
-a flexible and forward looking method to augment the 
+instructions, and encoding declarations.  This provides
+a flexible and forward looking method to augment the
 YAML parser with other features such as a validator
 similar to TREX or RELAX.  Furthermore, this will allow
-a mail processing system to directly use YAML as its 
+a mail processing system to directly use YAML as its
 input parser.
 
 <LI>YAML supports binary and formatted text entities with
 <a href="http://www.ietf.org/rfc/rfc2046.txt">MIME</a>
-multi-part attachments.  Each attachment is given an 
-reference identifier which can be associated with a 
-location in hierarchical YAML content.  This allows 
-leaf values which would distrupt the in-line structural 
+multi-part attachments.  Each attachment is given an
+reference identifier which can be associated with a
+location in hierarchical YAML content.  This allows
+leaf values which would distrupt the in-line structural
 flow to be handled out of band in a seperate block mechanism.
 
 <LI>YAML has a <a href="http://www.megginson.com/SAX/">SAX</a>
 like sequential "C" <a href="yaml.h">API</a>.  This C library can be used to
 easily construct native-language representations of a YAML
-serilization.  The API also show cases a clever 
+serilization.  The API also show cases a clever
 substitutability technique which allows schema changes
 to occur at the leaf nodes in a backwards compatible
 manner without breaking older code.  This brings resiliance
@@ -106,11 +106,11 @@ Example: Basic
 <P>
 Below is an example of an invoice expressed via YAML.
 Each value's type indicated by either percent (map), or
-an at (list) sign, or an optional dollar sign (scalar). 
-The content for each value follows the indicator either 
-on the same line for scalars or on subsequent indented 
-lines. The content for a map, which is also the starting 
-production, is a list of key value paris. Each key and 
+an at (list) sign, or an optional dollar sign (scalar).
+The content for each value follows the indicator either
+on the same line for scalars or on subsequent indented
+lines. The content for a map, which is also the starting
+production, is a list of key value paris. Each key and
 value are seperated by a colon.</P>
 
 <PRE>
@@ -167,8 +167,8 @@ Example: References and Class Names
 Below is an example of a YAML document which demonstrates
 the use of references and classes.  Immediately after an
 indicator a class name can occur and then within parenthesis
-an optional reference handle.  If the indicator is a "*", 
-then no further content is allowed, as this indicator 
+an optional reference handle.  If the indicator is a "*",
+then no further content is allowed, as this indicator
 signifies a reference to another value.  The class name may
 be used as a specific language specific binding to
 a particular object or type appropriate class, otherwise
@@ -192,8 +192,8 @@ inline : $(0001)
 seller : %person(0002)
     comments:
         This is another person object, only
-        that it is given a handle of 0001 as 
-        well as a class so that it can be 
+        that it is given a handle of 0001 as
+        well as a class so that it can be
         refered to later.  Handles must be
         numeric, and classes cannot start
         with a number.
@@ -206,7 +206,7 @@ zzz :
        The second is to the inline text object "This is..."
        The price scalar below is given a class "price".
    peter : *(0002)
-   price : $currency 
+   price : $currency
        23.34
    text  : *(0001)
 </PRE>
@@ -229,7 +229,7 @@ instructions, and MIME for raw/binary references.
 <PRE>
 Date: Sun, 13 May 2001 23:48:04 -0400
 MIME-Version: 1.0
-Content-Type: multipart/related; 
+Content-Type: multipart/related;
     boundary="================================"
 X-YAML-Version: 1.0
 
@@ -279,8 +279,8 @@ Information Model
 <TR><TD BGCOLOR="#fffff7">
 
 <P>
-A map/list/scalar data structures found in 
-modern programming languages such as ML, 
+A map/list/scalar data structures found in
+modern programming languages such as ML,
 Python, Perl, and C.  This model should also
 be very compatible with relational database
 tables.  Note: This model lacks classes and
@@ -291,7 +291,7 @@ references which are still under consideration.
 <TR><TD VALIGN="TOP">Document</TD><TD>
 The the starting production for YAML is a Map.
 <TR><TD VALIGN="TOP">Map</TD><TD>
-An un-ordered sequence of zero or more 
+An un-ordered sequence of zero or more
 (Key,Value) tuples.  Where they Key is
 unique within the sequence and matches
 the <a href="#Key">Key</a> production.</TD></TR>
@@ -300,17 +300,17 @@ the <a href="#Key">Key</a> production.</TD></TR>
   <TR><TD VALIGN="TOP">List      </TD><TD>
     An ordered sequence of zero or more Values.</TD></TR>
   <TR><TD VALIGN="TOP">Scalar</TD><TD>
-    Any type directly serilizable through or able to be 
-    constructed from a sequence of zero or more characters.  
+    Any type directly serilizable through or able to be
+    constructed from a sequence of zero or more characters.
     These characters must match the <a href="#Char">Char</a>
     production.</TD></TR>
   <TR><TD COLSPAN="2"><HR /></TD></TR>
   <TR><TD VALIGN="TOP">Default</TD><TD>
     This is a synthesized attribute of every Value.  If
-    the Value is a Scalar, then the Default property 
+    the Value is a Scalar, then the Default property
     refers to the Value itself.  If this Value is a List,
     then the Default refers to the Default property of the
-    first Value in its sequence.  If the Value is a Map, 
+    first Value in its sequence.  If the Value is a Map,
     then Default refers to the Default property of the
     Value in its Pair entry lacking a Key.  By using
     Default, a Scalar Value can be substituted with
@@ -340,7 +340,7 @@ be included which affords for more specific decoding
 into classes and types.  The default attribute is
 implemented through a stand-alone function.
 <P>
-For Perl, the internal represenation starts with a 
+For Perl, the internal represenation starts with a
 top-level hash.  And from there, depending upon the
 indicators can either be a list, hash, or string scalar.
 Of course, it is also possible for a schema mechanism
@@ -348,7 +348,7 @@ to be included which affords for more specific decoding.
 The default attribute is implemeted through a stand-alone
 function.
 <P>
-Haven't done Java or Javascript since '98, but I remember 
+Haven't done Java or Javascript since '98, but I remember
 Strings, Maps and Lists being Objects.  So there shouldn't be
 any problem in Java.  Javascript is probably in the
 same boat but I can't veryify since that book has
@@ -362,7 +362,7 @@ Scalar, List, and Map.  For C++, STL could make the
 implementation very quick, especially with iterator
 support.  An alternative approach would be a class
 builder... but this, of course, requires a bit
-more smarts and a schema system. 
+more smarts and a schema system.
 <P>
 Mapping to a relational database will also require
 some sort of schema to indicate how to pack/unpack.
@@ -449,8 +449,8 @@ Some thoughts
 </FONT></B></BIG>
 </TD></TR><TR><TD>
 <OL>
-  <LI>This is very preliminary thoughts on the subject, 
-      feedback is very welcome. 
+  <LI>This is very preliminary thoughts on the subject,
+      feedback is very welcome.
   <LI>Implementations needed... Clark is happy to write
       the Python, C, and perhaps even a C++ implementation.
       Any takers?
@@ -485,8 +485,8 @@ Specific Productions
   <TR><TD VALIGN="TOP"><a name="Char">Char</></TD>
   <TD VALIGN="TOP">&nbsp;::=&nbsp;</TD><TD VALIGN="TOP">
   #x9 | #xA | #xD | [#x20-#xD7FF]  | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
-  </TD><TD>Any unicode character, excluding surrogate blocks, 
-           FFFE, and FFFF.  Where unicode is defined by 
+  </TD><TD>Any unicode character, excluding surrogate blocks,
+           FFFE, and FFFF.  Where unicode is defined by
            ISO/IEC 10646-2000</TD></TR>
   <TR><TD VALIGN="TOP"><a name="Characters">Characters</></TD>
   <TD VALIGN="TOP">&nbsp;::=&nbsp;</TD><TD VALIGN="TOP">
@@ -500,7 +500,7 @@ Specific Productions
   <TR><TD VALIGN="TOP"><a name="Whitespace">Whitespace</a></TD>
   <TD VALIGN="TOP">&nbsp;::=&nbsp;</TD><TD VALIGN="TOP">
   WhiteChar+
-  </TD><TD>Any sequence of spaces, tabs, new lines 
+  </TD><TD>Any sequence of spaces, tabs, new lines
            or carriage returns.</TD></TR>
   <TR><TD VALIGN="TOP"><a name="Indicator">Indicator</></TD>
   <TD VALIGN="TOP">&nbsp;::=&nbsp;</TD><TD VALIGN="TOP">

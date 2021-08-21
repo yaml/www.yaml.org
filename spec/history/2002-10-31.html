@@ -786,13 +786,13 @@ SPAN.rtoc {
         YAML's block collections use indentation for scope and begin each
         member on its own line. Block sequences indicate each member with a
         dash&nbsp;(-). Block mappings use a colon to mark each
-        (key:&nbsp;value) pair. 
+        (key:&nbsp;value) pair.
 
         <table summary="Examples" class="EX" width="80%">
           <tbody>
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_a1"></a> 
+                <a id="ex_a1"></a>
 <pre class="EX">
 - Mark McGwire
 - Sammy Sosa
@@ -817,7 +817,7 @@ SPAN.rtoc {
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_a2"></a> 
+                <a id="ex_a2"></a>
 <pre class="EX">
 hr:  65
 avg: 0.278
@@ -844,7 +844,7 @@ rbi: 147
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_a3"></a> 
+                <a id="ex_a3"></a>
 <pre class="EX">
 american:
    - Boston Red Sox
@@ -874,13 +874,13 @@ national:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_a4"></a> 
+                <a id="ex_a4"></a>
 <pre class="EX">
-- 
+-
   name: Mark McGwire
   hr:   65
   avg:  0.278
-- 
+-
   name: Sammy Sosa
   hr:   63
   avg:  0.288
@@ -914,10 +914,10 @@ national:
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_a5"></a> 
+                <a id="ex_a5"></a>
 <pre class="EX">
 - [ name         , hr , avg   ]
-- [ Mark McGwire , 65 , 0.278 ] 
+- [ Mark McGwire , 65 , 0.278 ]
 - [ Sammy Sosa   , 63 , 0.288 ]
 
 </pre>
@@ -938,9 +938,9 @@ national:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_a6"></a> 
+                <a id="ex_a6"></a>
 <pre class="EX">
-Mark McGwire: {hr: 65, avg: 0.278} 
+Mark McGwire: {hr: 65, avg: 0.278}
 Sammy Sosa:   {hr: 63,
                avg: 0.288}
 
@@ -972,13 +972,13 @@ Sammy Sosa:   {hr: 63,
         stream (file or socket). Comment lines begin with the pound
         sign&nbsp;(#). Repeated nodes are first marked with the
         ampersand&nbsp;(&amp;) and then referenced with an asterisk&nbsp;(*)
-        thereafter. 
+        thereafter.
 
         <table summary="Examples" class="EX" width="80%">
           <tbody>
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_b1"></a> 
+                <a id="ex_b1"></a>
 <pre class="EX">
 ---
 name: Mark McGwire
@@ -1008,7 +1008,7 @@ avg:  0.288
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_b2"></a> 
+                <a id="ex_b2"></a>
 <pre class="EX">
 # Ranking of players by
 # 1998 season home runs.
@@ -1039,11 +1039,11 @@ avg:  0.288
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_b3"></a> 
+                <a id="ex_b3"></a>
 <pre class="EX">
 hr: # 1998 hr ranking
-   - Mark McGwire 
-   - Sammy Sosa 
+   - Mark McGwire
+   - Sammy Sosa
 rbi:
    # 1998 rbi ranking
    - Sammy Sosa
@@ -1067,14 +1067,14 @@ rbi:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_b4"></a> 
+                <a id="ex_b4"></a>
 <pre class="EX">
 hr:
    - Mark McGwire
    # Following node labeled SS
    - &amp;SS Sammy Sosa
 rbi:
-   - *SS # Subsequent occurance 
+   - *SS # Subsequent occurance
    - Ken Griffey
 
 </pre>
@@ -1105,17 +1105,17 @@ rbi:
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_b5"></a> 
+                <a id="ex_b5"></a>
 <pre class="EX">
 ? # PLAY SCHEDULE
   - Detroit Tigers
   - Chicago Cubs
-:  
+:
   - 2001-07-23
 
 ? [ New York Yankees,
     Atlanta Braves ]
-: [ 2001-07-02, 2001-08-12, 
+: [ 2001-07-02, 2001-08-12,
     2001-08-14 ]
 
 </pre>
@@ -1136,7 +1136,7 @@ rbi:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_b6"></a> 
+                <a id="ex_b6"></a>
 <pre class="EX">
 invoice: 34843
 date   : 2001-01-23
@@ -1148,7 +1148,7 @@ product:
      quantity: 4
    - item    : Big Shoes
      quantity: 1
-        
+
 </pre>
 
                 <table summary="Caption">
@@ -1183,7 +1183,7 @@ product:
           <tbody>
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_c1"></a> 
+                <a id="ex_c1"></a>
 <pre class="EX">
 --- |
     \/|\/|
@@ -1208,7 +1208,7 @@ product:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_c2"></a> 
+                <a id="ex_c2"></a>
 <pre class="EX">
 --- &gt;
     Mark McGwire's
@@ -1235,7 +1235,7 @@ product:
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_c3"></a> 
+                <a id="ex_c3"></a>
 <pre class="EX">
 --- &gt;
  Sammy Sosa completed another
@@ -1245,7 +1245,7 @@ product:
    0.288 Batting Average
 
  What a year!
-        
+
 </pre>
 
                 <table summary="Caption">
@@ -1265,11 +1265,11 @@ product:
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_c4"></a> 
+                <a id="ex_c4"></a>
 <pre class="EX">
 name: Mark McGwire
 accomplishment: &gt;
-   Mark set a major league 
+   Mark set a major league
    home run record in 1998.
 stats: |
    65 Home Runs
@@ -1305,10 +1305,10 @@ stats: |
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_c5"></a> 
+                <a id="ex_c5"></a>
 <pre class="EX">
 unicode: "Sosa did fine.\u263A"
-control: "\b1998\t1999\t2000\n" 
+control: "\b1998\t1999\t2000\n"
 hexesc:  "\x13\x10 is \r\n"
 
 single: '"Howdy!" he cried.'
@@ -1333,7 +1333,7 @@ tie-fighter: '|\-*-/|'
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_c6"></a> 
+                <a id="ex_c6"></a>
 <pre class="EX">
 plain: This unquoted
        scalar spans
@@ -1342,7 +1342,7 @@ quoted: "\
   So does this quoted
   scalar.\n"
 
-        
+
 </pre>
 
                 <table summary="Caption">
@@ -1377,7 +1377,7 @@ quoted: "\
           <tbody>
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_d1"></a> 
+                <a id="ex_d1"></a>
 <pre class="EX">
 canonical: 12345
 decimal: +12,345
@@ -1403,7 +1403,7 @@ hexadecimal: 0xC
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_d2"></a> 
+                <a id="ex_d2"></a>
 <pre class="EX">
 canonical: 1.23015e+3
 exponential: 12.3015e+02
@@ -1431,7 +1431,7 @@ not a number: (NaN)
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_d3"></a> 
+                <a id="ex_d3"></a>
 <pre class="EX">
 null: ~
 true: +
@@ -1456,7 +1456,7 @@ string: '12345'
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_d4"></a> 
+                <a id="ex_d4"></a>
 <pre class="EX">
 canonical: 2001-12-15T02:59:43.1Z
 iso8601:  2001-12-14t21:59:43.10-05:00
@@ -1490,7 +1490,7 @@ date:   2002-12-14
 
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_d5"></a> 
+                <a id="ex_d5"></a>
 <pre class="EX">
 ---
 not-date: !str 2002-04-28
@@ -1500,7 +1500,7 @@ picture: !binary#base64 |
  Pz7Y6OjuDg4J+fn5OTk6enp
  56enmleECcgggoBADs=
 
-hmm: !somewhere.com,2002/type | 
+hmm: !somewhere.com,2002/type |
  family above is short for
  taguri:somewhere.com,2002:type
 
@@ -1522,7 +1522,7 @@ hmm: !somewhere.com,2002/type |
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_d6"></a> 
+                <a id="ex_d6"></a>
 <pre class="EX">
 --- !clarkevans.com,2002/graph/^shape
 - !^circle
@@ -1568,7 +1568,7 @@ hmm: !somewhere.com,2002/type |
           <tbody>
             <tr>
               <td class="EX" width="50%">
-                <a id="ex_e1"></a> 
+                <a id="ex_e1"></a>
 <pre class="EX">
 --- !clarkevans.com,2002/^invoice
 invoice: 34843
@@ -1618,7 +1618,7 @@ comments: &gt;
               </td>
 
               <td class="EX" width="50%">
-                <a id="ex_e2"></a> 
+                <a id="ex_e2"></a>
 <pre class="EX">
 ---
 Time: 2001-11-23 15:01:42 -05:00
@@ -5397,7 +5397,7 @@ above is equal to: |
     This is a folded paragraph followed by a list:
      * first entry
      * second entry
-    Followed by another folded paragraph, another list: 
+    Followed by another folded paragraph, another list:
 
      * first entry
 
@@ -5608,7 +5608,7 @@ second: '! : \ etc. can be used freely.'
 third: 'a single quote '' must be escaped.'
 span: 'this contains
       six spaces
-      
+
       and one
       line break'
 is same as: "this contains six spaces\nand one line break"
@@ -6712,7 +6712,7 @@ note: { one-line keys: but
             is modeled by YAML as a graph of typed nodes, where nodes in the
             graph include atomic values called scalars, sequences of nodes,
             or mappings of nodes from one set to another.<br />
-             
+
 
             <p>The native model may be implemented by arbitrary native data
             structures of the programming language used. The only constraint
@@ -6728,7 +6728,7 @@ note: { one-line keys: but
             language, or application. This allows for the definition of a
             generic YAML API and corresponding tools that do not depend on
             any particular native representation.<br />
-             
+
 
             <p>Implementations of the graph model are, by necessity, specific
             to a particular programming language. Such implementations are
@@ -6743,7 +6743,7 @@ note: { one-line keys: but
             hierarchy using alias nodes. An alias node is a surrogate used
             for subsequent occurrences of any kind of node. In this model,
             mappings are represented as an ordered set of node pairs.<br />
-             
+
 
             <p>The serial model is often implemented as an event stream, and
             is important for implementing one-pass operations on YAML data.
@@ -6758,7 +6758,7 @@ note: { one-line keys: but
             The text model enhances the serial model with comments, styles
             and other syntax specific details. YAML text must comply with the
             syntax productions given in the following section.<br />
-             
+
 
             <p>YAML text syntax is fully defined by this specification and
             hence any instance is independent of the particular programming
@@ -6851,7 +6851,7 @@ note: { one-line keys: but
               under the <code>x-private:</code> scheme. The
               <code>taguri:</code> scheme is described in <a
               href="http://www.taguri.org">http://www.taguri.org</a>.<br />
-               
+
 
               <p>YAML only makes use of <code>taguri:</code> URIs that take
               the form <code>taguri:domain,date:identifier</code>.
@@ -6884,7 +6884,7 @@ note: { one-line keys: but
               is thought of as a single scalar or as a mapping with
               independent sub-parts).<br />
               <br />
-               
+
 
               <dl>
                 <dt><code><strong><a id="model-scalar"
@@ -6918,7 +6918,7 @@ note: { one-line keys: but
                   a specific set of keys and that the value for each key must
                   be of a particular type family.<br />
                   <br />
-                   
+
 
                   <dl>
                     <dt><code><strong><a id="model-domain"
@@ -6996,7 +6996,7 @@ note: { one-line keys: but
               content. We call this second form of equivalence "equality". It
               follows that when two nodes are identical they are also
               equal.<br />
-               
+
 
               <p>Equality is defined between scalar nodes and between
               collection nodes, as described below.</p>
@@ -7095,7 +7095,7 @@ YAML syntax: !Point { x: 1, y: 2 }
               A top-level <a href="#model-native-node">node</a> that is <a
               href="#model-disjoint">disjoint</a> from all other root
               document nodes.<br />
-               
+
 
               <p>The term <code><strong><a id="model-disjoint"
               name="model-disjoint">disjoint</a></strong></code> means that
@@ -7576,7 +7576,7 @@ YAML syntax: !Point { x: 1, y: 2 }
           be based on the kind of the collection node and its contents.
           Implicit typing of a node may also depend on its position in the
           graph.<br />
-           
+
 
           <p>The implicit typing rules depends upon the application. It is
           possible to parse a document without being aware of these rules.
