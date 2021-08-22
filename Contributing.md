@@ -5,6 +5,12 @@ The upkeep of https://www.yaml.org is a community project.
 You can easily contribute!
 Just fork, make changes and send us a Pull Request.
 
+## Changing the YAML Specfication files
+
+The YAML specs are published on yaml.org from this repository, but the source
+files for modifying them are located here: <https://github.com/yaml/yaml-spec>.
+Please submit spec related pull requests there.
+
 ## Adding a YAML library to index.html
 
 Thanks for adding a library we don't yet know about!
