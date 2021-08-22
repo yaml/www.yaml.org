@@ -10,7 +10,7 @@ publish: build
 
 build: gh-pages
 	rm -fr $</*
-	cp -r *.html css img spec type gh-pages/
+	cp -r *.html *.svg css img spec type gh-pages/
 	echo yaml.org > $</CNAME
 
 gh-pages:
