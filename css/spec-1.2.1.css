@@ -49,21 +49,24 @@ h6 {
 
 div.example pre.example {
   border-style: ridge;
-  width: 90%;
+  width: 98%;
   padding: 0.25em;
+  margin: 1em;
 }
 
 pre.rule {
   border-style: ridge !important;
-  width: 90%;
+  width: 99%;
   padding: 0.25em;
+  margin-bottom: 0.5em;
 }
 
 table {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 td.side-by-side pre {
   border-style: ridge !important;
   padding: 0.25em;
+  margin: 0 5px;
 }
