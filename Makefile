@@ -1,8 +1,9 @@
 SHELL := bash
 
+SITE := gh-pages
 SPEC_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
-SPEC_BRANCH := spec.yaml.io
+SPEC_BRANCH := main
 
 SPEC_121_DIR := spec/1.2.1
 SPEC_121_FILES := \
@@ -19,25 +20,29 @@ SPEC_121_FILES := \
 SPEC_121_FILES := $(SPEC_121_FILES:%=$(SPEC_121_DIR)/%)
 
 default:
-	@printf '%s\n' $(SPEC_121_FILES)
 
 serve: build
-	python3 -m http.server 8000
+	(cd $(SITE) && python3 -m http.server 8000)
 
-publish: gh-pages build
+publish: build
+	git -C $(SITE) add -A .
+	git -C $(SITE) commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
+	git -C $(SITE) push origin $(SITE)
+
+build: $(SITE) files
 	rm -fr $</*
 	cp -r *.html favicon.svg css img spec type $</
 	echo yaml.org > $</CNAME
-	git -C $< add -A .
-	git -C $< commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
-	git -C $< push origin $<
 
-build: $(SPEC_121_FILES)
+files: $(SPEC_121_FILES)
+
+force:
+	rm -fr $(SITE)a$(SPEC_121_DIR)
 
 clean:
-	rm -fr gh-pages $(SPEC_DIR) $(SPEC_121_DIR)
+	rm -fr $(SITE) $(SPEC_DIR) $(SPEC_121_DIR)
 
-gh-pages:
+$(SITE):
 	@git branch --track $@ origin/$@ 2>/dev/null || true
 	git worktree add -f $@ $@
 
