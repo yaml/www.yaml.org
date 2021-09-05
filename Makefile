@@ -5,6 +5,9 @@ SPEC_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
 SPEC_BRANCH := main
 
+COMMON := /tmp/yaml-common
+COMMON_REPO := https://github.com/yaml/yaml-common
+
 SPEC_121_DIR := spec/1.2.1
 SPEC_121_FILES := \
     index.html \
@@ -18,6 +21,8 @@ SPEC_121_FILES := \
     core-team/index.html \
 
 SPEC_121_FILES := $(SPEC_121_FILES:%=$(SPEC_121_DIR)/%)
+
+FAVICON := favicon.svg
 
 default:
 
@@ -34,7 +39,7 @@ build: $(SITE) files
 	cp -r *.html favicon.svg css img spec type $</
 	echo yaml.org > $</CNAME
 
-files: $(SPEC_121_FILES)
+files: $(SPEC_121_FILES) $(FAVICON)
 
 force:
 	rm -fr $(SITE)a$(SPEC_121_DIR)
@@ -64,10 +69,17 @@ $(SPEC_DIR)/www/html/%: $(SPEC_DIR)
 $(SPEC_DIR):
 	git clone --branch $(SPEC_BRANCH) $(SPEC_REPO) $@
 
+$(FAVICON): $(COMMON)
+	cp $</image/yaml-logo.svg $@
+
+$(COMMON):
+	git clone $(COMMON_REPO) $@
+
 define render-html
 @mkdir -p $$(dirname $2)
 cat \
     template/head.html \
+    template/body-draft.html \
     $1 \
     template/foot.html \
     > $2
