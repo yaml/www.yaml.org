@@ -198,7 +198,7 @@ P.copyright {
         <dt>Latest version:</dt>
 
         <dd><a
-        href="http://yaml.org/spec/">http://yaml.org/spec/</a></dd>
+        href="https://yaml.org/spec/">https://yaml.org/spec/</a></dd>
 
         <dt>Editors:</dt>
 
@@ -4039,7 +4039,7 @@ total   : 4443.52
               characters. Where possible, YAML editors should be
               configured to using this indentation policy, as it is
               the only truly portable one. The <a
-              href="http://yaml.org/editors">http://yaml.org/editors</a>
+              href="https://yaml.org/editors">https://yaml.org/editors</a>
               page contains instructions on configuring known
               editors to use this policy.</p>
             </dd>
@@ -4535,11 +4535,11 @@ total   : 4443.52
             <li>
               <p>If the type family contains no '<code>:</code>'
               and no '<code>/</code>' characters it is prefixed
-              with <code>http://yaml.org/</code>. Thus the parser
+              with <code>https://yaml.org/</code>. Thus the parser
               must report a node with the type family
               <nobr><code>!seq</code></nobr> as if it was written
               using the full
-              <nobr><code>!http://yaml.org/seq</code></nobr>
+              <nobr><code>!https://yaml.org/seq</code></nobr>
               notation.</p>
             </li>
 
@@ -4822,7 +4822,7 @@ total   : 4443.52
                 )</code></nobr></td>
 
                 <td><em><nobr>/* Shorthand</nobr> for
-                <code>http://yaml.org/</code></em><code>type</code>
+                <code>https://yaml.org/</code></em><code>type</code>
                 <em><nobr>names */</nobr></em></td>
               </tr>
 
@@ -4981,7 +4981,7 @@ total   : 4443.52
 - 10.0
 - !float 10
 - !yaml.org/^float '10'
-- !http://yaml.org/float ]\
+- !https://yaml.org/float ]\
   1\
   0
 </pre>
@@ -4998,7 +4998,7 @@ bearing: !!ball
 <pre>
 # 'http://company.tld/invoice' is some type family.
 invoice: !company.tld/^invoice
-  # 'seq' is a shorthand for 'http://yaml.org/seq'.
+  # 'seq' is a shorthand for 'https://yaml.org/seq'.
   # This does not effect '^customer' below
   # because it is does not specify a prefix.
   customers: !seq
@@ -7858,7 +7858,7 @@ fourth: The above entry is an integer.
       <p>Additional common type families are defined in the <a
       id="trans-repository" name="trans-repository">YAML type
       repository</a> available at <a
-      href="http://yaml.org/repository">http://yaml.org/repository</a>.
+      href="https://yaml.org/repository">https://yaml.org/repository</a>.
       An application may also use private type families or public
       type families defined on the basis of some URI or DNS domain
       name. The exact set of transfer methods used in a document is
@@ -7881,7 +7881,7 @@ fourth: The above entry is an integer.
               <td align="right">
               <code><strong>name:</strong></code></td>
 
-              <td colspan="4"><code>http://yaml.org/seq</code></td>
+              <td colspan="4"><code>https://yaml.org/seq</code></td>
             </tr>
 
             <tr>
@@ -7960,7 +7960,7 @@ equal sequence:
               <td align="right">
               <code><strong>name:</strong></code></td>
 
-              <td colspan="4"><code>http://yaml.org/map</code></td>
+              <td colspan="4"><code>https://yaml.org/map</code></td>
             </tr>
 
             <tr>
@@ -8038,7 +8038,7 @@ equal map:
               <td align="right">
               <code><strong>Name:</strong></code></td>
 
-              <td colspan="4"><code>http://yaml.org/str</code></td>
+              <td colspan="4"><code>https://yaml.org/str</code></td>
             </tr>
 
             <tr>
@@ -8141,7 +8141,7 @@ equal map:
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/null</code></td>
+              <code>https://yaml.org/null</code></td>
             </tr>
 
             <tr>
@@ -8217,7 +8217,7 @@ three:
               <td align="right">
               <code><strong>Name:</strong></code></td>
 
-              <td colspan="4"><code>http://yaml.org/ptr</code></td>
+              <td colspan="4"><code>https://yaml.org/ptr</code></td>
             </tr>
 
             <tr>
@@ -8271,7 +8271,7 @@ YAML: !ptr
               <td align="right">
               <code><strong>Name:</strong></code></td>
 
-              <td colspan="4"><code>http://yaml.org/int</code></td>
+              <td colspan="4"><code>https://yaml.org/int</code></td>
             </tr>
 
             <tr>
@@ -8396,7 +8396,7 @@ hexadecimal: 0xC
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/float</code></td>
+              <code>https://yaml.org/float</code></td>
             </tr>
 
             <tr>
@@ -8498,7 +8498,7 @@ fixed: 0.1230
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/date</code></td>
+              <code>https://yaml.org/date</code></td>
             </tr>
 
             <tr>
@@ -8564,7 +8564,7 @@ date: 2001-12-14
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/time</code></td>
+              <code>https://yaml.org/time</code></td>
             </tr>
 
             <tr>
@@ -8651,7 +8651,7 @@ hms: 21:59:43.10
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/timestamp</code></td>
+              <code>https://yaml.org/timestamp</code></td>
             </tr>
 
             <tr>
@@ -8765,7 +8765,7 @@ space separated: 2001-12-14 21:59:43.10 -05:00
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/binary</code></td>
+              <code>https://yaml.org/binary</code></td>
             </tr>
 
             <tr>
@@ -8865,7 +8865,7 @@ description: ]
               <code><strong>Name:</strong></code></td>
 
               <td colspan="4">
-              <code>http://yaml.org/special</code></td>
+              <code>https://yaml.org/special</code></td>
             </tr>
 
             <tr>
