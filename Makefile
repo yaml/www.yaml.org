@@ -45,7 +45,7 @@ force:
 	rm -fr $(SITE)a$(SPEC_121_DIR)
 
 clean:
-	rm -fr $(SITE) $(SPEC_DIR) $(SPEC_121_DIR)
+	rm -fr $(SITE) $(SPEC_DIR) $(SPEC_121_DIR) $(FAVICON)
 
 $(SITE):
 	@git branch --track $@ origin/$@ 2>/dev/null || true
