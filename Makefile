@@ -1,27 +1,58 @@
 SHELL := bash
 
 SITE := gh-pages
-SPEC_DIR := /tmp/yaml-spec
+SPEC_REPO_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
-SPEC_BRANCH ?= main
+# XXX
+# SPEC_BRANCH ?= main
+SPEC_BRANCH ?= spec-dirs-refactor
+HTML := $(SPEC_REPO_DIR)/www/html
 
-CNAME ?= yaml.org
+# XXX
+# CNAME ?= yaml.org
+CNAME ?= org.yaml.io
 COMMON := /tmp/yaml-common
 COMMON_REPO := https://github.com/yaml/yaml-common
 
-SPEC_121_DIR := spec/1.2.1
-SPEC_121_FILES := \
-    index.html \
-    spec.css \
-    img \
-    user-refs/index.html \
-    implementer-refs/index.html \
-    spec-errata/index.html \
-    spec-authors/index.html \
-    spec-changes/index.html \
-    core-team/index.html \
+SPEC := spec
+SPEC_FILES := \
+    1.2.0/index.html \
+    1.2.0/errata/index.html \
+    1.2.0/single_html.css \
+    1.2.0/model2.png \
+    1.2.0/overview2.png \
+    1.2.0/present2.png \
+    1.2.0/represent2.png \
+    1.2.0/serialize2.png \
+    1.2.0/styles2.png \
+    1.2.0/term.png \
+    1.2.0/validity2.png \
+    \
+    1.2.1/index.html \
+    1.2.1/errata/index.html \
+    1.2.1/single_html.css \
+    1.2.1/model2.png \
+    1.2.1/overview2.png \
+    1.2.1/present2.png \
+    1.2.1/represent2.png \
+    1.2.1/serialize2.png \
+    1.2.1/styles2.png \
+    1.2.1/term.png \
+    1.2.1/validity2.png \
+    \
+    1.2.2/index.html \
+    1.2.2/community/index.html \
+    1.2.2/core-team/index.html \
+    1.2.2/implementer-refs/index.html \
+    1.2.2/spec-authors/index.html \
+    1.2.2/spec-changes/index.html \
+    1.2.2/spec-errata/index.html \
+    1.2.2/user-refs/index.html \
+    1.2.2/spec.css \
+    1.2.2/img/ \
 
-SPEC_121_FILES := $(SPEC_121_FILES:%=$(SPEC_121_DIR)/%)
+
+SPEC_FILES := $(SPEC_FILES:%=$(SPEC)/%)
 
 FAVICON := favicon.svg
 
@@ -33,55 +64,60 @@ serve: build
 publish: build
 	git -C $(SITE) add -A .
 	git -C $(SITE) commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
-	git -C $(SITE) push origin $(SITE)
+	# XXX git -C $(SITE) push origin $(SITE)
+	git -C $(SITE) push -f git@github.com:ingydotnet/www.yaml.org $(SITE)
 
 build: $(SITE) files
 	rm -fr $</*
 	cp -r *.html favicon.svg css img spec type $</
 	echo $(CNAME) > $</CNAME
 
-files: $(SPEC_121_FILES) $(FAVICON)
+files: $(FAVICON) $(SPEC_REPO_DIR) $(SPEC_FILES)
 
 force:
-	rm -fr $(SITE)a$(SPEC_121_DIR)
+	rm -fr $(SITE) $(SPEC)/1.2.*
 
-clean:
-	rm -fr $(SITE) $(SPEC_DIR) $(SPEC_121_DIR) $(FAVICON)
+clean: force
+	rm -fr $(FAVICON) $(COMMON) $(SPEC_REPO_DIR)
 
 $(SITE):
 	@git branch --track $@ origin/$@ 2>/dev/null || true
 	git worktree add -f $@ $@
 
-$(SPEC_121_DIR)/index.html: $(SPEC_DIR)/www/html/spec.html template/*
-	$(call render-html,$<,$@)
-	perl -pi -e 's{/main/}{/$(SPEC_121_DIR)/}g' $@
-
-$(SPEC_121_DIR)/%/index.html: $(SPEC_DIR)/www/html/%.html template/*
-	$(call render-html,$<,$@)
-
-$(SPEC_121_DIR)/%: $(SPEC_DIR)/www/html/%
-	cp -r $< $@
-
-$(SPEC_DIR)/www/html/%: $(SPEC_DIR)/www/html
-
-$(SPEC_DIR)/www/html/%: $(SPEC_DIR)
-	make -C $< html
-
-$(SPEC_DIR):
-	git clone --branch $(SPEC_BRANCH) $(SPEC_REPO) $@
+$(COMMON):
+	git clone $(COMMON_REPO) $@
 
 $(FAVICON): $(COMMON)
 	cp $</image/yaml-logo.svg $@
 
-$(COMMON):
-	git clone $(COMMON_REPO) $@
+$(SPEC_REPO_DIR):
+	git clone --branch $(SPEC_BRANCH) $(SPEC_REPO) $@
+	make -C $@ html
 
-define render-html
-@mkdir -p $$(dirname $2)
-cat \
-    template/head.html \
-    template/body-draft.html \
-    $1 \
-    template/foot.html \
-    > $2
+$(SPEC)/%/index.html: $(HTML)/%/spec.html
+	@mkdir -p $(dir $@)
+	$(eval override V := $(@:$(SPEC)/%/index.html=%))
+	$(eval override T := $(HTML)/$V/title.html)
+	$(call render)
+	perl -pi -e 's{/main/}{/spec/$V/}g' $@
+
+$(SPEC)/%/index.html: $(HTML)/%.html
+	@mkdir -p $(dir $@)
+	$(eval override V := $(@:$(SPEC)/%/index.html=%))
+	$(eval override V := $(firstword $(subst /, ,$V)))
+	$(eval override T := $(HTML)/$V/title.html)
+	$(call render)
+
+$(SPEC)/%: $(HTML)/%
+	@mkdir -p $(dir $@)
+	cp $< $@
+
+$(SPEC)/%/: $(HTML)/%
+	@mkdir -p $(shell dirname $@)
+	cp -r $< $(shell dirname $@)
+
+define render
+cp template/$V.html $@
+sed -e '/%%%TITLE%%%/ {' -e 'r $T' -e 'd' -e '}' -i $@
+sed -e '/%%%BODY%%%/ {' -e 'r $<' -e 'd' -e '}' -i $@
 endef
