@@ -3,7 +3,7 @@ SHELL := bash
 SITE := gh-pages
 SPEC_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
-SPEC_BRANCH := main
+SPEC_BRANCH ?= main
 
 COMMON := /tmp/yaml-common
 COMMON_REPO := https://github.com/yaml/yaml-common
@@ -53,7 +53,7 @@ $(SITE):
 
 $(SPEC_121_DIR)/index.html: $(SPEC_DIR)/www/html/spec.html template/*
 	$(call render-html,$<,$@)
-	perl -pi -e 's{XXXHTMLXXX}{$(SPEC_121_DIR)}g' $@
+	perl -pi -e 's{/main/}{/$(SPEC_121_DIR)/}g' $@
 
 $(SPEC_121_DIR)/%/index.html: $(SPEC_DIR)/www/html/%.html template/*
 	$(call render-html,$<,$@)
