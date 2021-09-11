@@ -38,7 +38,7 @@ publish: build
 build: $(SITE) files
 	rm -fr $</*
 	cp -r *.html favicon.svg css img spec type $</
-	echo $(NAME) > $</CNAME
+	echo $(CNAME) > $</CNAME
 
 files: $(SPEC_121_FILES) $(FAVICON)
 
