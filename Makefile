@@ -5,6 +5,7 @@ SPEC_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
 SPEC_BRANCH ?= main
 
+CNAME ?= yaml.org
 COMMON := /tmp/yaml-common
 COMMON_REPO := https://github.com/yaml/yaml-common
 
@@ -37,7 +38,7 @@ publish: build
 build: $(SITE) files
 	rm -fr $</*
 	cp -r *.html favicon.svg css img spec type $</
-	echo yaml.org > $</CNAME
+	echo $(NAME) > $</CNAME
 
 files: $(SPEC_121_FILES) $(FAVICON)
 
