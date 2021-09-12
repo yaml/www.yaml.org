@@ -9,23 +9,23 @@ a:link, a:visited, a:active {
     margin-top: 0;
 }
 
-.yaml_doc_sep {
+.ydoc {
     color: turquoise;
 }
 
-.yaml_comment {
+.ycom {
     color: blue;
 }
 
-.yaml_directive {
+.ydir {
     color: red;
 }
 
-.yaml_key {
+.ykey {
     color: green;
 }
 
-.yaml_key_sep {
+.ysep {
     color: brown;
 }
 
