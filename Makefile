@@ -3,8 +3,7 @@ SHELL := bash
 SITE := gh-pages
 SPEC_REPO_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
-# XXX SPEC_BRANCH ?= main
-SPEC_BRANCH ?= spec-dirs-refactor
+SPEC_BRANCH ?= main
 HTML := $(SPEC_REPO_DIR)/www/html
 
 CNAME ?= yaml.org
