@@ -3,56 +3,22 @@ SHELL := bash
 SITE := gh-pages
 SPEC_REPO_DIR := /tmp/yaml-spec
 SPEC_REPO := https://github.com/yaml/yaml-spec
-# XXX
-# SPEC_BRANCH ?= main
+# XXX SPEC_BRANCH ?= main
 SPEC_BRANCH ?= spec-dirs-refactor
 HTML := $(SPEC_REPO_DIR)/www/html
 
-# XXX
-# CNAME ?= yaml.org
-CNAME ?= org.yaml.io
+CNAME ?= yaml.org
 COMMON := /tmp/yaml-common
 COMMON_REPO := https://github.com/yaml/yaml-common
 
 SPEC := spec
-SPEC_FILES := \
-    1.2.0/index.html \
-    1.2.0/errata/index.html \
-    1.2.0/single_html.css \
-    1.2.0/model2.png \
-    1.2.0/overview2.png \
-    1.2.0/present2.png \
-    1.2.0/represent2.png \
-    1.2.0/serialize2.png \
-    1.2.0/styles2.png \
-    1.2.0/term.png \
-    1.2.0/validity2.png \
-    \
-    1.2.1/index.html \
-    1.2.1/errata/index.html \
-    1.2.1/single_html.css \
-    1.2.1/model2.png \
-    1.2.1/overview2.png \
-    1.2.1/present2.png \
-    1.2.1/represent2.png \
-    1.2.1/serialize2.png \
-    1.2.1/styles2.png \
-    1.2.1/term.png \
-    1.2.1/validity2.png \
-    \
-    1.2.2/index.html \
-    1.2.2/community/index.html \
-    1.2.2/core-team/index.html \
-    1.2.2/implementer-refs/index.html \
-    1.2.2/spec-authors/index.html \
-    1.2.2/spec-changes/index.html \
-    1.2.2/spec-errata/index.html \
-    1.2.2/user-refs/index.html \
-    1.2.2/spec.css \
-    1.2.2/img/ \
-
-
-SPEC_FILES := $(SPEC_FILES:%=$(SPEC)/%)
+SPEC_HTML_DIR := $(SPEC_REPO_DIR)/www/html
+SPEC_FILES_CMD := \
+    find $(SPEC_HTML_DIR) -type f | sort | grep -v title
+SPEC_FILES := $(shell $(SPEC_FILES_CMD))
+SPEC_FILES := $(SPEC_FILES:$(SPEC_HTML_DIR)/%=spec/%)
+SPEC_FILES := $(SPEC_FILES:%.html=%/index.html)
+SPEC_FILES := $(SPEC_FILES:%/spec/index.html=%/index.html)
 
 FAVICON := favicon.svg
 
@@ -64,21 +30,23 @@ serve: build
 publish: build
 	git -C $(SITE) add -A .
 	git -C $(SITE) commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
-	# XXX git -C $(SITE) push origin $(SITE)
-	git -C $(SITE) push -f git@github.com:ingydotnet/www.yaml.org $(SITE)
+	git -C $(SITE) push origin $(SITE)
 
 build: $(SITE) files
 	rm -fr $</*
 	cp -r *.html favicon.svg css img spec type $</
 	echo $(CNAME) > $</CNAME
 
-files: $(FAVICON) $(SPEC_REPO_DIR) $(SPEC_FILES)
+files: $(FAVICON) $(SPEC_REPO_DIR)
+	$(MAKE) spec-files
+
+spec-files: $(SPEC_FILES)
 
 force:
 	rm -fr $(SITE) $(SPEC)/1.2.*
 
 clean: force
-	rm -fr $(FAVICON) $(COMMON) $(SPEC_REPO_DIR)
+	rm -fr $(FAVICON) $(COMMON) $(SPEC_REPO_DIR) $(SPEC)/1.2.*
 
 $(SITE):
 	@git branch --track $@ origin/$@ 2>/dev/null || true
@@ -92,7 +60,7 @@ $(FAVICON): $(COMMON)
 
 $(SPEC_REPO_DIR):
 	git clone --branch $(SPEC_BRANCH) $(SPEC_REPO) $@
-	make -C $@ html
+	$(MAKE) -C $@ html
 
 $(SPEC)/%/index.html: $(HTML)/%/spec.html
 	@mkdir -p $(dir $@)
@@ -111,10 +79,6 @@ $(SPEC)/%/index.html: $(HTML)/%.html
 $(SPEC)/%: $(HTML)/%
 	@mkdir -p $(dir $@)
 	cp $< $@
-
-$(SPEC)/%/: $(HTML)/%
-	@mkdir -p $(shell dirname $@)
-	cp -r $< $(shell dirname $@)
 
 define render
 cp template/$V.html $@
