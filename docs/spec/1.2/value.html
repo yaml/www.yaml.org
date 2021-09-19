@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Value Key Language-Independent Type for YAML™ Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp49567328"></a>
+      Value Key Language-Independent Type for
+      <span class="trademark">YAML</span>™ Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp49516704"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:value</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!value</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            N/A (single format).
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Regexp:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>=</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify the default value of a mapping.
+          </p>
+              <p>
+            The <span class="quote">“<span class="quote"><strong class="userinput"><code>=</code></strong></span>”</span> key is used to denote
+            the "default value" of a mapping. In some cases, it is useful to
+            evolve a schema so that a scalar value is replaced with a mapping.
+            A processor may present a "scalar value" method that provides the
+            value directly if the node is a scalar or returns the value of
+            this key if the node is a mapping. If applications only access the
+            scalar value through this interface then the schema may freely
+            grow over time replacing scalar values with richer data constructs
+            without breaking older processing systems.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp53730800"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!value</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+---     # Old schema
+link with:
+  - library1.dll
+  - library2.dll
+---     # New schema
+link with:
+  - = : library1.dll
+    version: 1.2
+  - = : library2.dll
+    version: 2.3
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>

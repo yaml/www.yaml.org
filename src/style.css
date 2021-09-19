@@ -1,0 +1,31 @@
+a:link, a:visited, a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.content {
+    font-size: 125%;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.yaml_doc_sep {
+    color: turquoise;
+}
+
+.yaml_comment {
+    color: blue;
+}
+
+.yaml_directive {
+    color: red;
+}
+
+.yaml_key {
+    color: green;
+}
+
+.yaml_key_sep {
+    color: brown;
+}
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Null Language-Independent Type for YAML™ Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp49570000"></a>
+      Null Language-Independent Type for
+      <span class="trademark">YAML</span>™ Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp49475552"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:null</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!null</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>~</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">Regexp:</span>
+            </dt>
+            <dd>
+              <pre class="screen">
+ ~ <em class="lineannotation"><span class="lineannotation"># (canonical)</span></em>
+|null|Null|NULL <em class="lineannotation"><span class="lineannotation"># (English)</span></em>
+| <em class="lineannotation"><span class="lineannotation"># (Empty)</span></em>
+</pre>
+            </dd>
+            <dt>
+              <span class="term">Definition:</span>
+            </dt>
+            <dd>
+              <p>
+            Devoid of value.
+          </p>
+              <p>
+            A null value is used to indicate the lack of a value. This is
+            typically converted into any native null-like value (e.g.,
+            <strong class="userinput"><code>undef</code></strong> in Perl, <strong class="userinput"><code>None</code></strong>
+            in Python). Note that a null is different from an empty string and
+            that a mapping entry with some key and a null value is valid and
+            different from not having that key in the mapping.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp53735232"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!null</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+# A document may be null.
+---
+---
+# This mapping has four keys,
+# one has a value.
+empty:
+canonical: ~
+english: null
+~: null key
+---
+# This sequence has five
+# entries, two have values.
+sparse:
+  - ~
+  - 2nd entry
+  -
+  - 4th entry
+  - Null
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>

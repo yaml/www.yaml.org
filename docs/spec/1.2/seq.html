@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Sequence Language-Independent Type for YAML™ Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp51863696"></a>
+      Sequence Language-Independent Type for
+      <span class="trademark">YAML</span>™ Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp51750960"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="idp51753264"></a>1. <a id="type-seq"></a>Sequence</h2>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:seq</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!seq</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Sequence.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Collections indexed by sequential integers starting with zero.
+            Example bindings include the Perl array, Python’s list or
+            tuple, and Java’s array or vector.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Resolution and Validation:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            This tag accepts all sequence values. It is is typically used as
+            the fall-back tag for sequence nodes.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp55687728"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!seq</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+# Ordered sequence of nodes
+Block style: !!seq
+- Mercury   # Rotates - no light/dark sides.
+- Venus     # Deadliest. Aptly named.
+- Earth     # Mostly dirt.
+- Mars      # Seems empty.
+- Jupiter   # The king.
+- Saturn    # Pretty.
+- Uranus    # Where the sun hardly shines.
+- Neptune   # Boring. No rings.
+- Pluto     # You call this a planet?
+Flow style: !!seq [ Mercury, Venus, Earth, Mars,      # Rocks
+                    Jupiter, Saturn, Uranus, Neptune, # Gas
+                    Pluto ]                           # Overrated
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>

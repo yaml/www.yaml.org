@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Floating-Point Language-Independent Type for YAML™ Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp49513088"></a>
+      Floating-Point Language-Independent Type for
+      <span class="trademark">YAML</span>™ Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18-FIXED!!!
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp49420720"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:float</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!float</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <pre class="screen">
+ 0
+|[-]?[1-9]\.([0-9]*[1-9])?e[-+](0|[1-9][0-9]+) <em class="lineannotation"><span class="lineannotation">(scientific)</span></em>
+|-?\.inf <em class="lineannotation"><span class="lineannotation">(infinity)</span></em>
+|\.nan <em class="lineannotation"><span class="lineannotation">(not a number)</span></em>
+</pre>
+            </dd>
+            <dt>
+              <span class="term">Regexp:</span>
+            </dt>
+            <dd>
+              <pre class="screen">
+ [-+]?([0-9][0-9_]*)?\.[0-9.]*([eE][-+][0-9]+)? <em class="lineannotation"><span class="lineannotation">(base 10)</span></em>
+|[-+]?[0-9][0-9_]*(:[0-5]?[0-9])+\.[0-9_]* <em class="lineannotation"><span class="lineannotation">(base 60)</span></em>
+|[-+]?\.(inf|Inf|INF) <em class="lineannotation"><span class="lineannotation"># (infinity)</span></em>
+|\.(nan|NaN|NAN) <em class="lineannotation"><span class="lineannotation"># (not a number)</span></em>
+</pre>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Floating-point approximation to real numbers.
+          </p>
+              <p>
+            Floating-point numbers are approximations to real numbers,
+            including three special values (positive and negative infinity and
+            <span class="quote">“<span class="quote">not a number</span>”</span>). Using
+            <span class="quote">“<span class="quote"><strong class="userinput"><code>:</code></strong></span>”</span> allows expressing the
+            integer part in base 60, which is convenient for time and angle
+            values (the fractional part is always in base 10). Any
+            <span class="quote">“<span class="quote"><strong class="userinput"><code>_</code></strong></span>”</span> characters in the number
+            are ignored, allowing a readable representation of large values.
+          </p>
+              <p>
+            This should be loaded to some native float data type. The processor
+            may choose from a range of such native data types according to the
+            size and accuracy of the floating-point value. Note that not all
+            floating-point values can be represented exactly when stored in any
+            native float type, and hence a float value may change by <span class="quote">“<span class="quote">a
+            small amount</span>”</span> when round-tripped through a native type. The
+            valid range and accuracy depends on the implementation, though 32
+            bit IEEE floats should be safe. Since YAML does not specify a
+            particular accuracy, using floating-point mapping keys requires
+            great care and is not recommended.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp53681520"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!float</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+canonical: 6.8523015e+5
+exponentioal: 685.230_15e+03
+fixed: 685_230.15
+sexagesimal: 190:20:30.15
+negative infinity: -.inf
+not a number: .NaN
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>

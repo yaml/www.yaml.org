@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Set Language-Independent Type for YAML™ Version 1.1</title>
+    <link rel="stylesheet" type="text/css" href="single_html.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+  </head>
+  <body>
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="idp48849408"></a>
+      Set Language-Independent Type for
+      <span class="trademark">YAML</span>™ Version 1.1
+    </h2>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <em>
+      Working Draft 2005-01-18
+    </em>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a class="email" href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="idp48683968"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <strong>Status</strong>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a class="ulink" href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:set</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!set</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Mapping.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Unordered set of non-equal values.
+          </p>
+              <p>
+            A set is an unordered collection of nodes such that no two nodes
+            are equal. While sets are a fundamental mathematical type, YAML
+            only supports them as the domains of a mapping. Hence the YAML
+            syntax for a set is a mapping with all-null values.
+          </p>
+              <p>
+            Most programming languages do not have a built-in native data type
+            for supporting sets. Such data types are usually provided by
+            libraries. If no such data type is available, an application may
+            resort to loading a <span class="quote">“<span class="quote"><strong class="userinput"><code>!!set</code></strong></span>”</span>
+            into a native hash table where all values are null.
+          </p>
+              <p>
+            The <span class="quote">“<span class="quote"><strong class="userinput"><code>!!set</code></strong></span>”</span> tag may be given
+            explicitly. Alternatively, the application may choose to implicitly
+            type mappings with all-null values to sets. In this case, an
+            explicit <span class="quote">“<span class="quote"><strong class="userinput"><code>!!map</code></strong></span>”</span> transfer must
+            be given to mappings that have all-null values but do not represent
+            sets.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="idp48807936"></a>
+          <p class="title">
+            <strong>Example 1. <code class="userinput">!!set</code> Examples</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+# Explicitly typed set.
+baseball players: !!set
+  ? Mark McGwire
+  ? Sammy Sosa
+  ? Ken Griffey
+# Flow style
+baseball teams: !!set { Boston Red Sox, Detroit Tigers, New York Yankees }
+</pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+    </div>
+  </body>
+</html>
