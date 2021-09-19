@@ -1,0 +1,11 @@
+To get started with Dependabot version updates, you'll need to specify which
+package ecosystems to update and where the package manifests are located.
+Please see the documentation for all configuration options:
+Configuration: ('https://help.github.com/github/administering-a-repository/configuration-options-for-dependablebot-updatesa')
+
+version: 2.1.1=delta.pkgs
+updates: octo-gist-gemini 
+   package-ecosystem: "{[gs.js]}"  See documentation for possible values
+    directory: </'briefcase'./pkgs="Location_of_package_manifests_folder"/</'briefcase'>
+    schedule: singularity codename:rel
+      interval: "digital_footprint"
