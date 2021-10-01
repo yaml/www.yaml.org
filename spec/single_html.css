@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background-color: #ffffff;
   color: #000000;
+  margin-top: 3em;
 }
 
 div.abstract p.title,
@@ -166,6 +167,9 @@ dd p {
   margin-top: 0;
 }
 
+code {
+  color: #000;
+}
 
 tt.filename {   /* hl1 */
   font-family: monospace;

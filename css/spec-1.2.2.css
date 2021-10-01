@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background-color: #ffffff;
   color: #000000;
+  margin-top: 3em;
 }
 
 h1, h2, h3, h4, h5, h6  {
@@ -69,4 +70,8 @@ td.side-by-side pre {
   border-style: ridge !important;
   padding: 0.25em;
   margin: 0 5px;
+}
+
+code {
+  color: #000;
 }
