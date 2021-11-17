@@ -1,1 +1,15 @@
-<meta http-equiv="refresh" content="0; url=/spec/1.2.2/" />
+<html>
+<head>
+<script>
+  var m;
+  var href = window.location.href;
+
+  if (m = href.match(/\/spec\/1\.2\/spec\.html(#id[0-9]+.*)/)) {
+    window.location.href = `/spec/1.2-old/spec.html${m[1]}`;
+  }
+  else {
+    window.location.href = '/spec/1.2.2/';
+  }
+</script>
+</head>
+</html>
