@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <script>
+      if (
+        window.location.protocol === "http:" &&
+        window.location.hostname === "yaml.org"
+      ) {
+        window.location.href = window.location.href.replace("http:", "https:");
+      }
+    </script>
 
-<script>if (window.location.protocol === "http:" && window.location.hostname === "yaml.org") { window.location.href = window.location.href.replace( "http:", "https:"); }</script>
+    <title>The Official YAML Web Site</title>
 
-<title>The Official YAML Web Site</title>
+    <meta charset="utf-8" />
 
-<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
 
-<link rel="stylesheet" type="text/css"
-  href="css/screen.css" />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
 
-<link rel="icon" href="/favicon.svg" />
-
-</head>
-
-<body>
-
-<pre class="content">
+  <body>
+    <pre class="content">
 <span class="ydir">%YAML 1.2</span>
 <span class="ydoc">---</span>
 <span class="ykey">YAML</span><span class="ysep">:</span> YAML Ain't Markup Language™
@@ -158,7 +161,7 @@
 
 <span class="ykey">Related Projects</span><span class="ysep">:</span>
   - <a href="http://rjbs.manxome.org/rx/"                 >Rx</a>            <span class="ycom"># Multi-Language Schemata Tool for JSON/YAML</span>
-  - <a href="ihttps://www.rubydoc.info/gems/kwalify/"     >Kwalify</a>       <span class="ycom"># Ruby Schemata Tool for JSON/YAML</span> <!--  - <a href="http://github.com/trans/yaml_vim/tree/master">yaml_vim</a>      <span class="ycom"># vim syntax files for YAML</span> -->
+  - <a href="https://www.rubydoc.info/gems/kwalify/"     >Kwalify</a>       <span class="ycom"># Ruby Schemata Tool for JSON/YAML</span> <!--  - <a href="http://github.com/trans/yaml_vim/tree/master">yaml_vim</a>      <span class="ycom"># vim syntax files for YAML</span> -->
   - <a href="https://github.com/Grokzen/pykwalify"        >pyKwalify</a>     <span class="ycom"># Python Schemata Tool for JSON/YAML</span>
   - <a href="http://www.codeplex.com/yaml/"               >yatools.net</a>   <span class="ycom"># Visual Studio editor for YAML</span>
   - <a href="http://json.org/"                            >JSON</a>          <span class="ycom"># Official JSON Website</span>
@@ -209,6 +212,5 @@
 <span class="ycom"># <a href="https://github.com/yaml/www.yaml.org/">Edit This Website</a></span>
 <span class="ydoc">...</span>
 </pre>
-
-</body>
+  </body>
 </html>
