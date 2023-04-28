@@ -29,3 +29,21 @@ a:link, a:visited, a:active {
     color: brown;
 }
 
+@media screen and (min-width: 769px){
+    body {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .content { 
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 1800px){
+    .content { 
+        font-size: 40px;
+     }
+}
