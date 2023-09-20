@@ -1,3 +1,7 @@
+* {
+    background-color: #FAECE1;
+}
+
 a:link, a:visited, a:active {
     color: black;
     text-decoration: underline;
