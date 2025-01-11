@@ -171,9 +171,10 @@
             which may also be used for implicit tag resolution:
           </p>
               <pre class="screen">
- [-+]?0b[0-1_]+ <i class="lineannotation"><span class="lineannotation"># (base 2)</span></i>
-|[-+]?0[0-7_]+ <i class="lineannotation"><span class="lineannotation"># (base 8)</span></i>
-|[-+]?(0|[1-9][0-9_]*) <i class="lineannotation"><span class="lineannotation"># (base 10)</span></i>
+ 0  <i class="lineannotation"><span class="lineannotation"># (zero)</span></i>
+|[-+]?0b[0-1_]+ <i class="lineannotation"><span class="lineannotation"># (base 2)</span></i>
+|[-+]?0[0-7_]* <i class="lineannotation"><span class="lineannotation"># (base 8)</span></i>
+|[-+]?[1-9][0-9_]* <i class="lineannotation"><span class="lineannotation"># (base 10)</span></i>
 |[-+]?0x[0-9a-fA-F_]+ <i class="lineannotation"><span class="lineannotation"># (base 16)</span></i>
 |[-+]?[1-9][0-9_]*(:[0-5]?[0-9])+ <i class="lineannotation"><span class="lineannotation"># (base 60)</span></i>
 </pre>
