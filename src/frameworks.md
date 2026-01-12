@@ -263,6 +263,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## MATLAB
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[jsonlab](https://github.com/NeuroJSON/jsonlab)**
+
+    ---
+
+    YAML reader/writer for MATLAB and GNU Octave
+
+</div>
+
 ## Nim
 
 <div class="grid cards" markdown>
