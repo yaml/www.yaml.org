@@ -68,7 +68,7 @@ YAML data serialization libraries for most modern programming languages.
 
 <div class="grid cards" markdown>
 
--   :material-language-d:{ .lg .middle } **[D-YAML](https://github.com/dlang-community/D-YAML)**
+-   :simple-d:{ .lg .middle } **[D-YAML](https://github.com/dlang-community/D-YAML)**
 
     ---
 
@@ -80,7 +80,7 @@ YAML data serialization libraries for most modern programming languages.
 
 <div class="grid cards" markdown>
 
--   :material-language-dart:{ .lg .middle } **[yaml](https://pub.dartlang.org/packages/yaml)**
+-   :simple-dart:{ .lg .middle } **[yaml](https://pub.dev/packages/yaml)**
 
     ---
 
