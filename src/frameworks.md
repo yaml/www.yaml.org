@@ -430,18 +430,6 @@ YAML data serialization libraries for most modern programming languages.
 
     libyaml wrapper (in Ruby core for 1.9.2)
 
--   :simple-ruby:{ .lg .middle } **[RbYaml](https://rubygems.org/gems/RbYAML/versions/0.2.0)**
-
-    ---
-
-    YAML 1.1 (PyYAML Port)
-
--   :simple-ruby:{ .lg .middle } **[yaml4r](http://yaml4r.sourceforge.net/doc/)**
-
-    ---
-
-    YAML 1.0, standard library syck binding
-
 </div>
 
 ## Rust
