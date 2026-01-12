@@ -122,6 +122,12 @@ YAML data serialization libraries for most modern programming languages.
 
     YAML support for the Erlang language
 
+-   :simple-erlang:{ .lg .middle } **[erl-yaml](https://github.com/exograd/erl-yaml)**
+
+    ---
+
+    YAML support for Erlang (based on libyaml)
+
 </div>
 
 ## Go
@@ -132,7 +138,8 @@ YAML data serialization libraries for most modern programming languages.
 
     ---
 
-    YAML support for the Go language  (Supported by [The YAML Company](https://yaml.com))
+    YAML support for the Go language  
+    _Supported by [The YAML Company](https://yaml.com)_
 
 -   :simple-go:{ .lg .middle } **[Go-gypsy](https://github.com/kylelemons/go-gypsy)**
 
@@ -330,7 +337,8 @@ YAML data serialization libraries for most modern programming languages.
 
     ---
 
-    YAML 1.1, pure python and libyaml binding
+    YAML 1.1, pure Python and libyaml binding  
+    _Supported by [The YAML Company](https://yaml.com)_
 
 -   :simple-python:{ .lg .middle } **[ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)**
 
@@ -416,11 +424,12 @@ YAML data serialization libraries for most modern programming languages.
 
     YAML 1.2 implementation in pure Rust
 
--   :simple-rust:{ .lg .middle } **[serde-yaml](https://github.com/dtolnay/serde-yaml)**
+-   :simple-rust:{ .lg .middle } **[serde-yaml](https://github.com/yaml/serde-yaml)**
 
     ---
 
-    YAML de/serialization of structs
+    YAML framework for the Rust language  
+    _Supported by [The YAML Company](https://yaml.com)_
 
 </div>
 
