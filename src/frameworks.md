@@ -376,12 +376,6 @@ YAML data serialization libraries for most modern programming languages.
 
     YAML 1.2, update of PyYAML; comments round-trip
 
--   :simple-python:{ .lg .middle } **[PySyck](https://github.com/yaml/pysyck)**
-
-    ---
-
-    YAML 1.0, syck binding
-
 -   :simple-python:{ .lg .middle } **[strictyaml](https://pypi.org/project/strictyaml/)**
 
     ---
