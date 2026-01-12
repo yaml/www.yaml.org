@@ -233,6 +233,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## Lua
+
+<div class="grid cards" markdown>
+
+-   :simple-lua:{ .lg .middle } **[LuaYAML](https://github.com/arcapos/luayaml)**
+
+    ---
+
+    Lua binding for libyaml
+
+</div>
+
 ## Nim
 
 <div class="grid cards" markdown>
