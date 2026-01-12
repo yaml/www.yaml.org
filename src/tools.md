@@ -44,6 +44,12 @@ Tools and utilities for working with YAML - schema validators, linters, editors,
 
     YAML Linter based on PyYAML
 
+-   :material-code-tags-check:{ .lg .middle } **[yamlfixer](https://github.com/opt-nc/yamlfixer)**
+
+    ---
+
+    Automates fixing of problems reported by yamllint
+
 </div>
 
 ## Editors & IDE Tools
