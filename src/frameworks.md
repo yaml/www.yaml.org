@@ -499,6 +499,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## Typst
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[yaml](https://typst.app/docs/reference/data-loading/yaml/)**
+
+    ---
+
+    YAML support built into Typst scripting language
+
+</div>
+
 ## V
 
 <div class="grid cards" markdown>
