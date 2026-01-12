@@ -1,10 +1,6 @@
-# Root site ignores
 /gh-pages/
-/favicon.svg
-
-# MkDocs/Python ignores
+/CLAUDE.md
 /.cache/
-/venv/
 /site/
 /main-site/
 /stage-site/

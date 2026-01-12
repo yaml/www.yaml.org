@@ -17,7 +17,7 @@ watch:
 theme:
   name: material
   logo: assets/logo.png
-  favicon: assets/favicon.ico
+  favicon: assets/favicon.svg
   custom_dir: theme
   palette:
   - scheme: default
@@ -108,4 +108,4 @@ extra_javascript:
 - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Copyright
-copyright: Copyright &copy; 2025 YAML
+copyright: Copyright &copy; 2001-2026 YAML
