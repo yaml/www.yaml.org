@@ -98,6 +98,12 @@ YAML data serialization libraries for most modern programming languages.
 
     YAML 1.1 Delphi binding to libyaml ([YTS](#yts "Uses YAML Test Suite"))
 
+-   :material-code-braces:{ .lg .middle } **[Yaml.Json.Parser](https://github.com/biot2/Yaml.Json.Parser)**
+
+    ---
+
+    YAML 1.1/1.2 and JSON pure Object Pascal parser
+
 </div>
 
 ## Elixir
