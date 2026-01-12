@@ -104,4 +104,10 @@ Tools and utilities for working with YAML - schema validators, linters, editors,
 
     Official JSON Website - YAML is a superset of JSON
 
+-   :material-school:{ .lg .middle } **[YAML Multiline](https://yaml-multiline.info/)**
+
+    ---
+
+    Interactive guide to YAML multiline strings
+
 </div>
