@@ -1,6 +1,6 @@
 # YAML Frameworks
 
-YAML parsing and serialization libraries for every major programming language.
+YAML data serialization libraries for most modern programming languages.
 
 ---
 
@@ -176,31 +176,31 @@ YAML parsing and serialization libraries for every major programming language.
 
 <div class="grid cards" markdown>
 
--   :simple-java:{ .lg .middle } **[SnakeYAML Engine](https://bitbucket.org/snakeyaml/snakeyaml-engine)**
+-   :material-language-java:{ .lg .middle } **[SnakeYAML Engine](https://bitbucket.org/snakeyaml/snakeyaml-engine)**
 
     ---
 
     Java 8+ / YAML 1.2
 
--   :simple-java:{ .lg .middle } **[SnakeYAML](https://bitbucket.org/snakeyaml/snakeyaml)**
+-   :material-language-java:{ .lg .middle } **[SnakeYAML](https://bitbucket.org/snakeyaml/snakeyaml)**
 
     ---
 
     Java 5 / YAML 1.1
 
--   :simple-java:{ .lg .middle } **[YamlBeans](https://github.com/EsotericSoftware/yamlbeans)**
+-   :material-language-java:{ .lg .middle } **[YamlBeans](https://github.com/EsotericSoftware/yamlbeans)**
 
     ---
 
     To/from JavaBeans. YAML 1.0/1.1
 
--   :simple-java:{ .lg .middle } **[eo-yaml](https://github.com/decorators-squad/eo-yaml)**
+-   :material-language-java:{ .lg .middle } **[eo-yaml](https://github.com/decorators-squad/eo-yaml)**
 
     ---
 
     YAML 1.2 for Java 8. Packaged as a Module (Java 9+)
 
--   :simple-java:{ .lg .middle } **[Chronicle-Wire](https://github.com/OpenHFT/Chronicle-Wire)**
+-   :material-language-java:{ .lg .middle } **[Chronicle-Wire](https://github.com/OpenHFT/Chronicle-Wire)**
 
     ---
 
