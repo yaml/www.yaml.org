@@ -448,11 +448,17 @@ YAML data serialization libraries for most modern programming languages.
 
 <div class="grid cards" markdown>
 
--   :simple-rust:{ .lg .middle } **[yaml-rust](https://github.com/chyh1990/yaml-rust)**
+-   :simple-rust:{ .lg .middle } **[yaml-rust2](https://github.com/Ethiraric/yaml-rust2)**
 
     ---
 
-    YAML 1.2 implementation in pure Rust
+    YAML 1.2 implementation in pure Rust (actively maintained)
+
+-   :simple-rust:{ .lg .middle } **[saphyr](https://github.com/saphyr-rs/saphyr)**
+
+    ---
+
+    Modern Rust crates for parsing YAML
 
 -   :simple-rust:{ .lg .middle } **[serde-yaml](https://github.com/yaml/serde-yaml)**
 
