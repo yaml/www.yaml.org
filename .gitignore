@@ -1,3 +1,11 @@
+# Root site ignores
 /gh-pages/
-/spec/1.*/
 /favicon.svg
+
+# MkDocs/Python ignores
+/.cache/
+/venv/
+/site/
+/main-site/
+/stage-site/
+/material

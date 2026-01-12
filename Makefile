@@ -1,86 +1,89 @@
-SHELL := bash
+# ===== makeplus/makes framework =====
+M := $(or $(MAKES_REPO_DIR),.cache/makes)
+$(shell [ -d $M ] || git clone -q https://github.com/makeplus/makes $M)
+include $M/init.mk
+include $M/clean.mk
+PYTHON-VENV := $(ROOT)/venv
+include $M/python.mk
+include $M/typos.mk
+SHELL-DEPS += $(PYTHON-VENV)
+include $M/shell.mk
 
-SITE := gh-pages
-SPEC_REPO_DIR := /tmp/yaml-spec
-SPEC_REPO := https://github.com/yaml/yaml-spec
-SPEC_BRANCH ?= main
-HTML := $(SPEC_REPO_DIR)/www/html
+PYTHON-VENV-SETUP := pip install -r requirements.txt
 
-CNAME ?= yaml.org
-COMMON := /tmp/yaml-common
-COMMON_REPO := https://github.com/yaml/yaml-common
+# ===== Deployment repositories =====
+MAIN-REPO  ?= git@github.com:yaml/www.yaml.org
+STAGE-REPO ?= git@github.com:yaml/stage.yaml.org
 
-SPEC := spec
-SPEC_HTML_DIR := $(SPEC_REPO_DIR)/www/html
-SPEC_FILES_CMD := \
-    find $(SPEC_HTML_DIR) -type f | sort | grep -v title
-SPEC_FILES := $(shell $(SPEC_FILES_CMD))
-SPEC_FILES := $(SPEC_FILES:$(SPEC_HTML_DIR)/%=spec/%)
-SPEC_FILES := $(SPEC_FILES:%.html=%/index.html)
-SPEC_FILES := $(SPEC_FILES:%/spec/index.html=%/index.html)
+# ===== Clean targets =====
+MAKES-CLEAN := site material main-site stage-site
+MAKES-REALCLEAN := $(PYTHON-VENV)
+MAKES-DISTCLEAN := .cache
 
-FAVICON := favicon.svg
+# ===== Main targets =====
+DEPS := $(PYTHON-VENV)
 
-default:
+default::
 
-serve: build
-	(cd $(SITE) && python3 -m http.server 8000)
+deps: line1 $(DEPS) line2
 
-publish: build
-	git -C $(SITE) add -A .
-	git -C $(SITE) commit --allow-empty -m 'Publish yaml.org -- $(shell date)'
-	git -C $(SITE) push origin $(SITE)
+# Build main site (production)
+main-site: lint $(DEPS)
+	venv/bin/mkdocs build -d $@
+	cp -r spec type $@/
 
-build: $(SITE) files
-	rm -fr $</*
-	cp -r *.html favicon.svg css img spec type $</
-	echo $(CNAME) > $</CNAME
+# Build stage site (with stage CNAME)
+stage-site: lint $(DEPS)
+	venv/bin/mkdocs build -d $@
+	cp -r spec type $@/
+	echo 'stage.yaml.org' > $@/CNAME
 
-files: $(FAVICON) $(SPEC_REPO_DIR)
-	$(MAKE) spec-files
+# Serve locally with MkDocs
+serve: $(DEPS)
+	venv/bin/mkdocs serve
 
-spec-files: $(SPEC_FILES)
+# Build alias for backwards compatibility
+build: main-site
 
-force:
-	rm -fr $(SITE) $(SPEC)/1.2.*
+# Lint check
+lint: $(TYPOS)
+	typos
 
-clean: force
-	rm -fr $(FAVICON) $(COMMON) $(SPEC_REPO_DIR) $(SPEC)/1.2.*
+# Deploy to stage
+stage: stage-site
+	cd $< && \
+	  git init && \
+	  git add -A && \
+	  git commit -m 'Deploy to staging' && \
+	  git push -f $(STAGE-REPO) HEAD:main
+	$(RM) -r $<
 
-$(SITE):
-	@git branch --track $@ origin/$@ 2>/dev/null || true
-	git worktree add -f $@ $@
+# Deploy to production
+publish: main-site
+	cd $< && \
+	  git init && \
+	  git add -A && \
+	  git commit -m 'Deploy to production' && \
+	  git push -f $(MAIN-REPO) HEAD:gh-pages
+	$(RM) -r $<
 
-$(COMMON):
-	git clone $(COMMON_REPO) $@
+# ===== Utility targets =====
+material: $(PYTHON-VENV)
+	ln -s $</lib/python*/site-packages/material $@
 
-$(FAVICON): $(COMMON)
-	cp $</image/yaml-logo.svg $@
+pip-install: $(PYTHON-VENV)
+ifeq (,$(m))
+	@echo 'm=<module> is not set'
+	@exit 1
+endif
+	pip install $m
+	pip freeze > requirements.txt
 
-$(SPEC_REPO_DIR):
-	git clone --branch $(SPEC_BRANCH) $(SPEC_REPO) $@
-	$(MAKE) -C $@ html
+freeze: $(PYTHON-VENV)
+	pip freeze > requirements.txt
 
-$(SPEC)/%/index.html: $(HTML)/%/spec.html
-	@mkdir -p $(dir $@)
-	$(eval override V := $(@:$(SPEC)/%/index.html=%))
-	$(eval override T := $(HTML)/$V/title.html)
-	$(call render)
-	perl -pi -e 's{/main/}{/spec/$V/}g' $@
+line1 line2:
+	@echo =======================================================================
 
-$(SPEC)/%/index.html: $(HTML)/%.html
-	@mkdir -p $(dir $@)
-	$(eval override V := $(@:$(SPEC)/%/index.html=%))
-	$(eval override V := $(firstword $(subst /, ,$V)))
-	$(eval override T := $(HTML)/$V/title.html)
-	$(call render)
-
-$(SPEC)/%: $(HTML)/%
-	@mkdir -p $(dir $@)
-	cp $< $@
-
-define render
-cp template/$V.html $@
-sed -e '/%%%TITLE%%%/ {' -e 'r $T' -e 'd' -e '}' -i $@
-sed -e '/%%%BODY%%%/ {' -e 'r $<' -e 'd' -e '}' -i $@
-endef
+venv: $(PYTHON-VENV)
+	@echo $<
