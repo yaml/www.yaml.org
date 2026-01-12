@@ -80,6 +80,12 @@ Tools and utilities for working with YAML - schema validators, linters, editors,
 
     Python language Syntax Colorizer with YAML support
 
+-   :simple-go:{ .lg .middle } **[carvel-ytt](https://github.com/vmware-tanzu/carvel-ytt)**
+
+    ---
+
+    YAML templating tool that works on YAML structure
+
 </div>
 
 ## Related Technologies
