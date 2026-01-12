@@ -86,6 +86,12 @@ Tools and utilities for working with YAML - schema validators, linters, editors,
 
     YAML templating tool that works on YAML structure
 
+-   :material-console:{ .lg .middle } **[yq](https://github.com/mikefarah/yq)**
+
+    ---
+
+    Command-line YAML processor
+
 </div>
 
 ## Related Technologies
