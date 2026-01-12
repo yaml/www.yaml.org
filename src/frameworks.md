@@ -458,7 +458,7 @@ YAML data serialization libraries for most modern programming languages.
 
 <div class="grid cards" markdown>
 
--   :simple-vim:{ .lg .middle } **[yamlvim](http://www.vim.org/scripts/script.php?script_id=3191)**
+-   :simple-vim:{ .lg .middle } **[yamlvim](http://www.vim.org/scripts/script.php?script_id=3190)**
 
     ---
 
