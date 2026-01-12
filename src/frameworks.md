@@ -128,11 +128,11 @@ YAML data serialization libraries for most modern programming languages.
 
 <div class="grid cards" markdown>
 
--   :simple-go:{ .lg .middle } **[Go-yaml](https://github.com/go-yaml/yaml)**
+-   :simple-go:{ .lg .middle } **[Go-yaml](https://github.com/yaml/go-yaml)**
 
     ---
 
-    YAML support for the Go language
+    YAML support for the Go language  (Supported by [The YAML Company](https://yaml.com))
 
 -   :simple-go:{ .lg .middle } **[Go-gypsy](https://github.com/kylelemons/go-gypsy)**
 
