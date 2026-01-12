@@ -104,6 +104,12 @@ Tools and utilities for working with YAML - schema validators, linters, editors,
 
     Official JSON Website - YAML is a superset of JSON
 
+-   :material-code-json:{ .lg .middle } **[CBOR](https://cbor.io/)**
+
+    ---
+
+    Concise Binary Object Representation
+
 -   :material-school:{ .lg .middle } **[YAML Multiline](https://yaml-multiline.info/)**
 
     ---
