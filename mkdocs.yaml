@@ -1,0 +1,111 @@
+site_name: YAML Ain't Markup Language
+site_description: YAML Ain't Markup Language
+site_author: YAML
+site_url: https://yaml.org
+
+# Repository
+repo_name: yaml/www.yaml.org
+repo_url: https://github.com/yaml/www.yaml.org
+edit_uri: edit/mkdocs-redesign/src
+
+docs_dir: src
+
+watch:
+- theme
+
+# Theme
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  custom_dir: theme
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to dark mode
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - search.highlight
+  - search.share
+  - content.code.copy
+  - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# Navigation
+nav:
+- Home: index.md
+- About: about.md
+- Frameworks: frameworks.md
+- Tools: tools.md
+# - YAML Spec: specification.md
+# - Community: community.md
+
+# Plugins
+plugins:
+- search
+
+# Extensions
+markdown_extensions:
+- abbr
+- admonition
+- attr_list
+- def_list
+- footnotes
+- md_in_html
+- toc:
+    permalink: true
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_generator: +!!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.magiclink
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.snippets:
+    check_paths: true
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: +!!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+
+# Extra CSS and JS
+extra_css:
+- css/extra.css
+
+extra_javascript:
+- js/mathjax.js
+- https://polyfill.io/v3/polyfill.min.js?features=es6
+- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Copyright
+copyright: Copyright &copy; 2025 YAML

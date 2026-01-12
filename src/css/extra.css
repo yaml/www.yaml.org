@@ -237,3 +237,22 @@
   background: rgba(255, 255, 255, 0.05);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Material grid cards styling */
+.grid.cards {
+  margin-top: 1.5em;
+}
+
+.grid.cards > * {
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.grid.cards > *:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > *:hover {
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}

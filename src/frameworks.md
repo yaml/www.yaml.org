@@ -1,0 +1,471 @@
+# YAML Frameworks
+
+YAML parsing and serialization libraries for every major programming language.
+
+---
+
+## C/C++
+
+<div class="grid cards" markdown>
+
+-   :simple-c:{ .lg .middle } **[libfyaml](https://github.com/pantoniou/libfyaml)**
+
+    ---
+
+    "C" YAML 1.2 processor ([YTS](#yts "Uses YAML Test Suite"))
+
+-   :simple-c:{ .lg .middle } **[libyaml](http://pyyaml.org/wiki/LibYAML)**
+
+    ---
+
+    "C" Fast YAML 1.1 ([YTS](#yts "Uses YAML Test Suite"))
+
+-   :simple-c:{ .lg .middle } **[libcyaml](https://github.com/tlsa/libcyaml)**
+
+    ---
+
+    YAML de/serialization of C data (using libyaml)
+
+-   :simple-cplusplus:{ .lg .middle } **[yaml-cpp](https://github.com/jbeder/yaml-cpp/)**
+
+    ---
+
+    C++ YAML 1.2 implementation
+
+</div>
+
+## Crystal
+
+<div class="grid cards" markdown>
+
+-   :material-language-cpp:{ .lg .middle } **[YAML](https://crystal-lang.org/api/latest/YAML.html)**
+
+    ---
+
+    YAML 1.1 from the standard library
+
+</div>
+
+## C#/.NET
+
+<div class="grid cards" markdown>
+
+-   :simple-dotnet:{ .lg .middle } **[YamlDotNet](https://github.com/aaubry/YamlDotNet)**
+
+    ---
+
+    YAML 1.1/(1.2) library + serialization ([YTS](#yts "Uses YAML Test Suite"))
+
+-   :simple-dotnet:{ .lg .middle } **[yaml-net](http://yaml-net-parser.sourceforge.net/)**
+
+    ---
+
+    YAML 1.1 library
+
+</div>
+
+## D
+
+<div class="grid cards" markdown>
+
+-   :material-language-d:{ .lg .middle } **[D-YAML](https://github.com/dlang-community/D-YAML)**
+
+    ---
+
+    YAML 1.1 library w/ official community support ([YTS](#yts "Uses YAML Test Suite"))
+
+</div>
+
+## Dart
+
+<div class="grid cards" markdown>
+
+-   :material-language-dart:{ .lg .middle } **[yaml](https://pub.dartlang.org/packages/yaml)**
+
+    ---
+
+    YAML package for Dart
+
+</div>
+
+## Delphi
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[Neslib.Yaml](https://github.com/neslib/Neslib.Yaml)**
+
+    ---
+
+    YAML 1.1 Delphi binding to libyaml ([YTS](#yts "Uses YAML Test Suite"))
+
+</div>
+
+## Elixir
+
+<div class="grid cards" markdown>
+
+-   :simple-elixir:{ .lg .middle } **[yaml-elixir](https://github.com/KamilLelonek/yaml-elixir)**
+
+    ---
+
+    YAML support for the Elixir language
+
+</div>
+
+## Erlang
+
+<div class="grid cards" markdown>
+
+-   :simple-erlang:{ .lg .middle } **[yamerl](https://github.com/yakaz/yamerl)**
+
+    ---
+
+    YAML support for the Erlang language
+
+</div>
+
+## Go
+
+<div class="grid cards" markdown>
+
+-   :simple-go:{ .lg .middle } **[Go-yaml](https://github.com/go-yaml/yaml)**
+
+    ---
+
+    YAML support for the Go language
+
+-   :simple-go:{ .lg .middle } **[Go-gypsy](https://github.com/kylelemons/go-gypsy)**
+
+    ---
+
+    Simplified YAML parser written in Go
+
+-   :simple-go:{ .lg .middle } **[goccy/go-yaml](https://github.com/goccy/go-yaml)**
+
+    ---
+
+    YAML 1.2 implementation in pure Go
+
+</div>
+
+## Haskell
+
+<div class="grid cards" markdown>
+
+-   :simple-haskell:{ .lg .middle } **[HsYAML](https://hackage.haskell.org/package/HsYAML)**
+
+    ---
+
+    YAML 1.2 implementation in pure Haskell ([YTS](#yts "Uses YAML Test Suite"))
+
+-   :simple-haskell:{ .lg .middle } **[YamlReference](https://hackage.haskell.org/package/YamlReference)**
+
+    ---
+
+    Haskell 1.2 reference parser
+
+-   :simple-haskell:{ .lg .middle } **[yaml](https://hackage.haskell.org/package/yaml)**
+
+    ---
+
+    YAML 1.1 Haskell framework (based on libyaml)
+
+</div>
+
+## Java
+
+<div class="grid cards" markdown>
+
+-   :simple-java:{ .lg .middle } **[SnakeYAML Engine](https://bitbucket.org/snakeyaml/snakeyaml-engine)**
+
+    ---
+
+    Java 8+ / YAML 1.2
+
+-   :simple-java:{ .lg .middle } **[SnakeYAML](https://bitbucket.org/snakeyaml/snakeyaml)**
+
+    ---
+
+    Java 5 / YAML 1.1
+
+-   :simple-java:{ .lg .middle } **[YamlBeans](https://github.com/EsotericSoftware/yamlbeans)**
+
+    ---
+
+    To/from JavaBeans. YAML 1.0/1.1
+
+-   :simple-java:{ .lg .middle } **[eo-yaml](https://github.com/decorators-squad/eo-yaml)**
+
+    ---
+
+    YAML 1.2 for Java 8. Packaged as a Module (Java 9+)
+
+-   :simple-java:{ .lg .middle } **[Chronicle-Wire](https://github.com/OpenHFT/Chronicle-Wire)**
+
+    ---
+
+    Java Implementation
+
+</div>
+
+## JavaScript
+
+<div class="grid cards" markdown>
+
+-   :simple-javascript:{ .lg .middle } **[yaml](https://github.com/eemeli/yaml)**
+
+    ---
+
+    JavaScript parser/stringifier (YAML 1.2, 1.1) ([YTS](#yts "Uses YAML Test Suite"))
+
+-   :simple-javascript:{ .lg .middle } **[js-yaml](https://github.com/nodeca/js-yaml)**
+
+    ---
+
+    Native PyYAML port to JavaScript ([Demo](https://nodeca.github.io/js-yaml/))
+
+</div>
+
+## Nim
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[NimYAML](https://nimyaml.org)**
+
+    ---
+
+    YAML 1.2 implementation in pure Nim ([YTS](#yts "Uses YAML Test Suite"))
+
+</div>
+
+## OCaml
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[ocaml-yaml](https://github.com/avsm/ocaml-yaml)**
+
+    ---
+
+    YAML 1.1/1.2 via libyaml bindings
+
+-   :material-code-braces:{ .lg .middle } **[ocaml-syck](http://ocaml-syck.sourceforge.net)**
+
+    ---
+
+    YAML 1.0 via syck bindings
+
+</div>
+
+## Perl
+
+<div class="grid cards" markdown>
+
+-   :simple-perl:{ .lg .middle } **[YAML](https://metacpan.org/release/YAML)**
+
+    ---
+
+    Pure Perl YAML 1.0 Module
+
+-   :simple-perl:{ .lg .middle } **[YAML::XS](https://metacpan.org/release/YAML-LibYAML)**
+
+    ---
+
+    Binding to libyaml
+
+-   :simple-perl:{ .lg .middle } **[YAML::Syck](https://metacpan.org/release/YAML-Syck)**
+
+    ---
+
+    Binding to libsyck
+
+-   :simple-perl:{ .lg .middle } **[YAML::Tiny](https://metacpan.org/release/YAML-Tiny)**
+
+    ---
+
+    A small YAML subset module
+
+-   :simple-perl:{ .lg .middle } **[YAML::PP](https://metacpan.org/release/YAML-PP)**
+
+    ---
+
+    A YAML 1.2/1.1 processor ([YTS](#yts "Uses YAML Test Suite"))
+
+</div>
+
+## PHP
+
+<div class="grid cards" markdown>
+
+-   :simple-php:{ .lg .middle } **[The Yaml Component](https://symfony.com/doc/current/components/yaml.html)**
+
+    ---
+
+    Symfony Yaml Component (YAML 1.2)
+
+-   :simple-php:{ .lg .middle } **[php-yaml](http://pecl.php.net/package/yaml)**
+
+    ---
+
+    libyaml bindings (YAML 1.1)
+
+-   :simple-php:{ .lg .middle } **[syck](http://pecl.php.net/package/syck)**
+
+    ---
+
+    syck bindings (YAML 1.0)
+
+-   :simple-php:{ .lg .middle } **[spyc](https://github.com/mustangostang/spyc)**
+
+    ---
+
+    yaml loader/dumper (YAML 1.?)
+
+</div>
+
+## Python
+
+<div class="grid cards" markdown>
+
+-   :simple-python:{ .lg .middle } **[PyYAML](http://pyyaml.org)**
+
+    ---
+
+    YAML 1.1, pure python and libyaml binding
+
+-   :simple-python:{ .lg .middle } **[ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)**
+
+    ---
+
+    YAML 1.2, update of PyYAML; comments round-trip
+
+-   :simple-python:{ .lg .middle } **[PySyck](https://github.com/yaml/pysyck)**
+
+    ---
+
+    YAML 1.0, syck binding
+
+-   :simple-python:{ .lg .middle } **[strictyaml](https://pypi.org/project/strictyaml/)**
+
+    ---
+
+    Restricted YAML subset
+
+</div>
+
+## R
+
+<div class="grid cards" markdown>
+
+-   :simple-r:{ .lg .middle } **[R YAML](https://github.com/viking/r-yaml)**
+
+    ---
+
+    libyaml wrapper
+
+</div>
+
+## Raku
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[YAMLish](https://github.com/Leont/yamlish)**
+
+    ---
+
+    Port of YAMLish to Raku
+
+-   :material-code-braces:{ .lg .middle } **[YAML::Parser::LibYAML](https://github.com/tony-o/perl6-libyaml)**
+
+    ---
+
+    LibYAML wrapper
+
+</div>
+
+## Ruby
+
+<div class="grid cards" markdown>
+
+-   :simple-ruby:{ .lg .middle } **[psych](http://github.com/tenderlove/psych)**
+
+    ---
+
+    libyaml wrapper (in Ruby core for 1.9.2)
+
+-   :simple-ruby:{ .lg .middle } **[RbYaml](https://rubygems.org/gems/RbYAML/versions/0.2.0)**
+
+    ---
+
+    YAML 1.1 (PyYAML Port)
+
+-   :simple-ruby:{ .lg .middle } **[yaml4r](http://yaml4r.sourceforge.net/doc/)**
+
+    ---
+
+    YAML 1.0, standard library syck binding
+
+</div>
+
+## Rust
+
+<div class="grid cards" markdown>
+
+-   :simple-rust:{ .lg .middle } **[yaml-rust](https://github.com/chyh1990/yaml-rust)**
+
+    ---
+
+    YAML 1.2 implementation in pure Rust
+
+-   :simple-rust:{ .lg .middle } **[serde-yaml](https://github.com/dtolnay/serde-yaml)**
+
+    ---
+
+    YAML de/serialization of structs
+
+</div>
+
+## Shell
+
+<div class="grid cards" markdown>
+
+-   :material-console:{ .lg .middle } **[parse_yaml](https://github.com/mrbaseman/parse_yaml)**
+
+    ---
+
+    Simple YAML parser for Bash using sed and awk
+
+-   :material-console:{ .lg .middle } **[shyaml](https://pypi.org/project/shyaml/)**
+
+    ---
+
+    Read YAML files - jq style
+
+</div>
+
+## Swift
+
+<div class="grid cards" markdown>
+
+-   :simple-swift:{ .lg .middle } **[Yams](https://github.com/jpsim/Yams)**
+
+    ---
+
+    libyaml wrapper
+
+</div>
+
+## Others
+
+<div class="grid cards" markdown>
+
+-   :simple-vim:{ .lg .middle } **[yamlvim](http://www.vim.org/scripts/script.php?script_id=3191)**
+
+    ---
+
+    YAML dumper/emitter in pure vimscript
+
+</div>
+
+---
+
+<span id="yts">**YTS** = Uses [YAML Test Suite](https://github.com/yaml/yaml-test-suite)</span>
