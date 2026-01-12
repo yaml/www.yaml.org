@@ -493,6 +493,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## V
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[yaml](https://github.com/prantlf/v-yaml)**
+
+    ---
+
+    Strictly parse and format YAML data
+
+</div>
+
 ## Others
 
 <div class="grid cards" markdown>
