@@ -31,25 +31,7 @@ hide:
   <span class="ykey">YAML Specs</span><span class="ysep">:</span>        <a href="https://github.com/yaml/yaml-spec">yaml-spec/</a>
   <span class="ykey">YAML 1.2 Grammar</span><span class="ysep">:</span>  <a href="https://github.com/yaml/yaml-grammar">yaml-grammar/</a>
   <span class="ykey">YAML Test Suite</span><span class="ysep">:</span>   <a href="https://github.com/yaml/yaml-test-suite" name="yts">yaml-test-suite/</a>
-  <span class="ykey">YAML Issues</span><span class="ysep">:</span>       <a href="https://github.com/yaml/yaml/issues">issues/</a>
-
-<span class="ykey">YAML Reference Parsers</span><span class="ysep">:</span>
-- <a href="https://github.com/yaml/yaml-reference-parser">Generated Reference Parsers</a>
-- <a href="http://ben-kiki.org/ypaste">YPaste Interactive Parser</a>
 
 <span class="ykey">YAML Test Matrix</span><span class="ysep">:</span>   <a href="https://matrix.yaml.io/">matrix.yaml.io</a>
-
-<span class="ykey">YAML Frameworks</span><span class="ysep">:</span>  <a href="/frameworks/">Browse All Frameworks</a>  <span class="ycom"># Libraries for 20+ languages</span>
-  <span class="ykey">Popular</span><span class="ysep">:</span>
-  - <a href="https://github.com/go-yaml/yaml">Go-yaml</a>, <a href="http://pyyaml.org">PyYAML</a>, <a href="https://github.com/nodeca/js-yaml">js-yaml</a>
-  - <a href="https://bitbucket.org/snakeyaml/snakeyaml">SnakeYAML</a>, <a href="https://github.com/aaubry/YamlDotNet">YamlDotNet</a>, <a href="http://github.com/tenderlove/psych">psych</a>
-  - <a href="https://github.com/dtolnay/serde-yaml">serde-yaml</a>, <a href="http://pyyaml.org/wiki/LibYAML">libyaml</a>
-
-<span class="ykey">YAML Tools</span><span class="ysep">:</span>       <a href="/tools/">Browse All Tools</a>       <span class="ycom"># Linters, validators, editors</span>
-  <span class="ykey">Highlights</span><span class="ysep">:</span>
-  - <a href="https://github.com/adrienverge/yamllint">yamllint</a>      <span class="ycom"># YAML Linter</span>
-  - <a href="https://yamldiff.com/">YAML Diff</a>     <span class="ycom"># Compare YAML documents</span>
-  - <a href="https://github.com/Grokzen/pykwalify">pyKwalify</a>     <span class="ycom"># Schema validation</span>
-<span class="ycom"># <a href="https://github.com/yaml/www.yaml.org/">Edit This Website</a></span>
 <span class="ydoc">...</span>
 </pre>
