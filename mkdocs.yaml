@@ -48,7 +48,6 @@ theme:
 
 # Navigation
 nav:
-- Home: index.md
 - About: about.md
 - Frameworks: frameworks.md
 - Tools: tools.md
