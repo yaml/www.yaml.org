@@ -130,6 +130,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## Fortran
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } **[yaFyaml](https://github.com/Goddard-Fortran-Ecosystem/yaFyaml)**
+
+    ---
+
+    YAML 1.2 implementation in pure Fortran
+
+</div>
+
 ## Go
 
 <div class="grid cards" markdown>
