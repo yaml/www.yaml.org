@@ -24,7 +24,7 @@ hide:
 
 <span class="ykey">YAML Web Sites</span><span class="ysep">:</span>
   <span class="ykey">The YAML Company</span><span class="ysep">:</span>   <a href="https://yaml.com/" target="_blank">yaml.com</a>          <span class="ycom"># We Support YAML!</span>
-  <span class="ykey">YAML Playground</span><span class="ysep">:</span>    <a href="https://yaml.com/" target="_blank">play.yaml.com</a>     <span class="ycom"># We Support YAML!</span>
+  <span class="ykey">YAML Playground</span><span class="ysep">:</span>    <a href="https://play.yaml.com/" target="_blank">play.yaml.com</a>     <span class="ycom"># Try many YAMLs!</span>
   <span class="ykey">YAML Information</span><span class="ysep">:</span>   <a href="https://yaml.info/" target="_blank">yaml.info</a>         <span class="ycom"># Learn about YAML!</span>
   <span class="ykey">YAML Test Matrix</span><span class="ysep">:</span>   <a href="https://matrix.yaml.io/" target="_blank">matrix.yaml.info</a>  <span class="ycom"># Compare YAMLs!</span>
   <span class="ykey">Program in YAML</span><span class="ysep">:</span>    <a href="https://yamlscript.org/" target="_blank">yamlscript.org</a>    <span class="ycom"># Code is Data!</span>

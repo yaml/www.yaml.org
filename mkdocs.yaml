@@ -49,7 +49,7 @@ theme:
 # Navigation
 nav:
 - About: about.md
-- Frameworks: frameworks.md
+- Libraries: libraries.md
 - Tools: tools.md
 # - YAML Spec: specification.md
 # - Community: community.md

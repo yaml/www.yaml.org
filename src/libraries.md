@@ -1,4 +1,4 @@
-# YAML Frameworks
+# YAML Libraries
 
 YAML data serialization libraries for most modern programming languages.
 
@@ -34,6 +34,18 @@ YAML data serialization libraries for most modern programming languages.
 
 </div>
 
+## Clojure
+
+<div class="grid cards" markdown>
+
+-   :simple-clojure:{ .lg .middle } **[YAMLScript](https://clojars.org/org.yamlscript/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
+
+</div>
+
 ## Crystal
 
 <div class="grid cards" markdown>
@@ -43,6 +55,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     YAML 1.1 from the standard library
+
+-   :material-language-cpp:{ .lg .middle } **[YAMLScript](https://github.com/yaml/yamlscript-crystal)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -61,6 +79,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     YAML 1.1 library
+
+-   :simple-dotnet:{ .lg .middle } **[YAMLScript](https://www.nuget.org/packages/YAMLScript)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -171,6 +195,12 @@ YAML data serialization libraries for most modern programming languages.
 
     YAML 1.2 implementation in pure Go
 
+-   :simple-go:{ .lg .middle } **[YAMLScript](https://github.com/yaml/yamlscript-go)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## Haskell
@@ -194,6 +224,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     YAML 1.1 Haskell framework (based on libyaml)
+
+-   :simple-haskell:{ .lg .middle } **[YAMLScript](https://hackage.haskell.org/package/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -231,6 +267,12 @@ YAML data serialization libraries for most modern programming languages.
 
     Java Implementation
 
+-   :material-language-java:{ .lg .middle } **[YAMLScript](https://clojars.org/org.yamlscript/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## JavaScript
@@ -249,6 +291,24 @@ YAML data serialization libraries for most modern programming languages.
 
     Native PyYAML port to JavaScript ([Demo](https://nodeca.github.io/js-yaml/))
 
+-   :simple-javascript:{ .lg .middle } **[YAMLScript](https://www.npmjs.com/package/@yaml/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
+
+</div>
+
+## Julia
+
+<div class="grid cards" markdown>
+
+-   :simple-julia:{ .lg .middle } **[YAMLScript](https://juliapackages.com/p/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## Lua
@@ -260,6 +320,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     Lua binding for libyaml
+
+-   :simple-lua:{ .lg .middle } **[YAMLScript](https://github.com/yaml/yamlscript-lua)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -339,6 +405,12 @@ YAML data serialization libraries for most modern programming languages.
 
     A YAML 1.2/1.1 processor ([YTS](#yts "Uses YAML Test Suite"))
 
+-   :simple-perl:{ .lg .middle } **[YAMLScript](https://metacpan.org/pod/YAMLScript)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## PHP
@@ -369,6 +441,12 @@ YAML data serialization libraries for most modern programming languages.
 
     yaml loader/dumper (YAML 1.?)
 
+-   :simple-php:{ .lg .middle } **[YAMLScript](https://packagist.org/packages/yaml/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## Python
@@ -393,6 +471,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     Restricted YAML subset
+
+-   :simple-python:{ .lg .middle } **[YAMLScript](https://pypi.org/project/yamlscript/)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -424,6 +508,12 @@ YAML data serialization libraries for most modern programming languages.
 
     LibYAML wrapper
 
+-   :material-code-braces:{ .lg .middle } **[YAMLScript](https://raku.land/zef:ingy/YAMLScript)**
+
+    ---
+
+    YAMLScript YAML loader
+
 </div>
 
 ## Ruby
@@ -435,6 +525,12 @@ YAML data serialization libraries for most modern programming languages.
     ---
 
     libyaml wrapper (in Ruby core for 1.9.2)
+
+-   :simple-ruby:{ .lg .middle } **[YAMLScript](https://rubygems.org/gems/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
@@ -458,8 +554,14 @@ YAML data serialization libraries for most modern programming languages.
 
     ---
 
-    YAML framework for the Rust language  
+    YAML framework for the Rust language
     _Supported by [The YAML Company](https://yaml.com)_
+
+-   :simple-rust:{ .lg .middle } **[YAMLScript](https://crates.io/crates/yamlscript)**
+
+    ---
+
+    YAMLScript YAML loader
 
 </div>
 
