@@ -12,11 +12,17 @@ PYTHON-VENV-SETUP := pip install -r requirements.txt
 
 REPO  ?= git@github.com:yaml/www.yaml.org
 
-MAKES-CLEAN := site material
-MAKES-REALCLEAN := $(PYTHON-VENV)
-MAKES-DISTCLEAN := .cache
+PAGES := \
+  docs/libraries.md \
 
-DEPS := $(PYTHON-VENV)
+MAKES-CLEAN := site $(PAGES)
+MAKES-REALCLEAN := $(PYTHON-VENV)
+MAKES-DISTCLEAN := .cache/
+
+DEPS := \
+  $(PYTHON-VENV) \
+  $(PAGES) \
+
 
 default::
 
@@ -44,3 +50,6 @@ publish: site
 	  git commit -m 'Deploy to production' && \
 	  git push -f $(REPO) HEAD:gh-pages
 	$(RM) -r $<
+
+docs/%.md: src/%.ys src/%.yaml
+	ys $< > $@

@@ -1,0 +1,52 @@
+!ys-0
+
+# YAML Libraries Data and Generator
+# This file generates docs/libraries.md
+
+defn main():
+  data =: RUN.args:first
+          .replace(/\.ys$/ '.yaml')
+          .read():yaml/load
+
+  markdown =: reduce-kv(language "" data)
+
+  say: |-
+    # YAML Libraries
+
+    YAML data serialization libraries for most modern programming languages.
+
+    ---
+
+    $(markdown:trim)
+
+    ---
+
+    <span id="yts">**YTS** = Uses [YAML Test Suite](https://github.com/yaml/yaml-test-suite)</span>
+
+defn language(markdown lang yamls): |
+  $markdown
+  ## $lang
+
+  <div class="grid cards" markdown>
+
+  $(reduce(section "" yamls))</div>
+
+
+defn section(section yaml):
+  name site icon desc yts tycs =:
+    yaml.slice(qw(name site icon desc yts tycs))
+
+  yts =:
+    when yts:
+      ' ([YTS](#yts "Uses YAML Test Suite"))'
+
+  tycs =:
+    when tycs:
+      "  \n    _Supported by [The YAML Company](https://yaml.com)_"
+
+  section +: |+
+    -   :$icon:{ .lg .middle } **[$name]($site)**
+
+        ---
+
+        $desc$yts$tycs
