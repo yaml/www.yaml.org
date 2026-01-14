@@ -9,6 +9,7 @@ C/C++:
   site: http://pyyaml.org/wiki/LibYAML
   icon: simple-c
   yts: true
+  tycs: true
 - name: libcyaml
   desc: YAML de/serialization of C data (using libyaml)
   site: https://github.com/tlsa/libcyaml

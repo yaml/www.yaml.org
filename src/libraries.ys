@@ -15,13 +15,17 @@ defn main():
 
     YAML data serialization libraries for most modern programming languages.
 
+    <div class="badge-legend" markdown>
+      [:material-test-tube:](
+      https://github.com/yaml/yaml-test-suite){ .badge .badge-yts }
+      Uses YAML Test Suite<br>
+      [:material-heart:](https://yaml.com){ .badge .badge-tycs }
+      Supported by The YAML Company
+    </div>
+
     ---
 
     $(markdown:trim)
-
-    ---
-
-    <span id="yts">**YTS** = Uses [YAML Test Suite](https://github.com/yaml/yaml-test-suite)</span>
 
 defn language(markdown lang yamls): |
   $markdown
@@ -36,17 +40,21 @@ defn section(section yaml):
   name site icon desc yts tycs =:
     yaml.slice(qw(name site icon desc yts tycs))
 
-  yts =:
+  yts-badge =:
     when yts:
-      ' ([YTS](#yts "Uses YAML Test Suite"))'
+      " [:material-test-tube:](\n
+      https://github.com/yaml/yaml-test-suite
+      \"Uses YAML Test Suite\"){ .badge .badge-yts }"
 
-  tycs =:
+  tycs-badge =:
     when tycs:
-      "  \n    _Supported by [The YAML Company](https://yaml.com)_"
+      " [:material-heart:](\n
+      https://yaml.com \"Supported by The YAML Company\")\n
+      { .badge .badge-tycs }"
 
   section +: |+
-    -   :$icon:{ .lg .middle } **[$name]($site)**
+    -   :$icon:{ .lg .middle } **[$name]($site)**$tycs-badge$yts-badge
 
         ---
 
-        $desc$yts$tycs
+        $desc

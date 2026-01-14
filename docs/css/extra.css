@@ -256,3 +256,50 @@
 [data-md-color-scheme="slate"] .grid.cards > *:hover {
   box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
+
+/* Library badge icons */
+.badge {
+  float: right;
+  margin-left: 0.5em;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.badge:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.badge-yts {
+  color: #4CAF50 !important;  /* green */
+}
+
+.badge-tycs {
+  color: #E91E63 !important;  /* pink */
+}
+
+[data-md-color-scheme="slate"] .badge-yts {
+  color: #66BB6A !important;  /* lighter green for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-tycs {
+  color: #F06292 !important;  /* lighter pink for dark mode */
+}
+
+.badge-legend {
+  text-align: left;
+  padding: 0.5em 0;
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+  color: #666;
+}
+
+[data-md-color-scheme="slate"] .badge-legend {
+  color: #aaa;
+}
+
+/* Keep legend badges inline, don't float them */
+.badge-legend .badge {
+  float: none;
+}
