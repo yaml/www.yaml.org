@@ -42,15 +42,11 @@ defn section(section yaml):
 
   yts-badge =:
     when yts:
-      " [:material-test-tube:](\n
-      https://github.com/yaml/yaml-test-suite
-      \"Uses YAML Test Suite\"){ .badge .badge-yts }"
+      ' [:material-test-tube:](https://github.com/yaml/yaml-test-suite "Uses YAML Test Suite"){ .badge .badge-yts }'
 
   tycs-badge =:
     when tycs:
-      " [:material-heart:](\n
-      https://yaml.com \"Supported by The YAML Company\")\n
-      { .badge .badge-tycs }"
+      ' [:material-heart:](https://yaml.com "Supported by The YAML Company"){ .badge .badge-tycs }'
 
   section +: |+
     -   :$icon:{ .lg .middle } **[$name]($site)**$tycs-badge$yts-badge
