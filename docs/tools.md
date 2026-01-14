@@ -1,3 +1,7 @@
+---
+edit: docs/tools.md
+---
+
 # YAML Tools
 
 Tools and utilities for working with YAML - schema validators, linters, editors, and related technologies.

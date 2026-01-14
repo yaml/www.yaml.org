@@ -6,7 +6,7 @@ site_url: https://yaml.org
 # Repository
 repo_name: yaml/www.yaml.org
 repo_url: https://github.com/yaml/www.yaml.org
-edit_uri: edit/mkdocs-redesign/src
+edit_uri: main/
 
 watch:
 - docs

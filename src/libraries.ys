@@ -11,6 +11,10 @@ defn main():
   markdown =: reduce-kv(language "" data)
 
   say: |-
+    ---
+    edit: src/libraries.yaml
+    ---
+
     # YAML Libraries
 
     YAML data serialization libraries for most modern programming languages.

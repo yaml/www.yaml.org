@@ -1,0 +1,19 @@
+{% if page.meta.edit %}
+  {% set url = config.repo_url ~ "/edit/" ~ config.edit_uri ~ page.meta.edit %}
+
+  <a href="{{ url }}"
+     title="{{ lang.t('action.edit') }}"
+     class="md-content__button md-icon"
+     target="_blank">
+    {% set icon = config.theme.icon.edit or "material/file-edit-outline" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </a>
+
+  <a href="{{ url | replace('/edit/', '/blob/') }}"
+     title="{{ lang.t('action.view') }}"
+     class="md-content__button md-icon"
+     target="_blank">
+    {% set icon = config.theme.icon.view or "material/file-eye-outline" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </a>
+{% endif %}

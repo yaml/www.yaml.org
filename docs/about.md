@@ -1,6 +1,7 @@
 ---
 hide:
 - navigation
+edit: docs/about.md
 ---
 
 # About YAML
