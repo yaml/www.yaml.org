@@ -22,6 +22,10 @@ C/C++:
   icon: simple-cplusplus
 
 Clojure:
+- name: clj-yaml
+  desc: YAML encoding and decoding for Clojure
+  site: https://github.com/clj-commons/clj-yaml
+  icon: simple-clojure
 - name: YAMLScript
   desc: YAMLScript YAML loader
   site: https://clojars.org/org.yamlscript/yamlscript
