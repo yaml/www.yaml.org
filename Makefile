@@ -14,6 +14,7 @@ REPO  ?= git@github.com:yaml/www.yaml.org
 
 PAGES := \
   docs/libraries.md \
+  docs/tools.md \
 
 WATCHER-PID := .watcher.pid
 
@@ -55,10 +56,11 @@ publish: site
 # Generate pages from YAMLScript sources
 pages:
 	ys src/libraries.ys > docs/libraries.md
+	ys src/tools.ys > docs/tools.md
 
 # Alias for pages (called by watcher)
 update: pages
-	@touch docs/libraries.md
+	@touch docs/libraries.md docs/tools.md
 
 # Watch src/ files and regenerate on change (runs in background)
 watch: $(WATCHER-PID)

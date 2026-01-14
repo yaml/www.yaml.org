@@ -1,0 +1,66 @@
+Utilities:
+- name: yq
+  desc: Command-line YAML processor
+  site: https://github.com/mikefarah/yq
+  icon: material-console
+  tycs: true
+- name: YAML Diff
+  desc: Semantically compare two YAML documents
+  site: https://yamldiff.com/
+  icon: material-file-compare
+- name: Pygments
+  desc: Python language Syntax Colorizer with YAML support
+  site: http://pygments.org/demo/?lang=yaml
+  icon: material-palette
+- name: carvel-ytt
+  desc: YAML templating tool that works on YAML structure
+  site: https://github.com/vmware-tanzu/carvel-ytt
+  icon: simple-go
+
+Linters & Validators:
+- name: yamllint
+  desc: YAML Linter based on PyYAML
+  site: https://github.com/adrienverge/yamllint
+  icon: material-code-tags-check
+- name: yamlfixer
+  desc: Automates fixing of problems reported by yamllint
+  site: https://github.com/opt-nc/yamlfixer
+  icon: material-code-tags-check
+
+Schema & Validation:
+- name: Rx
+  desc: Multi-Language Schemata Tool for JSON/YAML
+  site: http://rjbs.manxome.org/rx/
+  icon: material-check-decagram
+- name: Kwalify
+  desc: Ruby Schemata Tool for JSON/YAML
+  site: https://www.rubydoc.info/gems/kwalify/
+  icon: material-check-decagram
+- name: pyKwalify
+  desc: Python Schemata Tool for JSON/YAML
+  site: https://github.com/Grokzen/pykwalify
+  icon: material-check-decagram
+- name: JSON Schema
+  desc: YAML-compliant JSON standard for data validation
+  site: https://json-schema-everywhere.github.io/yaml
+  icon: material-check-decagram
+
+Editors & IDE Tools:
+- name: yatools.net
+  desc: Visual Studio editor for YAML
+  site: http://www.codeplex.com/yaml/
+  icon: material-microsoft-visual-studio
+
+Related Technologies:
+- name: JSON
+  desc: Official JSON Website - YAML is a superset of JSON
+  site: http://json.org/
+  icon: simple-json
+- name: CBOR
+  desc: Concise Binary Object Representation
+  site: https://cbor.io/
+  icon: material-code-json
+- name: YAML Multiline
+  desc: Interactive guide to YAML multiline strings
+  site: https://yaml-multiline.info/
+  icon: material-school
