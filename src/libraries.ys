@@ -18,11 +18,11 @@ defn main():
     <div class="badge-legend" markdown>
       [:material-test-tube:](
       https://github.com/yaml/yaml-test-suite){ .badge .badge-yts }
-      Uses YAML Test Suite<br>
+      Uses the [YAML Test Suite](https://github.com/yaml/yaml-test-suite)<br>
       [:material-heart:](https://yaml.com){ .badge .badge-tycs }
-      Supported by The YAML Company<br>
+      Supported by [The YAML Company](https://yaml.com)<br>
       [:material-play-circle:](https://play.yaml.com){ .badge .badge-play }
-      Available in YAML Playground
+      Available in the [YAML Playground](https://play.yaml.com)
     </div>
 
     ---
