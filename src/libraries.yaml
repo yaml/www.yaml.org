@@ -245,14 +245,17 @@ OCaml:
   icon: material-code-braces
 
 Perl:
-- name: YAML
-  desc: Pure Perl YAML 1.0 Module
-  site: https://metacpan.org/release/YAML
-  icon: simple-perl
 - name: YAML::XS
-  desc: Binding to libyaml
+  desc: XS binding to libyaml
   site: https://metacpan.org/release/YAML-LibYAML
   icon: simple-perl
+  tycs: true
+- name: YAML::PP
+  desc: A pure Perl YAML 1.2/1.1 processor
+  site: https://metacpan.org/release/YAML-PP
+  icon: simple-perl
+  yts: true
+  tycs: true
 - name: YAML::Syck
   desc: Binding to libsyck
   site: https://metacpan.org/release/YAML-Syck
@@ -261,11 +264,10 @@ Perl:
   desc: A small YAML subset module
   site: https://metacpan.org/release/YAML-Tiny
   icon: simple-perl
-- name: YAML::PP
-  desc: A YAML 1.2/1.1 processor
-  site: https://metacpan.org/release/YAML-PP
+- name: YAML
+  desc: Pure Perl YAML 1.0 Module
+  site: https://metacpan.org/release/YAML
   icon: simple-perl
-  yts: true
 - name: YAMLStar
   desc: YAML 1.2 loader
   site: https://metacpan.org/pod/YAMLStar
