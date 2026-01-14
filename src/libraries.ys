@@ -20,7 +20,9 @@ defn main():
       https://github.com/yaml/yaml-test-suite){ .badge .badge-yts }
       Uses YAML Test Suite<br>
       [:material-heart:](https://yaml.com){ .badge .badge-tycs }
-      Supported by The YAML Company
+      Supported by The YAML Company<br>
+      [:material-play-circle:](https://play.yaml.com){ .badge .badge-play }
+      Available in YAML Playground
     </div>
 
     ---
@@ -37,8 +39,8 @@ defn language(markdown lang yamls): |
 
 
 defn section(section yaml):
-  name site icon desc yts tycs =:
-    yaml.slice(qw(name site icon desc yts tycs))
+  name site icon desc yts tycs play =:
+    yaml.slice(qw(name site icon desc yts tycs play))
 
   yts-badge =:
     when yts:
@@ -48,8 +50,12 @@ defn section(section yaml):
     when tycs:
       ' [:material-heart:](https://yaml.com "Supported by The YAML Company"){ .badge .badge-tycs }'
 
+  play-badge =:
+    when play:
+      ' [:material-play-circle:](https://play.yaml.com "Available in YAML Playground"){ .badge .badge-play }'
+
   section +: |+
-    -   :$icon:{ .lg .middle } **[$name]($site)**$tycs-badge$yts-badge
+    -   :$icon:{ .lg .middle } **[$name]($site)**$play-badge$tycs-badge$yts-badge
 
         ---
 

@@ -279,12 +279,20 @@
   color: #E91E63 !important;  /* pink */
 }
 
+.badge-play {
+  color: #2196F3 !important;  /* blue */
+}
+
 [data-md-color-scheme="slate"] .badge-yts {
   color: #66BB6A !important;  /* lighter green for dark mode */
 }
 
 [data-md-color-scheme="slate"] .badge-tycs {
   color: #F06292 !important;  /* lighter pink for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-play {
+  color: #64B5F6 !important;  /* lighter blue for dark mode */
 }
 
 .badge-legend {
