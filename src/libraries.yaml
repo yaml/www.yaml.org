@@ -4,14 +4,14 @@ C/C++:
   site: https://github.com/pantoniou/libfyaml
   icon: simple-c
   yts: true
-  play: true
+  play: libfyaml
 - name: libyaml
   desc: '"C" Fast YAML 1.1'
   site: http://pyyaml.org/wiki/LibYAML
   icon: simple-c
   yts: true
   tycs: true
-  play: true
+  play: libyaml
 - name: libcyaml
   desc: YAML de/serialization of C data (using libyaml)
   site: https://github.com/tlsa/libcyaml
@@ -45,7 +45,7 @@ C#/.NET:
   site: https://github.com/aaubry/YamlDotNet
   icon: simple-dotnet
   yts: true
-  play: true
+  play: dotnet
 - name: yaml-net
   desc: YAML 1.1 library
   site: http://yaml-net-parser.sourceforge.net/
@@ -118,7 +118,7 @@ Go:
   site: https://github.com/yaml/go-yaml
   icon: simple-go
   tycs: true
-  play: true
+  play: goyaml
 - name: Go-gypsy
   desc: Simplified YAML parser written in Go
   site: https://github.com/kylelemons/go-gypsy
@@ -144,12 +144,12 @@ Haskell:
   site: https://hackage.haskell.org/package/HsYAML
   icon: simple-haskell
   yts: true
-  play: true
+  play: hsyaml
 - name: YamlReference
   desc: Haskell 1.2 reference parser
   site: https://hackage.haskell.org/package/YamlReference
   icon: simple-haskell
-  play: true
+  play: refhs
 - name: yaml
   desc: YAML 1.1 Haskell framework (based on libyaml)
   site: https://hackage.haskell.org/package/yaml
@@ -165,12 +165,12 @@ Java:
   desc: Java 8+ / YAML 1.2
   site: https://bitbucket.org/snakeyaml/snakeyaml-engine
   icon: material-language-java
-  play: true
+  play: snakeeng
 - name: SnakeYAML
   desc: Java 5 / YAML 1.1
   site: https://bitbucket.org/snakeyaml/snakeyaml
   icon: material-language-java
-  play: true
+  play: snake
 - name: YamlBeans
   desc: To/from JavaBeans. YAML 1.0/1.1
   site: https://github.com/EsotericSoftware/yamlbeans
@@ -195,7 +195,7 @@ JavaScript:
   site: https://github.com/eemeli/yaml
   icon: simple-javascript
   yts: true
-  play: true
+  play: npmyaml
 - name: js-yaml
   desc: Native PyYAML port to JavaScript
   site: https://github.com/nodeca/js-yaml
@@ -242,7 +242,7 @@ Nim:
   site: https://nimyaml.org
   icon: material-code-braces
   yts: true
-  play: true
+  play: nimyaml
 
 OCaml:
 - name: ocaml-yaml
@@ -266,7 +266,7 @@ Perl:
   icon: simple-perl
   yts: true
   tycs: true
-  play: true
+  play: ppyaml
 - name: YAML::Syck
   desc: Binding to libsyck
   site: https://metacpan.org/release/YAML-Syck
@@ -319,12 +319,12 @@ Python:
   site: http://pyyaml.org
   icon: simple-python
   tycs: true
-  play: true
+  play: pyyaml
 - name: ruamel.yaml
   desc: YAML 1.2, update of PyYAML; comments round-trip
   site: https://pypi.python.org/pypi/ruamel.yaml
   icon: simple-python
-  play: true
+  play: ruamel
 - name: strictyaml
   desc: Restricted YAML subset
   site: https://pypi.org/project/strictyaml/
@@ -386,7 +386,7 @@ Rust:
   site: https://github.com/yaml/serde-yaml
   icon: simple-rust
   tycs: true
-  play: true
+  play: rustyaml
 - name: YAMLStar
   desc: YAML 1.2 loader
   site: https://crates.io/crates/yamlstar
