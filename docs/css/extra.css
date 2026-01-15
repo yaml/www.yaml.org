@@ -283,6 +283,14 @@
   color: #2196F3 !important;  /* blue */
 }
 
+.badge-web {
+  color: #9C27B0 !important;  /* purple */
+}
+
+.badge-cli {
+  color: #FF9800 !important;  /* orange */
+}
+
 [data-md-color-scheme="slate"] .badge-yts {
   color: #66BB6A !important;  /* lighter green for dark mode */
 }
@@ -293,6 +301,14 @@
 
 [data-md-color-scheme="slate"] .badge-play {
   color: #64B5F6 !important;  /* lighter blue for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-web {
+  color: #BA68C8 !important;  /* lighter purple for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-cli {
+  color: #FFB74D !important;  /* lighter orange for dark mode */
 }
 
 .badge-legend {

@@ -20,6 +20,10 @@ defn main():
     Tools and utilities for working with YAML - schema validators, linters, editors, and related technologies.
 
     <div class="badge-legend" markdown>
+      :material-console:{ .badge .badge-cli }
+      CLI Tool<br>
+      :material-web:{ .badge .badge-web }
+      Web Tool<br>
       [:material-heart:](https://yaml.com){ .badge .badge-tycs }
       Supported by [The YAML Company](https://yaml.com)
     </div>
@@ -38,15 +42,20 @@ defn category(markdown cat tools): |
 
 
 defn section(section tool):
-  name site icon desc tycs =:
-    tool.slice(qw(name site icon desc tycs))
+  name site icon desc tycs type =:
+    tool.slice(qw(name site icon desc tycs type))
 
   tycs-badge =:
     when tycs:
       ' [:material-heart:](https://yaml.com "Supported by The YAML Company"){ .badge .badge-tycs }'
 
+  type-badge =:
+    cond:
+      (type == 'web'):  ' :material-web:{ .badge .badge-web title="Web Tool" }'
+      (type == 'cli'):  ' :material-console:{ .badge .badge-cli title="CLI Tool" }'
+
   section +: |+
-    -   :$icon:{ .lg .middle } **[$name]($site){ target="_blank" }**$tycs-badge
+    -   :$icon:{ .lg .middle } **[$name]($site){ target="_blank" }**$tycs-badge$type-badge
 
         ---
 
