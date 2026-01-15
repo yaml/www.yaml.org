@@ -198,6 +198,11 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Hide playground badges on mobile - playground doesn't work on phones */
+  .badge-play {
+    display: none;
+  }
 }
 
 /* Dark mode adjustments */
