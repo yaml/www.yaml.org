@@ -23,10 +23,10 @@ defn main():
       [:material-test-tube:](
       https://github.com/yaml/yaml-test-suite){ .badge .badge-yts target="_blank" }
       Uses the [YAML Test Suite](https://github.com/yaml/yaml-test-suite){ target="_blank" }<br>
-      [:material-heart:](https://yaml.com){ .badge .badge-tycs target="_blank" }
-      Supported by [The YAML Company](https://yaml.com){ target="_blank" }<br>
       [:material-play-circle:](https://play.yaml.com){ .badge .badge-play target="_blank" }
-      Available in the [YAML Playground](https://play.yaml.com){ target="_blank" }
+      Available in the [YAML Playground](https://play.yaml.com){ target="_blank" }<br>
+      [:material-heart:](https://yaml.com){ .badge .badge-tycs target="_blank" }
+      Supported by [The YAML Company](https://yaml.com){ target="_blank" }
     </div>
 
     ---
@@ -59,7 +59,7 @@ defn section(section yaml):
       " [:material-play-circle:](https://play.yaml.com?show=$play \"Available in the YAML Playground\"){ .badge .badge-play target=\"_blank\" }"
 
   section +: |+
-    -   :$icon:{ .lg .middle } **[$name]($site){ target="_blank" }**$play-badge$tycs-badge$yts-badge
+    -   :$icon:{ .lg .middle } **[$name]($site){ target="_blank" }**$tycs-badge$play-badge$yts-badge
 
         ---
 
