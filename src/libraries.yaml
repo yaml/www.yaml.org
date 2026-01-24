@@ -377,6 +377,12 @@ Ruby:
   tycs: true
 
 Rust:
+- name: yaml-serde
+  desc: YAML framework for the Rust language
+  site: https://github.com/yaml/yaml-serde
+  icon: simple-rust
+  tycs: true
+  play: rustyaml
 - name: yaml-rust2
   desc: YAML 1.2 implementation in pure Rust (actively maintained)
   site: https://github.com/Ethiraric/yaml-rust2
@@ -385,12 +391,6 @@ Rust:
   desc: Modern Rust crates for parsing YAML
   site: https://github.com/saphyr-rs/saphyr
   icon: simple-rust
-- name: serde-yaml
-  desc: YAML framework for the Rust language
-  site: https://github.com/yaml/serde-yaml
-  icon: simple-rust
-  tycs: true
-  play: rustyaml
 - name: YAMLStar
   desc: YAML 1.2 loader
   site: https://crates.io/crates/yamlstar
