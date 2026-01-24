@@ -316,6 +316,10 @@ PHP:
   site: https://packagist.org/packages/yaml/yamlscript
   icon: simple-php
   tycs: true
+- name: PHP YAML Parser
+  desc: Obviously, a YAML parser (YAML 1.2)
+  site: https://github.com/taufik-nurrohman/y-a-m-l
+  icon: simple-php
 
 Python:
 - name: PyYAML
