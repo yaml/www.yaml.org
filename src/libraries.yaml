@@ -317,7 +317,7 @@ PHP:
   icon: simple-php
   tycs: true
 - name: PHP YAML Parser
-  desc: Obviously, a YAML parser (YAML 1.2)
+  desc: A YAML 1.2 Parser for PHP
   site: https://github.com/taufik-nurrohman/y-a-m-l
   icon: simple-php
 
