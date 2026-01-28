@@ -1,10 +1,11 @@
+Ada:
+- name: AdaYaml
+  desc: Experimental YAML 1.3 implementation in Ada
+  site: https://github.com/yaml/AdaYaml
+  icon: material-code-braces
+  plus: true
+
 C/C++:
-- name: libfyaml
-  desc: '"C" YAML 1.2 processor'
-  site: https://github.com/pantoniou/libfyaml
-  icon: simple-c
-  yts: true
-  play: libfyaml
 - name: libyaml
   desc: '"C" Fast YAML 1.1'
   site: http://pyyaml.org/wiki/LibYAML
@@ -12,25 +13,47 @@ C/C++:
   yts: true
   tycs: true
   play: libyaml
-- name: libcyaml
-  desc: YAML de/serialization of C data (using libyaml)
-  site: https://github.com/tlsa/libcyaml
+- name: libfyaml
+  desc: '"C" YAML 1.2 processor'
+  site: https://github.com/pantoniou/libfyaml
   icon: simple-c
+  yts: true
+  play: libfyaml
+- name: rapidyaml
+  desc: Fast C++ YAML parser and emitter
+  site: https://github.com/biojppm/rapidyaml
+  icon: simple-cplusplus
 - name: yaml-cpp
   desc: C++ YAML 1.2 implementation
   site: https://github.com/jbeder/yaml-cpp/
   icon: simple-cplusplus
+- name: libcyaml
+  desc: YAML de/serialization of C data (using libyaml)
+  site: https://github.com/tlsa/libcyaml
+  icon: simple-c
 
 Clojure:
 - name: clj-yaml
   desc: YAML encoding and decoding for Clojure
   site: https://github.com/clj-commons/clj-yaml
   icon: simple-clojure
+- name: YAMLStar
+  desc: YAML 1.2 loader
+  site: https://clojars.org/org.yamlstar/yamlstar
+  icon: simple-clojure
+  tycs: true
 - name: YAMLScript
   desc: YAMLScript YAML loader
   site: https://clojars.org/org.yamlscript/yamlscript
   icon: simple-clojure
   tycs: true
+
+Common Lisp:
+- name: cl-yaml
+  desc: YAML parser and emitter built on libyaml
+  site: https://github.com/eudoxia0/cl-yaml
+  icon: material-code-braces
+  plus: true
 
 Crystal:
 - name: YAML
@@ -54,6 +77,11 @@ C#/.NET:
   desc: YAML 1.1 library
   site: http://yaml-net-parser.sourceforge.net/
   icon: simple-dotnet
+- name: Legivel
+  desc: F# YAML 1.2 parser
+  site: https://github.com/fjoppe/Legivel
+  icon: simple-dotnet
+  plus: true
 - name: YAMLStar
   desc: YAML 1.2 loader
   site: https://www.nuget.org/packages/YAMLStar
@@ -88,6 +116,11 @@ Delphi:
   desc: YAML 1.1/1.2 and JSON pure Object Pascal parser
   site: https://github.com/biot2/Yaml.Json.Parser
   icon: material-code-braces
+- name: YAMLStar
+  desc: YAML 1.2 loader
+  site: https://github.com/yaml/yamlstar-delphi
+  icon: material-code-braces
+  tycs: true
 
 Elixir:
 - name: yaml-elixir
@@ -142,6 +175,13 @@ Go:
   icon: simple-go
   tycs: true
 
+Groovy:
+- name: YamlSlurper
+  desc: Built-in YAML parser (Groovy 3+)
+  site: https://groovy-lang.org/processing-yaml.html
+  icon: material-code-braces
+  plus: true
+
 Haskell:
 - name: HsYAML
   desc: YAML 1.2 implementation in pure Haskell
@@ -187,6 +227,11 @@ Java:
   desc: Java Implementation
   site: https://github.com/OpenHFT/Chronicle-Wire
   icon: material-language-java
+- name: YAMLStar
+  desc: YAML 1.2 loader
+  site: https://central.sonatype.com/artifact/com.yaml/yamlstar
+  icon: material-language-java
+  tycs: true
 - name: YAMLScript
   desc: YAMLScript YAML loader
   site: https://clojars.org/org.yamlscript/yamlscript
@@ -223,6 +268,23 @@ Julia:
   icon: simple-julia
   tycs: true
 
+Kotlin:
+- name: kaml
+  desc: YAML 1.2 support for kotlinx.serialization
+  site: https://github.com/charleskorn/kaml
+  icon: simple-kotlin
+  plus: true
+- name: yamlkt
+  desc: Multiplatform YAML parser for kotlinx.serialization
+  site: https://github.com/Him188/yamlkt
+  icon: simple-kotlin
+  plus: true
+- name: Hoplite
+  desc: Kotlin config library with YAML support
+  site: https://github.com/sksamuel/hoplite
+  icon: simple-kotlin
+  plus: true
+
 Lua:
 - name: LuaYAML
   desc: Lua binding for libyaml
@@ -257,6 +319,18 @@ OCaml:
   desc: YAML 1.0 via syck bindings
   site: http://ocaml-syck.sourceforge.net
   icon: material-code-braces
+
+Objective-C:
+- name: YAML.framework
+  desc: YAML support based on libyaml
+  site: https://github.com/mirek/YAML.framework
+  icon: material-code-braces
+  plus: true
+- name: YAML4ObjC
+  desc: LibYAML wrapper with YPath query support
+  site: https://github.com/cybergarage/YAML4ObjC
+  icon: material-code-braces
+  plus: true
 
 Perl:
 - name: YAML::XS
@@ -317,6 +391,13 @@ PHP:
   icon: simple-php
   tycs: true
 
+PowerShell:
+- name: powershell-yaml
+  desc: PowerShell CmdLets for YAML manipulation
+  site: https://github.com/cloudbase/powershell-yaml
+  icon: simple-powershell
+  plus: true
+
 Python:
 - name: PyYAML
   desc: YAML 1.1, pure Python and libyaml binding
@@ -364,6 +445,20 @@ Raku:
   site: https://raku.land/zef:ingy/YAMLScript
   icon: material-code-braces
   tycs: true
+
+Scala:
+- name: circe-yaml
+  desc: YAML parser for circe using SnakeYAML
+  site: https://github.com/circe/circe-yaml
+  icon: material-code-braces
+  plus: true
+
+Scheme:
+- name: guile-libyaml
+  desc: YAML module for Guile using libyaml
+  site: https://github.com/mwette/guile-libyaml
+  icon: material-code-braces
+  plus: true
 
 Ruby:
 - name: psych
@@ -418,11 +513,35 @@ Swift:
   site: https://github.com/jpsim/Yams
   icon: simple-swift
 
+Tcl:
+- name: yaml
+  desc: YAML processing with huddle support
+  site: https://github.com/tcltk/tcllib/blob/master/modules/yaml/yaml.tcl
+  icon: material-code-braces
+  plus: true
+
 Typst:
 - name: yaml
   desc: YAML support built into Typst scripting language
   site: https://typst.app/docs/reference/data-loading/yaml/
   icon: material-code-braces
+
+TypeScript:
+- name: yaml
+  desc: JavaScript/TypeScript YAML parser (YAML 1.2, 1.1)
+  site: https://github.com/eemeli/yaml
+  icon: simple-typescript
+  plus: true
+- name: js-yaml
+  desc: YAML parser and serializer
+  site: https://github.com/nodeca/js-yaml
+  icon: simple-typescript
+  plus: true
+- name: yaml-thom
+  desc: Experimental YAML 1.2 reference implementation
+  site: https://github.com/Thom1729/yaml-thom
+  icon: simple-typescript
+  plus: true
 
 V:
 - name: yaml
@@ -430,8 +549,20 @@ V:
   site: https://github.com/prantlf/v-yaml
   icon: material-code-braces
 
-Others:
+Vim:
 - name: yamlvim
   desc: YAML dumper/emitter in pure vimscript
   site: http://www.vim.org/scripts/script.php?script_id=3190
   icon: simple-vim
+
+Zig:
+- name: zig-yaml
+  desc: YAML 1.2 parser for Zig
+  site: https://github.com/kubkon/zig-yaml
+  icon: material-code-braces
+  plus: true
+- name: ymlz
+  desc: Small and convenient YAML parser for Zig
+  site: https://github.com/pwbh/ymlz
+  icon: material-code-braces
+  plus: true
