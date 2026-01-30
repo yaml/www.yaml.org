@@ -17,7 +17,7 @@ defn main():
 
     # YAML Libraries
 
-    YAML data serialization libraries for most modern programming languages.
+    YAML data serialization libraries for **42** modern programming languages!!!
 
     <div class="badge-legend" markdown>
       [:material-test-tube:](
