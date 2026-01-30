@@ -1,0 +1,334 @@
+/* yaml.com Custom Styles */
+
+
+.home-page {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 0;
+    margin-top: 0;
+
+    a:link, a:visited, a:active {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .ydoc {
+        color: turquoise;
+    }
+
+    .ycom {
+        color: blue;
+    }
+
+    .ydir {
+        color: red;
+    }
+
+    .ykey {
+        color: green;
+    }
+
+    .ysep {
+        color: brown;
+    }
+}
+
+.md-source__repository {
+    display: none;
+}
+
+/* Sponsor grid styling */
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.sponsor-grid .admonition {
+  margin: 0;
+  height: 100%;
+}
+
+/* Custom color scheme for YAML branding */
+:root {
+  --yaml-primary: #2196F3;
+  --yaml-secondary: #4CAF50;
+  --yaml-accent: #FF9800;
+}
+
+/* Hero section styling */
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--yaml-primary), var(--yaml-secondary));
+  color: white;
+  margin: -1rem -1rem 2rem -1rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.hero-section .tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Sponsor tier cards */
+.sponsor-card {
+  border: 2px solid var(--yaml-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+.sponsor-card.leader {
+  border-color: var(--yaml-accent);
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05));
+}
+
+.sponsor-card.partner {
+  border-color: var(--yaml-secondary);
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+}
+
+.sponsor-card.member {
+  border-color: var(--yaml-primary);
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(33, 150, 243, 0.05));
+}
+
+/* Call-to-action buttons */
+.cta-button {
+  display: inline-block;
+  background: var(--yaml-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.cta-button:hover {
+  background: #1976D2;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.cta-button.secondary {
+  background: var(--yaml-secondary);
+}
+
+.cta-button.secondary:hover {
+  background: #388E3C;
+}
+
+.cta-button.accent {
+  background: var(--yaml-accent);
+}
+
+.cta-button.accent:hover {
+  background: #F57C00;
+}
+
+/* Feature highlights */
+.feature-highlight {
+  background: #f8f9fa;
+  border-left: 4px solid var(--yaml-primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Stats and metrics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--yaml-primary);
+  display: block;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section .tagline {
+    font-size: 1.2rem;
+  }
+
+  .sponsor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Hide playground badges on mobile - playground doesn't work on phones */
+  .badge-play {
+    display: none;
+  }
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .sponsor-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-md-color-scheme="slate"] .feature-highlight {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-md-color-scheme="slate"] .stat-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Code block enhancements */
+.highlight .hll {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+/* Navigation improvements */
+.md-nav__title {
+  color: var(--yaml-primary);
+}
+
+.md-nav__link:hover {
+  color: var(--yaml-secondary);
+}
+
+/* Footer styling */
+.md-footer {
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Material grid cards styling */
+.grid.cards {
+  margin-top: 1.5em;
+}
+
+.grid.cards > * {
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.grid.cards > *:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > *:hover {
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+/* Library badge icons */
+.badge {
+  float: right;
+  margin-left: 0.5em;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.badge:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.badge-yts {
+  color: #4CAF50 !important;  /* green */
+}
+
+.badge-tycs {
+  color: #E91E63 !important;  /* pink */
+}
+
+.badge-play {
+  color: #2196F3 !important;  /* blue */
+}
+
+.badge-web {
+  color: #9C27B0 !important;  /* purple */
+}
+
+.badge-cli {
+  color: #FF9800 !important;  /* orange */
+}
+
+[data-md-color-scheme="slate"] .badge-yts {
+  color: #66BB6A !important;  /* lighter green for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-tycs {
+  color: #F06292 !important;  /* lighter pink for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-play {
+  color: #64B5F6 !important;  /* lighter blue for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-web {
+  color: #BA68C8 !important;  /* lighter purple for dark mode */
+}
+
+[data-md-color-scheme="slate"] .badge-cli {
+  color: #FFB74D !important;  /* lighter orange for dark mode */
+}
+
+.badge-legend {
+  text-align: left;
+  padding: 0.5em 0;
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+  color: #666;
+}
+
+[data-md-color-scheme="slate"] .badge-legend {
+  color: #aaa;
+}
+
+/* Keep legend badges inline, don't float them */
+.badge-legend .badge {
+  float: none;
+}
