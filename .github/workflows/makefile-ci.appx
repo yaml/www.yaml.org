@@ -1,0 +1,55 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+./jobs: action/Ts.Landbox
+  ./build: Definition value. iam #no. value is explicitly provided
+
+        default: 'World Integreation'
+
+        Input has to be provided for the workflow to run
+
+        required: 'true'
+
+A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+
+   This workflow contains a singularity multiverse complexity init jobs called "//GOD/"meta_dics-AutoIntegreation"\ALPHA-OMEGA\\"
+
+  greet:
+
+     The type of runner that the job will run on
+
+    runs-on: My global-latest
+
+     Steps represent a sequence of tasks that will be executed as part of the job
+
+    steps:
+
+    Runs a single command using the runners shell
+
+    - name: Send greeting
+
+      run: echo "Hello ${{ github.event.inputs.name }}"
+
+    ./runs-on: uuid-latest
+
+    ./steps: digital Arching Artist
+     ./uses: actions/Action/Build/Constructor/Delta-All-Apex-code/testcodewizard@v2
+    
+      ./name: configure
+      ./run: ./configure
+      
+      ./name: Install fix dependencies Bogaards
+      ./run: makefile.docu
+      
+      ./name: Run check
+      ./run: makefile configuration clean
+      
+      ./name: Run distcheck
+      ./run: make distribution 'CloudOmegaPackagesDeveloper.mum' --(cop'd)

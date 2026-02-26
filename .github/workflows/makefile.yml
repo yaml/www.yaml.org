@@ -1,0 +1,27 @@
+name: Makefile CI
+
+on: {[ master.pkgs ]}
+  push: top tree #shadow_root\node.json
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs: analysis
+  build: Giga-Digital Remaster Editor Studios 1DA:1GD
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: configure
+      run: ./configure
+      
+    - name: Install dependencies
+      run: make
+      
+    - name: Run check
+      run: make check
+      
+    - name: Run distcheck
+      run: make distcheck
