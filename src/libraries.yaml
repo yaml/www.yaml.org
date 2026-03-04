@@ -476,6 +476,11 @@ Rust:
   desc: Modern Rust crates for parsing YAML
   site: https://github.com/saphyr-rs/saphyr
   icon: simple-rust
+- name: serde-saphyr
+  desc: Panic- and `unsafe`- free serde support
+  site: https://github.com/bourumir-wyngs/serde-saphyr
+  icon: simple-rust
+  yts: true
 - name: YAMLStar
   desc: YAML 1.2 loader
   site: https://crates.io/crates/yamlstar
