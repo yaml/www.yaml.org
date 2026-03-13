@@ -32,6 +32,33 @@ C/C++:
   site: https://github.com/tlsa/libcyaml
   icon: simple-c
 
+C#/.NET:
+- name: YamlDotNet
+  desc: YAML 1.1/(1.2) library + serialization
+  site: https://github.com/aaubry/YamlDotNet
+  icon: simple-dotnet
+  yts: true
+  play: dotnet
+- name: yaml-net
+  desc: YAML 1.1 library
+  site: http://yaml-net-parser.sourceforge.net/
+  icon: simple-dotnet
+- name: Legivel
+  desc: F# YAML 1.2 parser
+  site: https://github.com/fjoppe/Legivel
+  icon: simple-dotnet
+  plus: true
+- name: YAMLStar
+  desc: YAML 1.2 loader
+  site: https://www.nuget.org/packages/YAMLStar
+  icon: simple-dotnet
+  tycs: true
+- name: YAMLScript
+  desc: YAMLScript YAML loader
+  site: https://www.nuget.org/packages/YAMLScript
+  icon: simple-dotnet
+  tycs: true
+
 Clojure:
 - name: clj-yaml
   desc: YAML encoding and decoding for Clojure
@@ -64,33 +91,6 @@ Crystal:
   desc: YAMLScript YAML loader
   site: https://github.com/yaml/yamlscript-crystal
   icon: material-language-cpp
-  tycs: true
-
-C#/.NET:
-- name: YamlDotNet
-  desc: YAML 1.1/(1.2) library + serialization
-  site: https://github.com/aaubry/YamlDotNet
-  icon: simple-dotnet
-  yts: true
-  play: dotnet
-- name: yaml-net
-  desc: YAML 1.1 library
-  site: http://yaml-net-parser.sourceforge.net/
-  icon: simple-dotnet
-- name: Legivel
-  desc: F# YAML 1.2 parser
-  site: https://github.com/fjoppe/Legivel
-  icon: simple-dotnet
-  plus: true
-- name: YAMLStar
-  desc: YAML 1.2 loader
-  site: https://www.nuget.org/packages/YAMLStar
-  icon: simple-dotnet
-  tycs: true
-- name: YAMLScript
-  desc: YAMLScript YAML loader
-  site: https://www.nuget.org/packages/YAMLScript
-  icon: simple-dotnet
   tycs: true
 
 D:
@@ -310,16 +310,6 @@ Nim:
   yts: true
   play: nimyaml
 
-OCaml:
-- name: ocaml-yaml
-  desc: YAML 1.1/1.2 via libyaml bindings
-  site: https://github.com/avsm/ocaml-yaml
-  icon: material-code-braces
-- name: ocaml-syck
-  desc: YAML 1.0 via syck bindings
-  site: http://ocaml-syck.sourceforge.net
-  icon: material-code-braces
-
 Objective-C:
 - name: YAML.framework
   desc: YAML support based on libyaml
@@ -331,6 +321,16 @@ Objective-C:
   site: https://github.com/cybergarage/YAML4ObjC
   icon: material-code-braces
   plus: true
+
+OCaml:
+- name: ocaml-yaml
+  desc: YAML 1.1/1.2 via libyaml bindings
+  site: https://github.com/avsm/ocaml-yaml
+  icon: material-code-braces
+- name: ocaml-syck
+  desc: YAML 1.0 via syck bindings
+  site: http://ocaml-syck.sourceforge.net
+  icon: material-code-braces
 
 Perl:
 - name: YAML::XS
@@ -450,20 +450,6 @@ Raku:
   icon: material-code-braces
   tycs: true
 
-Scala:
-- name: circe-yaml
-  desc: YAML parser for circe using SnakeYAML
-  site: https://github.com/circe/circe-yaml
-  icon: material-code-braces
-  plus: true
-
-Scheme:
-- name: guile-libyaml
-  desc: YAML module for Guile using libyaml
-  site: https://github.com/mwette/guile-libyaml
-  icon: material-code-braces
-  plus: true
-
 Ruby:
 - name: psych
   desc: libyaml wrapper (in Ruby core for 1.9.2)
@@ -501,6 +487,20 @@ Rust:
   icon: simple-rust
   tycs: true
 
+Scala:
+- name: circe-yaml
+  desc: YAML parser for circe using SnakeYAML
+  site: https://github.com/circe/circe-yaml
+  icon: material-code-braces
+  plus: true
+
+Scheme:
+- name: guile-libyaml
+  desc: YAML module for Guile using libyaml
+  site: https://github.com/mwette/guile-libyaml
+  icon: material-code-braces
+  plus: true
+
 Shell:
 - name: parse_yaml
   desc: Simple YAML parser for Bash using sed and awk
@@ -524,12 +524,6 @@ Tcl:
   icon: material-code-braces
   plus: true
 
-Typst:
-- name: yaml
-  desc: YAML support built into Typst scripting language
-  site: https://typst.app/docs/reference/data-loading/yaml/
-  icon: material-code-braces
-
 TypeScript:
 - name: yaml
   desc: JavaScript/TypeScript YAML parser (YAML 1.2, 1.1)
@@ -546,6 +540,12 @@ TypeScript:
   site: https://github.com/Thom1729/yaml-thom
   icon: simple-typescript
   plus: true
+
+Typst:
+- name: yaml
+  desc: YAML support built into Typst scripting language
+  site: https://typst.app/docs/reference/data-loading/yaml/
+  icon: material-code-braces
 
 V:
 - name: yaml
