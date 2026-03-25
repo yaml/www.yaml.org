@@ -37,6 +37,11 @@ Linters & Validators:
   site: https://github.com/opt-nc/yamlfixer
   icon: material-code-tags-check
   type: cli
+- name: yamltidy
+  desc: Automatically tidies YAML files
+  site: https://github.com/perlpunk/yamltidy
+  icon: material-code-tags-check
+  type: cli
 
 Schema & Validation:
 - name: Rx
