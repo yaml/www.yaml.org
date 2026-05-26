@@ -2,7 +2,18 @@
 
 Source repository for [yaml.org](https://yaml.org), the official website for
 the YAML data language.
+# First-time setup
+make deps              # Install Python dependencies (creates venv)
 
+# Local development
+make serve             # Start dev server at http://localhost:8000
+                      # Auto-watches .ys and .yaml files for changes
+
+# Build production site
+make build            # Generate static site to site/
+
+# Deploy to GitHub Pages
+make publish          # Deploy to https://yaml.org
 ## Overview
 
 This is a MkDocs Material-based website with dynamic content generation using
