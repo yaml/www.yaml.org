@@ -302,6 +302,12 @@ MATLAB:
   site: https://github.com/NeuroJSON/jsonlab
   icon: material-code-braces
 
+ML:
+- name: Yaml-Parser-in-PolyML
+  desc: A YAML parser written for Poly/ML in Standard ML
+  site: https://www.polyml.org/software/details.php?id=48
+  icon: material-code-braces
+
 Nim:
 - name: NimYAML
   desc: YAML 1.2 implementation in pure Nim
