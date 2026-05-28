@@ -35,7 +35,6 @@ hide:
 <span class="ykey">YAML Mailing List</span><span class="ysep">:</span> <a href="https://lists.sourceforge.net/lists/listinfo/yaml-core" target="_blank">yaml-core</a>           <span class="ycom"># Obsolete, but historical</span -->
 
 <span class="ykey">YAML on GitHub</span><span class="ysep">:</span>    <span class="ycom">#</span> <a href="https://github.com/yaml/" target="_blank">github.com/yaml/</a>
-  <span class="ykey">YAML Test Suite</span><span class="ysep">:</span>    <a href="https://github.com/yaml/yaml-test-suite/" target="_blank">yaml-test-suite/</a>
   <span class="ykey">YAML Specs</span><span class="ysep">:</span>         <a href="https://github.com/yaml/yaml-spec" target="_blank">yaml-spec/</a>
   <span class="ykey">YAML 1.2 Grammar</span><span class="ysep">:</span>   <a href="https://github.com/yaml/yaml-grammar" target="_blank">yaml-grammar/</a>
   <span class="ykey">YAML Test Suite</span><span class="ysep">:</span>    <a href="https://github.com/yaml/yaml-test-suite" target="_blank" name="yts">yaml-test-suite/</a>
