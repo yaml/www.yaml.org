@@ -9,8 +9,6 @@ include $M/typos.mk
 SHELL-DEPS += $(PYTHON-VENV)
 include $M/shell.mk
 
-PYTHON-VENV-SETUP := pip install -r requirements.txt
-
 REPO  ?= git@github.com:yaml/www.yaml.org
 
 PAGES := \
