@@ -1,5 +1,6 @@
-M := $(or $(MAKES_REPO_DIR),.cache/makes)
-$(shell [ -d $M ] || git clone -q https://github.com/makeplus/makes $M)
+R := https://github.com/makeplus/makes
+M := .cache/makes
+$(shell [ -d '$M' ] || git clone -q $R '$M')
 include $M/init.mk
 include $M/clean.mk
 PYTHON-VENV := $(ROOT)/venv
