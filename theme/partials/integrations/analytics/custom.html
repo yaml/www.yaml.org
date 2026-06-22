@@ -1,0 +1,159 @@
+<!-- Google Analytics with consent banner -->
+<style>
+  #gdpr-cookie-banner {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: none;
+    width: calc(100% - 40px);
+    max-width: 480px;
+    padding: 24px;
+    font-size: 1.4em;
+    background: var(--md-code-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  #gdpr-cookie-banner.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #gdpr-cookie-banner p {
+    margin: 0 0 20px;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--md-default-fg-color);
+  }
+
+  .cookie-btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  .cookie-btn {
+    padding: 12px 26px;
+    font-size: 0.8em;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  #cookie-decline {
+    color: var(--md-default-fg-color--light);
+    background: transparent;
+    border: 1px solid var(--md-default-fg-color--lightest);
+  }
+
+  #cookie-decline:hover {
+    color: var(--md-default-fg-color);
+    background: var(--md-default-bg-color--lightest);
+  }
+
+  #cookie-accept {
+    color: var(--md-primary-bg-color);
+    background: var(--md-primary-fg-color);
+    border: 1px solid var(--md-primary-fg-color);
+  }
+
+  #cookie-accept:hover {
+    background: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+    box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    #gdpr-cookie-banner {
+      right: 20px;
+      left: 20px;
+      width: auto;
+    }
+  }
+</style>
+
+<div id="gdpr-cookie-banner">
+  <p>
+    We use cookies to analyze site traffic and improve your experience with Google Analytics.
+  </p>
+  <div class="cookie-btn-group">
+    <button id="cookie-decline" class="cookie-btn" type="button">Decline</button>
+    <button id="cookie-accept" class="cookie-btn" type="button">Accept</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var gaMeasurementId = "{{ config.extra.analytics.property }}";
+
+  function loadGoogleAnalytics() {
+    if (!gaMeasurementId || window.gtag) {
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + gaMeasurementId;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", gaMeasurementId);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var consent = localStorage.getItem("cookie_consent");
+
+    if (consent === "accepted") {
+      loadGoogleAnalytics();
+      return;
+    }
+
+    if (consent === "declined") {
+      return;
+    }
+
+    var banner = document.getElementById("gdpr-cookie-banner");
+    var accept = document.getElementById("cookie-accept");
+    var decline = document.getElementById("cookie-decline");
+
+    if (!banner || !accept || !decline) {
+      return;
+    }
+
+    banner.style.display = "block";
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        banner.classList.add("show");
+      });
+    });
+
+    accept.addEventListener("click", function() {
+      localStorage.setItem("cookie_consent", "accepted");
+      banner.classList.remove("show");
+      setTimeout(function() {
+        banner.style.display = "none";
+      }, 400);
+      loadGoogleAnalytics();
+    });
+
+    decline.addEventListener("click", function() {
+      localStorage.setItem("cookie_consent", "declined");
+      banner.classList.remove("show");
+      setTimeout(function() {
+        banner.style.display = "none";
+      }, 400);
+    });
+  });
+})();
+</script>

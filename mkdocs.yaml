@@ -106,5 +106,10 @@ extra_javascript:
 - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=es6
 - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+extra:
+  analytics:
+    provider: custom
+    property: G-9M1457RZD1
+
 # Copyright
 copyright: Copyright &copy; 2001-2026 YAML
