@@ -25,16 +25,22 @@ DEPS := \
   $(PYTHON-VENV) \
   $(PAGES) \
 
+.PHONY: site
 
 default::
 # Build main site (production)
 site: $(DEPS)
+	$(RM) -r $@
 	mkdocs build -d $@
 	cp -r spec type $@/
 
 # Serve locally with MkDocs (starts watcher automatically)
 serve: $(DEPS) watch
-	mkdocs serve --livereload
+	$(RM) docs/spec docs/type
+	ln -s ../spec docs/spec
+	ln -s ../type docs/type
+	trap '$(RM) docs/spec docs/type' EXIT INT TERM; \
+	  mkdocs serve --livereload --watch spec --watch type
 
 # Build alias for backwards compatibility
 build: site
@@ -45,6 +51,8 @@ lint: $(TYPOS)
 
 # Deploy to production
 publish: site
+	test -f $</spec/1.2.2/index.html
+	test -f $</type/index.html
 	cd $< && \
 	  git init && \
 	  git add -A && \
