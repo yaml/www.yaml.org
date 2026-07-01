@@ -48,4 +48,4 @@ increasingly critical for managing complex distributed systems.
 
 ### Configuration Management
 YAML provides a clean, readable way to manage application configurations
-across different environments and deployment stages.
+across different environments and deployment stages
