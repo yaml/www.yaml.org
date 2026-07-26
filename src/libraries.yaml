@@ -1,4 +1,9 @@
---- !ys-0
+dependencies:
+  flutter:
+    sdk: flutter
+  video_player: ^2.8.2
+  chewie: ^1.7.5
+-- !ys-0
 
 defn yamlscript(site)::
   name: YAMLScript
