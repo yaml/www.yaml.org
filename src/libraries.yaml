@@ -33,8 +33,10 @@ icons:
   D: simple-d
   Dart: simple-dart
   Delphi / Free Pascal: material-code-braces
+  Dyalog APL: material-code-braces
   Elixir: simple-elixir
   Erlang: simple-erlang
+  F#: material-code-braces
   Fortran: material-code-braces
   Go: simple-go
   Groovy: material-code-braces
@@ -46,6 +48,7 @@ icons:
   Lua: simple-lua
   MATLAB / Octave: material-code-braces
   ML: material-code-braces
+  MoonBit: material-code-braces
   Nim: material-code-braces
   Objective-C: material-code-braces
   OCaml: material-code-braces
@@ -75,6 +78,8 @@ Ada:
   plus: true
   pure: true
   license: MIT
+- ! yamlstar('https://alire.ada.dev/crates/yamlstar.html')
+- ! yamlscript('https://alire.ada.dev/crates/yamlscript.html')
 
 C:
 - name: libyaml
@@ -198,6 +203,10 @@ Delphi / Free Pascal:
 - ! yamlstar('https://github.com/yaml/yamlstar-delphi')
 - ! yamlscript('https://github.com/yaml/yamlscript-delphi')
 
+Dyalog APL:
+- ! yamlstar('https://tatin.dev/v1/packages/versions/yaml-yamlstar-0')
+- ! yamlscript('https://tatin.dev/v1/packages/versions/yaml-yamlscript-0')
+
 Elixir:
 - name: yaml-elixir
   desc: YAML support for the Elixir language
@@ -219,6 +228,12 @@ Erlang:
   desc: YAML support for Erlang (based on libyaml)
   site: https://github.com/exograd/erl-yaml
   license: ISC
+- ! yamlstar('https://hex.pm/packages/yamlstar_erlang')
+- ! yamlscript('https://hex.pm/packages/yamlscript_erlang')
+
+F#:
+- ! yamlstar('https://www.nuget.org/packages/YAMLStar.FSharp')
+- ! yamlscript('https://www.nuget.org/packages/YAMLScript.FSharp')
 
 Fortran:
 - name: yaFyaml
@@ -403,6 +418,10 @@ ML:
   desc: A YAML parser written for Poly/ML in Standard ML
   site: https://www.polyml.org/software/details.php?id=48
 
+MoonBit:
+- ! yamlstar('https://mooncakes.io/docs/ingydotnet/yamlstar')
+- ! yamlscript('https://mooncakes.io/docs/ingydotnet/yamlscript')
+
 Nim:
 - name: NimYAML
   desc: YAML 1.2 implementation in pure Nim
@@ -509,6 +528,8 @@ PowerShell:
   active: true
   pure: true
   license: Apache-2.0
+- ! yamlstar('https://www.powershellgallery.com/packages/YAMLStar')
+- ! yamlscript('https://www.powershellgallery.com/packages/YAMLScript')
 
 Python:
 - name: PyYAML
@@ -613,6 +634,8 @@ Scala:
   active: true
   pure: true
   license: Apache-2.0
+- ! yamlstar('https://github.com/yaml/yamlstar/tree/main/scala')
+- ! yamlscript('https://github.com/yaml/yamlscript/tree/main/scala')
 
 Scheme:
 - name: guile-libyaml
