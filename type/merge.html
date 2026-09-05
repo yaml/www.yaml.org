@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head><script>if (window.location.protocol === "http:" && window.location.hostname === "yaml.org") { window.location.href = window.location.href.replace( "http:", "https:"); }</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+      Merge Key Language-Independent Type for
+      YAML&#8482; Version 1.1
+    </title>
+    <link rel="stylesheet" href="single_html.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.67.2" />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="article" lang="en" xml:lang="en">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="id664002"></a>
+      Merge Key Language-Independent Type for
+      <span class="trademark">YAML</span>&#8482; Version 1.1
+    </h1>
+          </div>
+          <div>
+            <h3 class="subtitle">
+              <i>
+      Working Draft 2005-01-18
+    </i>
+            </h3>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author">
+                <h3 class="author"><span class="firstname">Oren</span> <span class="surname">Ben-Kiki</span></h3>
+                <code class="email">&lt;<a href="mailto:oren@ben-kiki.org">oren@ben-kiki.org</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Clark</span> <span class="surname">Evans</span></h3>
+                <code class="email">&lt;<a href="mailto:cce+yaml@clarkevans.com">cce+yaml@clarkevans.com</a>&gt;</code>
+              </div>
+              <div class="author">
+                <h3 class="author"><span class="firstname">Brian</span> <span class="surname">Ingerson</span></h3>
+                <code class="email">&lt;<a href="mailto:ingy@ttul.org">ingy@ttul.org</a>&gt;</code>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">Copyright © 2001-2005 Oren Ben-Kiki, Clark Evans, Brian Ingerson</p>
+          </div>
+          <div>
+            <div class="legalnotice"><a id="id838299"></a>
+      This document may be freely copied provided it is not modified.
+    </div>
+          </div>
+          <div>
+            <div class="abstract">
+              <p class="title">
+                <b>Status</b>
+              </p>
+              <p>
+       This specification is a draft reflecting consensus reached by members of
+       the <a href="http://lists.sourceforge.net/lists/listinfo/yaml-core" target="_top">yaml-core
+       mailing list</a>. Any questions regarding this draft should be
+       raised on this list.
+      </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="section" lang="en" xml:lang="en">
+        <div class="titlepage"></div>
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">
+          <p>
+            URI:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>tag:yaml.org,2002:merge</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Shorthand:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>!!merge</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Kind:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Scalar.
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Canonical:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            N/A (single format).
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Regexp:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            <strong class="userinput"><code>&lt;&lt;</code></strong>
+          </p>
+            </dd>
+            <dt>
+              <span class="term">
+          <p>
+            Definition:
+          </p>
+        </span>
+            </dt>
+            <dd>
+              <p>
+            Specify one or more mappings to be merged with the current one.
+          </p>
+              <p>
+            The &#8220;<span class="quote"><strong class="userinput"><code>&lt;&lt;</code></strong></span>&#8221; merge key is
+            used to indicate that all the keys of one or more specified maps
+            should be inserted into the current map. If the value associated
+            with the key is a single mapping node, each of its key/value pairs
+            is inserted into the current mapping, unless the key already exists
+            in it. If the value associated with the merge key is a sequence,
+            then this sequence is expected to contain mapping nodes and each
+            of these nodes is merged in turn according to its order in the
+            sequence. Keys in mapping nodes earlier in the sequence override
+            keys specified in later mapping nodes.
+          </p>
+            </dd>
+          </dl>
+        </div>
+        <div class="example">
+          <a id="id838458"></a>
+          <p class="title">
+            <b>Example 1. <code class="userinput">!!merge</code> Examples</b>
+          </p>
+          <pre class="programlisting">
+---
+- &amp;CENTER { x: 1, y: 2 }
+- &amp;LEFT { x: 0, y: 2 }
+- &amp;BIG { r: 10 }
+- &amp;SMALL { r: 1 }
+
+# All the following maps are equal:
+
+- # Explicit keys
+  x: 1
+  y: 2
+  r: 10
+  label: center/big
+
+- # Merge one map
+  &lt;&lt; : *CENTER
+  r: 10
+  label: center/big
+
+- # Merge multiple maps
+  &lt;&lt; : [ *CENTER, *BIG ]
+  label: center/big
+
+- # Override
+  &lt;&lt; : [ *BIG, *LEFT, *SMALL ]
+  x: 1
+  label: center/big
+</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
