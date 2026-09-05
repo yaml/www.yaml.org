@@ -27,11 +27,6 @@ Utilities:
   type: web
 
 Linters & Validators:
-- name: YAML Preflight
-  desc: Browser-local strict YAML and GitHub Actions permissions preflight
-  site: https://yaml.aevumere.com/yaml-preflight?source=yaml-org
-  icon: material-code-tags-check
-  type: web
 - name: yamllint
   desc: YAML Linter based on PyYAML
   site: https://github.com/adrienverge/yamllint
@@ -47,8 +42,18 @@ Linters & Validators:
   site: https://github.com/perlpunk/yamltidy
   icon: material-code-tags-check
   type: cli
+- name: YAML Preflight
+  desc: Browser-local strict YAML and GHA preflight validator
+  site: https://yaml.aevumere.com/yaml-preflight?source=yaml-org
+  icon: material-code-tags-check
+  type: web
 
 Schema & Validation:
+- name: YAMLSchema
+  desc: Very concise schemas that are JSON Schema compatible
+  site: http://yamlschema.org
+  icon: material-check-decagram
+  type: cli
 - name: Rx
   desc: Multi-Language Schemata Tool for JSON/YAML
   site: http://rjbs.manxome.org/rx/
