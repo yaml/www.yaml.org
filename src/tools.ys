@@ -1,5 +1,7 @@
 !ys-0
 
+use: yaml
+
 # YAML Tools Data and Generator
 # This file generates docs/tools.md
 
