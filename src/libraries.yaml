@@ -27,6 +27,7 @@ icons:
   C: simple-c
   C++: simple-cplusplus
   C#/.NET: simple-dotnet
+  CFML (ColdFusion / Lucee): material-code-braces
   Clojure: simple-clojure
   Common Lisp: material-code-braces
   Crystal: material-language-cpp
@@ -41,6 +42,7 @@ icons:
   Go: simple-go
   Groovy: material-code-braces
   Haskell: simple-haskell
+  Haxe: simple-haxe
   Java: material-language-java
   JavaScript: simple-javascript
   Julia: simple-julia
@@ -55,8 +57,10 @@ icons:
   Perl: simple-perl
   PHP: simple-php
   PowerShell: material-powershell
+  PureScript: simple-purescript
   Python: simple-python
   R: simple-r
+  Racket: simple-racket
   Raku: material-code-braces
   Ruby: simple-ruby
   Rust: simple-rust
@@ -68,6 +72,7 @@ icons:
   TypeScript: simple-typescript
   Typst: material-code-braces
   V: material-code-braces
+  Vala: simple-vala
   Vim: simple-vim
   Zig: material-code-braces
 
@@ -143,6 +148,16 @@ C#/.NET:
   license: Unlicense
 - ! yamlstar('https://www.nuget.org/packages/YAMLStar')
 - ! yamlscript('https://www.nuget.org/packages/YAMLScript')
+
+CFML (ColdFusion / Lucee):
+- name: Lucee YAML Extension
+  desc: YAML parser and emitter extension for Lucee using SnakeYAML
+  site: https://github.com/lucee/yaml-extension
+  active: true
+- name: cbyaml
+  desc: YAML serialization and deserialization for ColdBox applications
+  site: https://github.com/coldbox-modules/cbyaml
+  active: true
 
 Clojure:
 - name: clj-yaml
@@ -303,6 +318,14 @@ Haskell:
   license: BSD-3-Clause
 - ! yamlstar('https://hackage.haskell.org/package/yamlstar')
 - ! yamlscript('https://hackage.haskell.org/package/yamlscript')
+
+Haxe:
+- name: hx-yaml
+  desc: Cross-platform YAML 1.2 parser and renderer for Haxe
+  site: https://github.com/mikestead/hx-yaml
+  v12: true
+  pure: true
+  license: MIT
 
 Java:
 - name: SnakeYAML Engine
@@ -531,6 +554,14 @@ PowerShell:
 - ! yamlstar('https://www.powershellgallery.com/packages/YAMLStar')
 - ! yamlscript('https://www.powershellgallery.com/packages/YAMLScript')
 
+PureScript:
+- name: purescript-yaml-next
+  desc: Type-safe YAML parsing and serialization for PureScript
+  site: https://github.com/archaeron/purescript-yaml-next
+  active: true
+  pure: true
+  license: MIT
+
 Python:
 - name: PyYAML
   desc: YAML 1.1, pure Python and libyaml binding
@@ -569,6 +600,19 @@ R:
   license: BSD-3-Clause
 - ! yamlstar('https://github.com/yaml/yamlstar/tree/main/r')
 - ! yamlscript('https://github.com/yaml/yamlscript-r')
+
+Racket:
+- name: yaml
+  desc: YAML parser and emitter based on PyYAML
+  site: https://pkgs.racket-lang.org/package/yaml
+  active: true
+  pure: true
+  license: MIT
+- name: microyaml
+  desc: Fast, non-compliant YAML parser for Racket and Typed Racket
+  site: https://pkgs.racket-lang.org/package/microyaml
+  pure: true
+  license: BSD-3-Clause
 
 Raku:
 - name: YAMLish
@@ -716,6 +760,12 @@ V:
   desc: Strictly parse and format YAML data
   site: https://github.com/prantlf/v-yaml
   active: true
+  license: MIT
+
+Vala:
+- name: yaml-vala
+  desc: Vala bindings for the libyaml parser and emitter
+  site: https://github.com/jyhi/yaml-vala
   license: MIT
 
 Vim:
