@@ -25,6 +25,11 @@ Utilities:
   site: https://yamline.com/
   icon: material-tools
   type: web
+- name: YAML Desk
+  desc: Browser-local YAML 1.2 to JSON conversion with duplicate-key checks
+  site: https://yaml-to-json.egorkagangster.chatgpt.site
+  icon: material-code-json
+  type: web
 
 Linters & Validators:
 - name: yamllint
