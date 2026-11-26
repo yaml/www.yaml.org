@@ -589,6 +589,14 @@ Python:
   pure: true
   safe: true
   license: MIT
+- name: ozzyyaml
+  desc: YAML 1.2.2 parser and emitter via Rust bindings; Core schema, Unicode anchors, cycles and aliases kept
+  site: https://pypi.org/project/ozzyyaml/
+  yts: true
+  v12: true
+  active: true
+  pure: false
+  license: BSD-3-Clause
 - ! yamlstar('https://pypi.org/project/yamlstar/')
 - ! yamlscript('https://pypi.org/project/yamlscript/')
 
@@ -667,6 +675,14 @@ Rust:
   active: true
   pure: true
   license: Apache-2.0
+- name: ozzyyaml
+  desc: YAML 1.2.2 parser and emitter with Core schema, Unicode anchors, resource limits, and Python bindings
+  site: https://github.com/peterkmurphy/ozzyyaml
+  yts: true
+  v12: true
+  active: true
+  pure: true
+  license: BSD-3-Clause
 - ! yamlstar('https://crates.io/crates/yamlstar')
 - ! yamlscript('https://crates.io/crates/yamlscript')
 
